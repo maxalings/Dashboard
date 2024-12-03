@@ -38,12 +38,17 @@
 
   <body>
     <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
+      <% if params[:controller] ==  "pages" %>
       <%= render "shared/navbar" %>
+      <% end %>
+    
       <main class="container mx-auto mt-8">
         <%= render "shared/alerts" %>
         <%= yield %>
       </main>
+      <% if params[:controller] ==  "pages" %>
       <%= render "shared/footer" %>
+      <% end %>
     </div>
   </body>
 </html>
