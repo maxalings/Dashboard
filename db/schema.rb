@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_02_071726) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_03_062327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -303,6 +303,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_02_071726) do
     t.bigint "widget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "x"
+    t.integer "y"
+    t.integer "height"
+    t.integer "width"
     t.index ["user_id"], name: "index_user_widgets_on_user_id"
     t.index ["widget_id"], name: "index_user_widgets_on_widget_id"
   end
