@@ -3,7 +3,9 @@
 one:
   title: MyString
   done: false
+  widget: one
 
 two:
   title: MyString
   done: false
+  widget: two
