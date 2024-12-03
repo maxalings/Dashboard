@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_03_092723) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_03_103345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -301,23 +301,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_092723) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.boolean "done"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_widget_id", null: false
-    t.index ["user_widget_id"], name: "index_tasks_on_user_widget_id"
-  end
-
-  create_table "user_widgets", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "widget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "x"
-    t.integer "y"
-    t.integer "height"
-    t.integer "width"
-    t.index ["user_id"], name: "index_user_widgets_on_user_id"
-    t.index ["widget_id"], name: "index_user_widgets_on_widget_id"
+    t.index ["widget_id"], name: "index_tasks_on_widget_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -335,11 +322,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_092723) do
   end
 
   create_table "widgets", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "category"
+    t.bigint "user_id", null: false
+    t.string "type"
+    t.integer "position_x"
+    t.integer "position_y"
+    t.integer "width"
+    t.integer "height"
+    t.float "goal"
+    t.float "progress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_widgets_on_user_id"
   end
 
   add_foreign_key "motor_alert_locks", "motor_alerts", column: "alert_id"
@@ -351,7 +344,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_092723) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "tasks", "user_widgets"
-  add_foreign_key "user_widgets", "users"
-  add_foreign_key "user_widgets", "widgets"
+  add_foreign_key "tasks", "widgets"
+  add_foreign_key "widgets", "users"
 end
