@@ -1,7 +1,7 @@
 class UserWidgetsController < ApplicationController
 
   def index
-    @user_widgets = UserWidget.all
+    @user_widgets = current_user.user_widgets
   end
 
 end
