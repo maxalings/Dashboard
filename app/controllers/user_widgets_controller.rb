@@ -5,4 +5,3 @@ class UserWidgetsController < ApplicationController
   end
 
 end
-
