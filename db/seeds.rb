@@ -10,3 +10,8 @@ User.destroy_all
 
 puts "Creating sample users..."
 sugi = User.create!(email: "sugi@dashboard.com", password: "1234567", first_name: "Sugi")
+max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: "Max")
+eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: "Eva")
+nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
+fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
+
