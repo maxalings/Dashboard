@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'privacy-policy', to: 'pages#privacy'
   get 'cookies', to: 'pages#cookies'
 
-resources :user_widgets 
+resources :user_widgets
+resources :tasks
 
 end
