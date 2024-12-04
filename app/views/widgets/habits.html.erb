@@ -31,40 +31,20 @@
 <br>
 
 <div class="card bg-base-100 w-[300px] h-[300px] shadow-xl bg-red-300  mx-auto mb-5">
+  <%= turbo_frame_tag "new_habit" do %>
   <div class="flex justify-between m-5">
     <h1 class="card-title text-left text-3xl">Habits</h1>
-    <a href="#" class="text-4xl ">+</a>
+    <%= link_to '+', new_task_path %>
   </div>
-  <div>
-    <div class="form-control ms-5">
-      <label class="label cursor-pointer gap-2 flex justify-start">
-        <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
-        <span class="label-text">Meditate</span>
-      </label>
-    </div>
-    <div class="form-control ms-5">
-      <label class="label cursor-pointer gap-2 flex justify-start">
-        <input type="checkbox" class="checkbox checkbox-primary" />
-        <span class="label-text">Read</span>
-      </label>
-    </div>
-    <div class="form-control ms-5">
-      <label class="label cursor-pointer gap-2 flex justify-start">
-        <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
-        <span class="label-text">Exercise</span>
-      </label>
-    </div>
-    <div class="form-control ms-5">
-      <label class="label cursor-pointer gap-2 flex justify-start">
-        <input type="checkbox" class="checkbox checkbox-primary" />
-        <span class="label-text">Floss</span>
-      </label>
-    </div>
-    <div class="form-control ms-5">
-      <label class="label cursor-pointer gap-2 flex justify-start">
-        <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
-        <span class="label-text">Journal</span>
-      </label>
-    </div>
-  </div>
+    <% @tasks.each do |task| %>
+      <div class="form-control ms-5">
+        <label class="label cursor-pointer gap-2 flex justify-start">
+          <input type="checkbox" 
+          <%= task.done == true ? "checked" : "" %>
+          class="checkbox checkbox-primary" />
+          <span class="label-text"><%= task.title %></span>
+        </label>
+      </div>
+    <% end %>
+  <% end %>
 </div>
