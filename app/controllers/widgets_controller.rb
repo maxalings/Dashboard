@@ -4,6 +4,10 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
+  def fitness
+
+  end
+
   def habits
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
