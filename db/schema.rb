@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_04_080906) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_04_035238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -304,6 +304,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_04_080906) do
     t.bigint "widget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
     t.index ["widget_id"], name: "index_tasks_on_widget_id"
   end
 
@@ -324,7 +331,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_04_080906) do
 
   create_table "widgets", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "type"
+    t.string "category"
     t.integer "position_x"
     t.integer "position_y"
     t.integer "width"

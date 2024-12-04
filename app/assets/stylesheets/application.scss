@@ -1,0 +1,14 @@
+.widget-layout{
+border-radius: 8px;
+background-color: rgb(240, 240, 240);
+// margin: 15px ;
+}
+
+.setting-layout {
+    height: calc(120px * 5 + 20px * 3); /* container size for the profil and settings btn*/
+    border : solid 1px black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
