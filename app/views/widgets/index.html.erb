@@ -1,15 +1,12 @@
-<h1 class="title">TEST INDEX OF widgets 30px 120x120</h1>
-<div class="flex">
-    <div class="grid grid-cols-7 gap-5 place-items-start">
+<div class="flex justify-center items-center min-h-screen">
+    <div class="grid gap-7 m:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
         <% 28.times.each_with_index do |_, index| %>
-            <div class="bg-zinc-100 widget-layout text-center align-middle"> <%= format('%02d', index + 1) %></div>
-            
+            <div class="widget-layout text-center flex items-center justify-center">
+                <%= format('%02d', index + 1) %>
+            </div>
         <% end %>
+    </div class=" items-stretch ">
+        <div class="flex flex-col ml-8 flex-1 setting-layout justify-center">
+            <div class="text-center">Settings & stuff</div>
     </div>
-    <div>
-
-    <div class="text-center">Settings & stuff</div>
-    <div class="g-zinc-100 shadow-xl p-30 setting-layout "></div>
-    </div>
-
 </div>
