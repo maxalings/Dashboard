@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   resources :widgets do
     get '/fitness', to: 'widgets#fitness'
+    get "/habits", to: "widgets#habits"
   end
 
   resources :tasks
-
 end

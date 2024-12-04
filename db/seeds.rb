@@ -24,3 +24,10 @@ puts "Creating sample fitness tasks"
 fitness_task_1 = Task.create!(title: "cardio intense 5k", done: false, widget: fitness_widget, monday: true, wednesday: true)
 
 puts "user and widget created"
+habit_widget = Widget.create!( category: "habit", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
+
+Task.create!(title: "read", done: false, widget: habit_widget)
+Task.create!(title: "meditate", done: true, widget: habit_widget)
+Task.create!(title: "exercise", done: false, widget: habit_widget)
+Task.create!(title: "floss", done: true, widget: habit_widget)
+Task.create!(title: "journal", done: false, widget: habit_widget)
