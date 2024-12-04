@@ -4,10 +4,21 @@
       <ul class="list-inside">
         <li class="mb-2">
           <div class="flex items-center">
-            <div class="mr-4"><input type="checkbox" id="cardio1" class="form-checkbox h-5 w-5"></div>
-              placeholder
-            <div class="flex-auto p-2"><label for="cardio1" class="text-base font-semibold">Cardio 5K Intense Run</label></div>
-            <div class="text-xs text-gray-600 p-2">Monday, Wednesday, Friday</div>
+              <% @tasks.each do |task| %>
+                <div class="flex-auto p-2">
+                  <div><input type="checkbox" id="cardio1" class="form-checkbox h-5 w-5"></div>
+                  <div><label for="cardio1" class="text-base font-semibold"><%= task.title %></label></div>
+                  <div class="text-xs text-gray-600">
+                    <%= "Monday" if task.monday == true %>
+                    <%= "Tuesday" if task.tuesday == true %>
+                    <%= "Wednesday" if task.wednesday == true %>
+                    <%= "Thursday" if task.thursday == true %>
+                    <%= "Friday" if task.friday == true %>
+                    <%= "Saturday" if task.saturday == true %>
+                    <%= "Sunday" if task.sunday == true %>
+                  </div>
+                </div>
+              <% end %>
           </div>
         </li>
       </ul>
