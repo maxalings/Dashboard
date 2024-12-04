@@ -1,18 +1,17 @@
 <%# ------- Hero Tailwind ------ %>
-<div class="hero relative isolate px-6 lg:px-8">
-	<div class="mx-auto max-w-2xl py-32 sm:py-48">
-		<div class="hidden sm:mb-8 sm:flex sm:justify-center">
-			<div class="relative rounded-full px-3 py-1 text-sm leading-6 ring-1 ring-gray-900/10">
-				Announcing our next round of funding. <%= link_to "Learn more", "#", class: "font-semibold" %><span aria-hidden="true">&rarr;</span></a>
-			</div>
-		</div>
-		<div class="text-center">
-			<h1 class="text-4xl font-bold tracking-tight sm:text-6xl">Data to enrich your online business</h1>
-			<p class="mt-6 text-lg leading-8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-			<div class="mt-10 flex items-center justify-center gap-x-6">
-				<%= link_to "Get Started", "#", class: "btn btn-primary" %>
-				<%= link_to "Learn more", "#", class: "text-sm font-semibold leading-6" %>
-			</div>
-		</div>
-	</div>
-</div>
+<section>
+  <div class="lg:flex lg:h-screen lg:items-center">
+    <div class="mx-auto max-w-3xl text-center">
+    <h3>Organize Your Life, One Widget at a Time</h3>
+      <h1 id="hero-header" class="mt-3 text-xl">
+         The <strong class="text-primary"> All-in-One</strong> life manager for Productive Minds
+      </h1>
+      <p class="mt-6">
+        Track your life effortlessly. Save time, reduce mental load, and achieve more with a fully customizable dashboard.
+      </p>
+
+      <%= link_to "Get started !", new_user_registration_path, class:"btn btn-secondary mt-6"%>
+      </div>
+    </div>
+  </div>
+</section>

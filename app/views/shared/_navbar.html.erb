@@ -1,4 +1,6 @@
-<div class="navbar bg-base-100">
+
+<div class="fixed top-0 navbar  z-50">
+<div class="bg-base-100 w-9/12 mx-auto shadow-lg rounded-xl mt-8 p-3">
   <div class="navbar-start">
     <div class="lg:hidden dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -28,24 +30,12 @@
     </div>
     <%= link_to root_path, class: "btn btn-ghost text-xl" do %>
         <%= image_tag "logo.png", alt: "Logo", class: "h-8" %>
-          Dashboard
+          Dashly
     <% end %>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><%= link_to "Documentation", "#" %>
-      <% if user_signed_in? %>
-      <li><%= button_to "Logout", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
-      <% end %>
-    </ul>
+  <div class="navbar-end text-end">
+    <%= link_to "Log In", new_user_session_path, class: "link me-5" %>
+    <%= link_to "Sign In", new_user_registration_path, class: "btn btn-primary" %>
   </div>
-  <div class="navbar-end">
-    <% if user_signed_in? %>
-    <%= link_to "Dashboard", "#", class: "btn btn-primary" %>
-    <% else %>
-    <%= link_to "Get started", new_user_registration_path, class: "btn btn-primary" %>
-    <% end %>
-  </div>
+</div>
 </div>

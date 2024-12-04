@@ -1,41 +1,29 @@
-<section class="mb-12 lg:mb-24">
-  <div class="lg:grid lg:grid-cols-12">
-    <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
-      <!-- Change Picture -->
-      <img src="https://loremflickr.com/700/500/modern-art" alt="modern art" class="object-cover w-full h-full rounded-lg" />
-    </aside>
+<section class="lg:mb-24 h-screen mt-[150px]">
+  <div>
+      <div class="w-5/12 m-auto text-center">
 
-    <main class="flex items center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-      <div class="max-w-xl lg:max-w-3xl">
+        <h1 class="mb-5">Welcome on Dashly !</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque ipsa culpa autem, at itaque nostrum!</p>
 
-        <h1 class="mt-6 text-2xl font-bold sm:text-3xl md:text-4xl">
-          Welcome to My company built with Lightning Rails 🛤️
-        </h1>
-
-        <p class="mt-4 leading-relaxed">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-          quibusdam aperiam voluptatum.
-        </p>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-8 grid grid-cols-6 gap-6" }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "my-12 w-9/12 mx-auto text-left" }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="col-span-6">
-              <label class="input input-bordered flex items-center gap-2">
-                <%= lucide_icon("mail", "class" => "h-4 w-4") %>
+            <div class="mt-5">
+              <label class="input shadow-center flex items-center gap-2 rounded-lg">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "grow", placeholder: "email" %>
+                <%= lucide_icon("mail", "class" => "h-4 w-4 text-gray-500") %>
               </label>
-            <div class="col-span-6 mt-6">
-              <label class="input input-bordered flex items-center gap-2">
-                <%= lucide_icon("lock", "class" => "h-4 w-4") %>
+            <div class="mt-5">
+              <label class="input shadow-center flex items-center gap-2 rounded-lg">
                 <%= f.password_field :password, autocomplete: "current-password", class: "grow", placeholder: "Password (6 characters)" %>
+                <%= lucide_icon("lock", "class" => "h-4 w-4 text-gray-500") %>
               </label>
           </div>
 
-          <div class="col-span-6 sm:flex sm:items-center sm:gap-4 mt-6">
-            <%= f.submit "Log in", class: "btn btn-primary" %>
-            <p class="mt-4 text-sm sm:mt-0">
+            <div>
+            <%= f.submit "Log in", class: "btn btn-primary w-full mt-8" %>
+              <p class="text-center pt-2 text-sm text-gray-500 sm:mt-0">
               Don't have an account?
-              <%= link_to "Sign up", new_user_registration_path, class: "text-gray-700 underline" %>.
+              <%= link_to "Sign up", new_user_registration_path, class: "text-gray-500 underline" %>.
             </p>
           </div>
         <% end %>
