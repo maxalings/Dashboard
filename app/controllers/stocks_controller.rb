@@ -13,6 +13,12 @@ class StocksController < ApplicationController
     end
   end
 
+  def destroy
+    @stock = Stock.find(params[:id])
+    @stock.destroy
+    redirect_to widget_stocks_path(@stock.widget), status: :see_other
+  end
+
   private
 
   def stock_params

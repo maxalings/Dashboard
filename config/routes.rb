@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   end
   resources :tasks
 
-
+  resources :stocks, only: :destroy
 end
