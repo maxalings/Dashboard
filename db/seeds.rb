@@ -17,6 +17,16 @@ eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: 
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
 
+puts "Creating sample widget"
+fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
+
+puts "Creating sample fitness tasks"
+fitness_task_1 = Task.create!(title: "Cardio intense 5k", done: false, widget: fitness_widget, monday: true, wednesday: true)
+fitness_task_2 = Task.create!(title: "Cardio relax 10k", done: false, widget: fitness_widget, friday: true, wednesday: true)
+fitness_task_3 = Task.create!(title: "Upperbody Strength", done: false, widget: fitness_widget, tuesday: true, thursday: true)
+fitness_task_4 = Task.create!(title: "Lowerbody Strength", done: false, widget: fitness_widget, monday: true, wednesday: true)
+
+puts "user and widget created"
 habit_widget = Widget.create!( category: "habit", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
 
 Task.create!(title: "read", done: false, widget: habit_widget)

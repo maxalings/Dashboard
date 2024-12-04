@@ -1,0 +1,29 @@
+
+<label class="block">    
+    <label class="input input-bordered flex items-center gap-2 mb-4">
+    Name
+    <input type="text" class="grow italic" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
+    </label>
+
+    <label class="input input-bordered flex items-center gap-2 mb-4">
+    Email
+    <input type="text" class="grow italic" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
+    </label>
+
+    <label class="input input-bordered flex items-center gap-2">
+    Password
+    <input type="text" class="grow italic" value="***********" placeholder="*********" disabled="true"/>
+    </label>
+</label>
+
+<div class="flex justify-center">
+    <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
+        <%= lucide_icon("pencil", class: "h-4 w-4") %>        
+    </div>
+    <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
+        <%= lucide_icon("log-out", class: "h-4 w-4") %>        
+    </div>
+</div>
+
+
+

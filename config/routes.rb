@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'cookies', to: 'pages#cookies'
 
   resources :widgets do
+    get '/fitness', to: 'widgets#fitness'
     get "/habits", to: "widgets#habits"
-    
   end
-  resources :tasks
 
+  resources :tasks
 end
