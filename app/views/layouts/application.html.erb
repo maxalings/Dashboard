@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="light">
+<html data-theme="corporate">
   <head>
     <title>LightningRails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,10 +38,10 @@
 
   <body>
     <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
-      <% if params[:controller] ==  "pages" %>
+      <% if params[:controller] ==  "pages" || params[:controller] ==  "devise/registrations" || params[:controller] ==  "devise/sessions"%>
       <%= render "shared/navbar" %>
       <% end %>
-    
+
       <main class="container mx-auto mt-8">
         <%= render "shared/alerts" %>
         <%= yield %>
@@ -50,5 +50,20 @@
       <%= render "shared/footer" %>
       <% end %>
     </div>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#575EAD',
+              secondary: '#9296C9',
+              darkgrey: "#707070",
+              grey: "#E0E0E0",
+              lightgrey: "#EEEEEE"
+            }
+          },
+        },
+      }
+    </script>
   </body>
 </html>
