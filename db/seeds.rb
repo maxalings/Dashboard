@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Task.destroy_all
+Widget.destroy_all
 User.destroy_all
 
 puts "Creating sample users..."
@@ -15,3 +17,10 @@ eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: 
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
 
+habit_widget = Widget.create!( category: "habit", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
+
+Task.create!(title: "read", done: false, widget: habit_widget)
+Task.create!(title: "meditate", done: true, widget: habit_widget)
+Task.create!(title: "exercise", done: false, widget: habit_widget)
+Task.create!(title: "floss", done: true, widget: habit_widget)
+Task.create!(title: "journal", done: false, widget: habit_widget)
