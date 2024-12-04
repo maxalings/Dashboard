@@ -5,6 +5,7 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(stock_params)
     @stock.widget = Widget.find(params[:widget_id])
+    @stock.tickr.upcase!
 
     if @stock.save
       redirect_to widget_stocks_path(params[:widget_id]), notice: 'Stock was successfully created.'

@@ -32,11 +32,18 @@
       <strong>Ticker:</strong> <%= stock.tickr %>,
       <strong>Shares:</strong> <%= stock.amount %>,
       <strong>Purchase Price:</strong> $<%= stock.purchase_price %>
+      <strong>Total Value:</strong> $<%= stock.purchase_price * stock.amount  %>
       <%= link_to "Delete", stock_path(stock),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded" %>
     </li>
   <% end %>
 </ul>
+
+
+
+
+<%# <h2><%= @stocks.purchase_price * @stocks.amount %></h2> %>
 
 
 <%#
