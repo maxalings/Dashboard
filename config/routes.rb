@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :widgets do
      get 'stocks', to: 'widgets#stock_portfolio'
+     resources :stocks, only: :create
   end
   resources :tasks
 
