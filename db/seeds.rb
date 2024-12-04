@@ -15,3 +15,10 @@ eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: 
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
 
+habit_widget = Widget.create!(
+type: "habit",
+position_x: 0,
+position_y: 0,
+width: 2,
+height: 2,
+user: sugi)
