@@ -1,17 +1,18 @@
 
-<label class="block">
-    <span class="block font-medium text-gray-900 text-color-black"></span>
+<label class="block">    
     <label class="input input-bordered flex items-center gap-2 mb-4">
     Name
-    <input type="text" class="grow" placeholder="myName"/>
+    <input type="text" class="grow italic" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
     </label>
+
     <label class="input input-bordered flex items-center gap-2 mb-4">
     Email
-    <input type="text" class="grow" placeholder="user@dahboard.com"/>
+    <input type="text" class="grow italic" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
     </label>
-    <label class="input input-bordered flex items-center gap-2 m-4">
+
+    <label class="input input-bordered flex items-center gap-2">
     Password
-    <input type="text" class="grow" placeholder="*********"/>
+    <input type="text" class="grow italic" value="***********" placeholder="*********" disabled="true"/>
     </label>
 </label>
 
