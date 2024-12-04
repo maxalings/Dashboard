@@ -333,7 +333,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_04_031340) do
 
   create_table "widgets", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "type"
+    t.string "category"
     t.integer "position_x"
     t.integer "position_y"
     t.integer "width"
