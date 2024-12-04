@@ -16,6 +16,6 @@ nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
 
 puts "Creating sample widget"
-fitness_widget = Widget.create!(type: "fitness", position_x: 0, position: 0, width: 2, height: 2, user: nini)
+fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
 
 puts "user and widget created"

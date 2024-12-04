@@ -298,22 +298,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_04_035238) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stocks", force: :cascade do |t|
-    t.bigint "widget_id", null: false
-    t.string "tickr"
-    t.float "amount"
-    t.float "purchase_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["widget_id"], name: "index_stocks_on_widget_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.boolean "done"
     t.bigint "widget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
     t.index ["widget_id"], name: "index_tasks_on_widget_id"
   end
 
@@ -354,7 +351,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_04_035238) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "stocks", "widgets"
   add_foreign_key "tasks", "widgets"
   add_foreign_key "widgets", "users"
 end

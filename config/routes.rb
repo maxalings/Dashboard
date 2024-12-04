@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :widgets do
     get '/fitness', to: 'widgets#fitness'
   end
+
   resources :tasks
 
 end
