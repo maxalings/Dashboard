@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Task.destroy_all
+Widget.destroy_all
 User.destroy_all
 
 puts "Creating sample users..."
@@ -17,5 +19,8 @@ fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: 
 
 puts "Creating sample widget"
 fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
+
+puts "Creating sample fitness tasks"
+fitness_task_1 = Task.create!(title: "cardio intense 5k", done: false, widget: fitness_widget, monday: true, wednesday: true)
 
 puts "user and widget created"
