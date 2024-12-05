@@ -15,12 +15,6 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
   end
-
-  def habits
-    @widget = Widget.find(params[:widget_id])
-    @tasks = @widget.tasks
-  end
-
   def stock_portfolio
     @widget = Widget.find(params[:widget_id])
     @stock = Stock.new
