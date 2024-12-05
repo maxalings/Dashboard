@@ -22,7 +22,7 @@ class WidgetsController < ApplicationController
   end
 
   def time
-    @widget = Widget.find(params[:widget_id])
+    @widget = Widget.find(params[:id])
   end
 
   def stock_portfolio

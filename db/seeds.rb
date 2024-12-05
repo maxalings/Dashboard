@@ -37,3 +37,7 @@ Task.create!(title: "meditate", done: true, widget: habit_widget)
 Task.create!(title: "exercise", done: false, widget: habit_widget)
 Task.create!(title: "floss", done: true, widget: habit_widget)
 Task.create!(title: "journal", done: false, widget: habit_widget)
+
+
+puts "user and widget created"
+Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0)
