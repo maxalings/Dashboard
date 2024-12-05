@@ -1,8 +1,38 @@
 
 <% given_date = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i) %>
 <% today = Date.today %>
-<% days_difference = given_date - today %>
+<% days_difference = (given_date - today).to_i %>
 
 <%= turbo_frame_tag "new_race" do %>
-  <%= days_difference.to_i %> DAYS COUNTDOWN!
+  <%= days_difference %> DAYS COUNTDOWN!
+
+
+
+
+<div class="grid auto-cols-max grid-flow-col gap-5 text-center">
+  <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:15;"></span>
+    </span>
+    days
+  </div>
+  <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:10;"></span>
+    </span>
+    hours
+  </div>
+  <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:24;"></span>
+    </span>
+    min
+  </div>
+  <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:${counter};"></span>
+    </span>
+    sec
+  </div>
+</div>
 <% end %>
