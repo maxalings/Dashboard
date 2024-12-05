@@ -12,7 +12,7 @@ class WidgetsController < ApplicationController
   end
 
   def fitness
-    @widget = Widget.find(params[:widget_id])
+    @widget = Widget.find(params[:id])
     @tasks = @widget.tasks
   end
 

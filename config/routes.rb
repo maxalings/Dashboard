@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   resources :widgets do
     get 'stocks', to: 'widgets#stock_portfolio'
     resources :stocks, only: :create
-    collection do
-      get 'fitness'
+    member do
+      get 'fitness', to: 'widgets#fitness'
       get 'habits'
     end
   end
