@@ -2,6 +2,7 @@ require 'open-uri'
 require 'json'
 
 class WidgetsController < ApplicationController
+
   def new
     @widget = Widget.new
   end
@@ -11,15 +12,28 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
-  # I need to keep this habits method active in order to code and test my big widget
-  # It will need to be moved to Wid Services
   def fitness
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
   end
+
   def stock_portfolio
     @widget = Widget.find(params[:widget_id])
     @stock = Stock.new
     @stocks = Stock.all
+
+    @total_value = @stocks.map do |stock|
+      stock.amount * stock.current_price
+    end.sum
+
+    @total_invested = @stocks.map do |stock|
+      stock.amount * stock.purchase_price
+    end.sum
+    if @total_invested > 0
+      @percentage_change = ((@total_value - @total_invested) / @total_invested) * 100
+    else
+      @percentage_change = 0
+    end
+    @percentage_change = @percentage_change.round(2)
   end
 end

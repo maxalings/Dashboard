@@ -17,6 +17,9 @@ class TasksController < ApplicationController
     redirect_to widget_fitness_path
   end
 
+  def race
+  end
+
   def create
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
