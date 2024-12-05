@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "new_habit" do %>
+  <%= form_with(model: @task, class: "flex flex-col items-center m-5 gap-y-3") do |f| %>
+    <%= f.text_field :title,
+      class: "rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500",
+      placeholder: "Enter new task...",
+      required: true
+    %>
+    <%= f.submit "Add Task", 
+      class: "px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+    %>
+  <% end %>
+<% end %>

@@ -136,9 +136,16 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+<<<<<<< HEAD
     http-accept (1.7.0)
     http-cookie (1.0.7)
       domain_name (~> 0.5)
+=======
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
+>>>>>>> master
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -374,6 +381,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  hotwire-rails
   importmap-rails
   jbuilder
   lemonsqueezy (~> 1.0)
