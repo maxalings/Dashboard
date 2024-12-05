@@ -14,4 +14,6 @@ class WidgetsController < ApplicationController
     @tasks = @widget.tasks
   end
 
+  def time
+  end
 end
