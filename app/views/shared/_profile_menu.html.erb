@@ -1,5 +1,6 @@
+<%= turbo_frame_tag :edit_profile do %>
     <%= turbo_frame_tag :edit_profile do %>
-<label class="block">    
+<label class="block" style="overflow: scroll">    
     <label class="input input-bordered flex items-center gap-2 mb-4">
     Name
     <input type="text" class="grow italic" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
@@ -22,6 +23,7 @@
     </label>
 </label>
     <% end %>     
+<% end %>  
 
 <div class="flex justify-center">
         <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">

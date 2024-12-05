@@ -3,20 +3,19 @@
     <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
   
 <%= turbo_frame_tag :edit_profile do %>
-<div class="">
+<div class="overflow-auto h-52 w-60">
+  <h6 class="text-center ">Edit your profile</h6>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-8" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, autofocus: true, class: "input input-bordered flex items-center gap-2 mb-4" %>
+      <%= f.text_field :first_name, autofocus: true, placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
     </div>
 
     <div class="field">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: "input input-bordered flex items-center gap-2 mb-4" %>
+      <%= f.text_field :last_name, placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
     </div>
       <div class="col-span-6">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered flex items-center gap-2 mb-4" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
       </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -31,32 +30,30 @@
     <div class="col-span-6 sm:col-span-3">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "input input-bordered flex items-center gap-2 mb-4" %>
     </div>
-
     <div class="col-span-6 sm:col-span-3">
       <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password", class: "input input-bordered flex items-center gap-2 mb-4" %>
+      <div class="flex sm:items-center gap-4">
+        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= link_to widgets_path(current_user), data: { turbo_frame: "return_profile" } do %>
+          <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+    <% end %>
+      </div>
     </div>
     <div>
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-      <%= f.submit "Update", class: "btn btn-primary" %>
-      <%= f.submit "Cancel", class: "btn btn-secondary" %> 
     </div>
-      <div class="mt-4">
-      <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-        Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-      </p>
-      </div>
-    </div>
+  <% end %>
 </div>
-        <% end %>
 <% end %>
       </div>
+        Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
     </main>
   </div>
 </section>
 
+
+<%# error display part if something is missing in the form %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

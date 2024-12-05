@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
       params[:controller] == "devise/sessions"
   end
 
+  def user_root_path
+    widgets_path(current_user)
+  end
+
   protected
 
   def configure_permitted_parameters
