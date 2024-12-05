@@ -12,11 +12,11 @@ User.destroy_all
 
 
 puts "Creating sample users..."
-sugi = User.create!(email: "sugi@dashboard.com", password: "1234567", first_name: "Sugi")
-max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: "Max")
-eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: "Eva")
-nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
-fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
+sugi = User.create!(email: "sugi@dashboard.com", password: "1234567", first_name: "Sugi", last_name:"Henson")
+max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: "Max", last_name:"Alings")
+eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: "Eva", last_name:"Orlandini")
+nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini", last_name:"Shen")
+fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra", last_name:"Christmas")
 
 finance = Widget.create!(user: sugi, category: "stock_portfolio")
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
