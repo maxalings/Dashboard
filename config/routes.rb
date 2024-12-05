@@ -21,14 +21,18 @@ Rails.application.routes.draw do
   resources :widgets do
     get 'stocks', to: 'widgets#stock_portfolio'
     resources :stocks, only: :create
+    resources :tasks
+    get 'fitness'
+    get '/new_routine', to: 'tasks#new_routine'
+    post 'new_routine', to: 'tasks#create_routine'
+
     member do
-      get 'fitness', to: 'widgets#fitness'
       get 'habits'
     end
   end
 
   # Tasks
-  resources :tasks
+
 
   # Top-level Stocks
   resources :stocks, only: :destroy
