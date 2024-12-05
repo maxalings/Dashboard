@@ -8,6 +8,7 @@
     <%= link_to '+', new_widget_task_path(service.widget) %>
   </div>
     <div class="overflow-y-auto max-h-[200px] pr-2">
+      <%= service.total_tasks %>
       <% service.tasks.each do |task| %>
         <div class="form-control ms-5">
           <label class="label cursor-pointer gap-2 flex justify-start">

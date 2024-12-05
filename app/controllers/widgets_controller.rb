@@ -11,6 +11,8 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
+  # I need to keep this habits method active in order to code and test my big widget
+  # It will need to be moved to Wid Services
   def fitness
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks

@@ -26,10 +26,6 @@ Rails.application.routes.draw do
     get 'fitness'
     get '/new_routine', to: 'tasks#new_routine'
     post 'new_routine', to: 'tasks#create_routine'
-
-    member do
-      get 'habits'
-    end
   end
 
   # Top-level Stocks
