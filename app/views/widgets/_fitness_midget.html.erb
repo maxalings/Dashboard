@@ -1,0 +1,27 @@
+    <div class="card bg-white shadow-xl w-1/3 p-4">
+      <h1 class="text-xl font-bold mb-4">Fitness</h1>
+      <p class="mb-2">Progress bars for goal tracking:</p>
+      <progress class="progress progress-success w-full" value="50" max="100"></progress>
+      <div class="flex justify-between mt-2">
+        <p class="order-first">0</p>
+        <p class="order-last">300km</p>
+      </div>
+      <p class="mb-2">Routine Tasks:</p>
+      <% @tasks.each do |task| %>
+                  <div class="p-2">
+                    <% if task.thursday %>
+                      <input type="checkbox" id="cardio1" class="form-checkbox h-5 w-5">
+                      <label for="cardio1" class="text-base font-semibold"><%= task.title %></label>
+                      <p class="text-xs text-gray-600">
+                        <%= "Monday" if task.monday %>
+                        <%= "Tuesday" if task.tuesday %>
+                        <%= "Wednesday" if task.wednesday %>
+                        <%= "Thursday" if task.thursday %>
+                        <%= "Friday" if task.friday %>
+                        <%= "Saturday" if task.saturday %>
+                        <%= "Sunday" if task.sunday %>
+                      </p>
+                    <% end %>
+                  </div>
+                <% end %>
+    </div>
