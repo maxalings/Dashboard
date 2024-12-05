@@ -30,10 +30,14 @@ fitness_task_3 = Task.create!(title: "Upperbody Strength", done: false, widget: 
 fitness_task_4 = Task.create!(title: "Lowerbody Strength", done: false, widget: fitness_widget, monday: true, wednesday: true)
 
 puts "user and widget created"
-habit_widget = Widget.create!( category: "habit", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
+habit_widget = Widget.create!( category: "habits", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
 
 Task.create!(title: "read", done: false, widget: habit_widget)
 Task.create!(title: "meditate", done: true, widget: habit_widget)
 Task.create!(title: "exercise", done: false, widget: habit_widget)
 Task.create!(title: "floss", done: true, widget: habit_widget)
 Task.create!(title: "journal", done: false, widget: habit_widget)
+
+
+puts "user and widget created"
+Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0)
