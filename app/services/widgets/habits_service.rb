@@ -6,7 +6,4 @@ attr_reader :tasks, :widget
     @tasks = @widget.tasks
   end
 
-  def total_tasks
-    return @tasks.count
-  end
 end
