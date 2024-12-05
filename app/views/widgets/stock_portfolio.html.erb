@@ -35,28 +35,30 @@
       <strong>Total Value:</strong> $<%= stock.purchase_price * stock.amount  %>
       <%= link_to "Delete", stock_path(stock),
                   data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded" %>
+                  class: "bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded leading-[3rem]" %>
     </li>
   <% end %>
 </ul>
 
-
-
-
-<%# <h2><%= @stocks.purchase_price * @stocks.amount %></h2> %>
-
-
-<%#
-Ticker symbol: Identifies the stock.
-Number of shares: The quantity held.
-Average purchase price: The average price per share paid.
-Current market price: The current price per share.
-Calculating Total Value:
-
-Multiply the number of shares by the current market price for each stock.
-Sum up the values for all stocks.
-Calculating Percentage Change:
-
-Calculate the total purchase price: Multiply the number of shares by the average purchase price for each stock, then sum up these values.
-Calculate the percentage change:
-Percentage Change = ((Current Total Value - Total Purchase Price) / Total Purchase Price) * 100 %>
+<% if Stock.exists? %>
+  <div class="flex items-center justify-center bg-gray-50 mt-10">
+    <div class="card bg-white w-96 shadow-lg rounded-lg overflow-hidden">
+      <div class="card-body p-6">
+        <div class="flex items-baseline justify-between">
+            <h2 class="text-2xl font-bold text-gray-800">
+              <%= number_to_currency @total_value %>
+            </h2>
+            <% if @percentage_change.positive? %>
+              <span class="text-sm font-medium text-gray-500 bg-green-100 px-2 py-1 rounded">
+                <%= @percentage_change %>%
+              </span>
+            <% else %>
+              <span class="text-sm font-medium text-gray-500 bg-red-100 px-2 py-1 rounded">
+                <%= @percentage_change %>%
+              </span>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
