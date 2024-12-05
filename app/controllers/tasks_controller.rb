@@ -17,12 +17,15 @@ class TasksController < ApplicationController
     redirect_to widget_fitness_path
   end
 
+  def race
+  end
+
   def create
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
     @task.save!
     # redirect_to widget_habits_path(@task.widget)
-    # TODO: redirect to the widget page 
+    # TODO: redirect to the widget page
   end
 
   private

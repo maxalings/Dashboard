@@ -1,4 +1,4 @@
-<%# for coding purposes, to display on the big widget page %>
+<%# HOLD THIS!! Copied and pasted in big fitness widget to continue to work.. %>
 <div class="card bg-white shadow-xl w-1/3 p-4">
   <h1 class="text-xl font-bold mb-4">Fitness</h1>
   <p class="mb-2">Progress bars for goal tracking:</p>
@@ -8,11 +8,9 @@
     <p class="order-last">300km</p>
   </div>
   <p class="mb-2">Routine Tasks:</p>
-  <%# service.tasks.each when moved to service %>
-  <% @tasks.each do |task| %>
+  <% service.tasks.each do |task| %>
     <div class="p-2">
-      <% today = Date.today.strftime("%A").downcase%>
-      <% if task.send(today) %>
+      <% if task.thursday %>
         <input type="checkbox" id="cardio1" class="form-checkbox h-5 w-5">
         <label for="cardio1" class="text-base font-semibold"><%= task.title %></label>
         <p class="text-xs text-gray-600">
