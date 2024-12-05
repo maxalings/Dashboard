@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     member do
       get 'fitness'
       get 'habits'
+      get "time"
     end
   end
 

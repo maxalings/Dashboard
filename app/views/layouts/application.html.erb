@@ -38,8 +38,8 @@
 
   <body>
     <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
-      <% if params[:controller] ==  "pages" || params[:controller] ==  "devise/registrations" || params[:controller] ==  "devise/sessions"%>
-      <%= render "shared/navbar" %>
+      <% if @show_navbar %>
+        <%= render "shared/navbar" %>
       <% end %>
 
       <main class="container mx-auto mt-8">
