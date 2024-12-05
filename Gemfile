@@ -121,3 +121,10 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+#Time zone converter
+gem 'tzinfo'
+gem 'tzinfo-data'
+gem 'geocoder'
+gem 'timezone'
+gem "timezone_finder"

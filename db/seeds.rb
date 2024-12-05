@@ -41,4 +41,4 @@ Task.create!(title: "journal", done: false, widget: habit_widget)
 
 
 puts "user and widget created"
-Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0)
+Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
