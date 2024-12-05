@@ -17,7 +17,7 @@ class WidgetsController < ApplicationController
   end
 
   def habits
-    @widget = Widget.find(params[:id])
+    @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
   end
 
