@@ -18,7 +18,7 @@ eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: 
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra")
 
-finance = Widget.create!(user: sugi, category: "stock_portfolio")
+finance = Widget.create!(user: max, category: "stock_portfolio")
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
 puts "Creating sample widget"
 fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
