@@ -1,7 +1,7 @@
 class WidgetsService
   def call(widget)
     case widget.category
-    when "time" then return TimeService.new(widget)
+    when "time" then return Widgets::TimeService.new(widget)
     end
   end
 end

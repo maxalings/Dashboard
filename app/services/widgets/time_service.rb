@@ -1,4 +1,4 @@
-class TimeService
+class Widgets::TimeService
   def initialize(widget)
     @widget = widget
   end
