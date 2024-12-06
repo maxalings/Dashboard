@@ -1,0 +1,26 @@
+<div data-controller="flashcards-handler">
+  <p data-flashcards-handler-target="text" 
+    data-question="<%= service.flashcards[0].question %>" 
+    data-answer="<%= service.flashcards[0].answer %>">
+  <%= service.flashcards[0].question %></p>
+
+  <div>
+  <div class="border border-black w-12 rounded-xl m-8 flex items-center justify-center aspect-square">
+    <span 
+      role="button" 
+      aria-label="Toggle Question/Answer"
+      data-icon="eye" 
+      data-flashcards-handler-target="show" 
+      data-action="click->flashcards-handler#show">
+      <%= lucide_icon("eye", class: "h-6 w-6 item-center justify-center") %> 
+    </span>
+  </div>
+  </div>
+
+  <div class="flex place-content-end mr-2 mb-2">
+    <%= lucide_icon("chevron-left", class: "h-6 w-6") %>
+    <%= lucide_icon("chevron-right", class: "h-6 w-6") %>
+  </div>
+</div>
+
+
