@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Flashcard.destroy_all
 Stock.destroy_all
 Task.destroy_all
 Widget.destroy_all
@@ -30,9 +30,10 @@ fitness_task_2 = Task.create!(title: "Cardio relax 10k", done: false, widget: fi
 fitness_task_3 = Task.create!(title: "Upperbody Strength", done: false, widget: fitness_widget, tuesday: true, thursday: true)
 fitness_task_4 = Task.create!(title: "Lowerbody Strength", done: false, widget: fitness_widget, monday: true, wednesday: true)
 
-puts "user and widget created"
+puts "habit widgets created"
 habit_widget = Widget.create!( category: "habits", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
 
+puts "tasks for task widget created"
 Task.create!(title: "read", done: false, widget: habit_widget)
 Task.create!(title: "meditate", done: true, widget: habit_widget)
 Task.create!(title: "exercise", done: false, widget: habit_widget)
@@ -41,4 +42,9 @@ Task.create!(title: "journal", done: false, widget: habit_widget)
 
 
 puts "user and widget created"
+flashcard = Widget.create!(user: fra, category: "flashcards")
+
+Flashcard.create!(question: "what is the capital of France ?", answer: "Paris", widget: flashcard)
+Flashcard.create!(question: "what is the capital of Brazil ?", answer: "Brasilia", widget: flashcard)
+
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
