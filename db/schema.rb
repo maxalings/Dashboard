@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_05_031553) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_05_080602) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flashcards", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.bigint "widget_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["widget_id"], name: "index_flashcards_on_widget_id"
+  end
 
   create_table "motor_alert_locks", force: :cascade do |t|
     t.bigint "alert_id", null: false
@@ -354,6 +363,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_031553) do
     t.index ["user_id"], name: "index_widgets_on_user_id"
   end
 
+  add_foreign_key "flashcards", "widgets"
   add_foreign_key "motor_alert_locks", "motor_alerts", column: "alert_id"
   add_foreign_key "motor_alerts", "motor_queries", column: "query_id"
   add_foreign_key "motor_note_tag_tags", "motor_note_tags", column: "tag_id"

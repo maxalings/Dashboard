@@ -2,6 +2,7 @@ require 'open-uri'
 require 'json'
 
 class WidgetsController < ApplicationController
+
   def new
     @widget = Widget.new
   end
