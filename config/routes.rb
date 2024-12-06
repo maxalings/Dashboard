@@ -34,4 +34,6 @@ Rails.application.routes.draw do
 
   # Top-level Stocks
   resources :stocks, only: :destroy
+  
+  post 'tasks/:id/done', to: 'tasks#mark_done'
 end
