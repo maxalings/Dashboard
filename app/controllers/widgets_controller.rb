@@ -13,8 +13,4 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
   end
-
-  def time
-    @widget = Widget.find(params[:widget_id])
-  end
 end

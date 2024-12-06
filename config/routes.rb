@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   # Widgets and Nested Stocks
   resources :widgets do
     get 'stocks', to: 'widgets#stock_portfolio'
-    get 'time', to: 'widgets#time'
     resources :stocks, only: :create
 
     resources :tasks
