@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 
   def mark_done
     @task = Task.find(params[:id])
-    @task.update(done: true)
+    @task.update(done: !@task.done)
   end
 
   def race

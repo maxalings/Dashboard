@@ -3,11 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="habits"
 export default class extends Controller {
   connect() {
-    console.log("hello")
   }
 
   done(event) {
-    console.log(event.currentTarget.dataset.id);
     const taskId = event.currentTarget.dataset.id;
     fetch(`/tasks/${taskId}/done`, {
       method: "post",
