@@ -1,7 +1,7 @@
 <%# TODO this partial needs to use turbo frame tags to load tasks/new.html.erb which contains a form for user to
 <%# input their new habit, save to db, and return to this _habits partial %> 
 
-<div class="card bg-base-100 w-[300px] h-[300px] shadow-xl bg-red-300  mx-auto mb-5 p-3">
+<div class="bg-red-300 p-3">
   <%= turbo_frame_tag "new_habit" do %>
   <div class="flex justify-between m-5">
     <h2 class="card-title text-left">Habits</h2>
