@@ -4,19 +4,37 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["show", "text"]
   connect() {
-    console.log ("controller OK");
+
+    console.log ("controller OK"); 
     this.showingQuestion = true;
+    this.currentIndex = 0;
+    this.flashcards = this.getFlashcardsData();
     this.syncState();
   }
 
+  getFlashcardsData() {
+    return JSON.parse(this.element.dataset.flashcards || "[]");
+  }
 
   syncState() {
+    
+    const currentFlashcard = this.flashcards[this.currentIndex];
+    if (!currentFlashcard) return;
+
+    this.textTarget.dataset.question = currentFlashcard.question;
+    this.textTarget.dataset.answer = currentFlashcard.answer;
+    this.textTarget.innerHTML = currentFlashcard.question;
+    
     this.showTarget.setAttribute("data-icon", "eye");
     this.showTarget.innerHTML = this.getIconSvg("eye");
-    this.textTarget.innerHTML = this.textTarget.dataset.question;
+
+    this.showingQuestion = true; 
   }
 
   show(){
+    // const currentFlashcard = this.flashcards[this.currentIndex];
+    // if (!currentFlashcard) return;
+
     console.log("show !");
     const currentIcon = this.showTarget.getAttribute("data-icon");
     const newIcon = currentIcon === "eye" ? "eye-off" : "eye" ;
@@ -29,6 +47,26 @@ export default class extends Controller {
     : this.textTarget.dataset.question;
 
     this.showingQuestion = !this.showingQuestion;
+  }
+
+
+
+  previousQuestion() {
+if (this.currentIndex > 0) {
+  this.currentIndex--;
+  this.syncState();
+} else {
+  console.log("First Flashcard");
+  }
+}
+
+nextQuestion() {
+  if (this.currentIndex < this.flashcards.length -1) {
+    this.currentIndex++;
+    this.syncState();
+  } else {
+    console.log("Last Flashcard");
+    }
   }
 
   getIconSvg(name) {
