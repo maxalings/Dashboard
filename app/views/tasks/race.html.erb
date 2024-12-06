@@ -1,36 +1,39 @@
+<% given_date = Time.new(params[:year].to_i, params[:month].to_i, params[:day].to_i, 0, 0, 0) %>
+<% now = Time.now %>
+<% total_seconds = (given_date - now).to_i %>
 
-<% given_date = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i) %>
-<% today = Date.today %>
-<% days_difference = (given_date - today).to_i %>
+<% if total_seconds > 0 %>
+  <% days = total_seconds / (60 * 60 * 24) %>
+  <% hours = (total_seconds % (60 * 60 * 24)) / (60 * 60) %>
+  <% minutes = (total_seconds % (60 * 60)) / 60 %>
+  <% seconds = total_seconds % 60 %>
+<% else %>
+  <% days = hours = minutes = seconds = 0 %>
+<% end %>
 
 <%= turbo_frame_tag "new_race" do %>
-  <%= days_difference %> DAYS COUNTDOWN!
-
-
-
-
 <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
   <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
     <span class="countdown font-mono text-5xl">
-      <span style="--value:15;"></span>
+      <span style="--value:<%= days %>;"></span>
     </span>
     days
   </div>
   <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
     <span class="countdown font-mono text-5xl">
-      <span style="--value:10;"></span>
+      <span style="--value:<%= hours %>;"></span>
     </span>
     hours
   </div>
   <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
     <span class="countdown font-mono text-5xl">
-      <span style="--value:24;"></span>
+      <span style="--value:<%= minutes %>;"></span>
     </span>
     min
   </div>
   <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
     <span class="countdown font-mono text-5xl">
-      <span style="--value:${counter};"></span>
+      <span style="--value:<%= seconds %>;"></span>
     </span>
     sec
   </div>
