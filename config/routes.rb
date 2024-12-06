@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     get '/new_routine', to: 'tasks#new_routine'
     post 'new_routine', to: 'tasks#create_routine'
     post '/new_race', to: 'tasks#race'
-
     member do
       get 'habits'
     end

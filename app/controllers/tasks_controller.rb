@@ -24,8 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
     @task.save!
-    # redirect_to widget_habits_path(@task.widget)
-    # TODO: redirect to the widget page
+    redirect_to widgets_path(current_user)
   end
 
   private

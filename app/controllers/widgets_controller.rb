@@ -12,7 +12,6 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
-  # this needs to be deleted while on dashboard.index
   def fitness
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
