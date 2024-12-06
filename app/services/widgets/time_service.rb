@@ -2,7 +2,7 @@ require 'tzinfo'
 require 'geocoder'
 
 class Widgets::TimeService
-    attr_reader :timezone
+    attr_reader :timezone, :widget
 
   def initialize(widget)
     @widget = widget

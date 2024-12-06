@@ -1,4 +1,4 @@
-<%= form_with(model: @stock, url: [@widget, @stock])  do |form| %>
+<%= form_with(model: service.stock, url: [service.widget, service.stock])  do |form| %>
   <div class="form-control">
     <%= form.label :tickr, class: "label" do %>
       <span class="label-text">Ticker</span>
@@ -27,12 +27,12 @@
 
 
 <ul>
-  <% @stocks.each do |stock| %>
+  <% service.stocks.each do |stock| %>
     <li>
       <strong>Ticker:</strong> <%= stock.tickr %>,
       <strong>Shares:</strong> <%= stock.amount %>,
-      <strong>Purchase Price:</strong> $<%= stock.purchase_price %>
-      <strong>Total Value:</strong> $<%= stock.purchase_price * stock.amount  %>
+      <strong>Purchase Price:</strong> <%= number_to_currency stock.purchase_price %>
+      <strong>Total Value:</strong> <%= number_to_currency stock.purchase_price * stock.amount  %>
       <%= link_to "Delete", stock_path(stock),
                   data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                   class: "bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded leading-[3rem]" %>
@@ -46,15 +46,15 @@
       <div class="card-body p-6">
         <div class="flex items-baseline justify-between">
             <h2 class="text-2xl font-bold text-gray-800">
-              <%= number_to_currency @total_value %>
+              <%= number_to_currency service.total_value %>
             </h2>
-            <% if @percentage_change.positive? %>
+            <% if service.percentage_change.positive? %>
               <span class="text-sm font-medium text-gray-500 bg-green-100 px-2 py-1 rounded">
-                <%= @percentage_change %>%
+                <%= service.percentage_change %>%
               </span>
             <% else %>
               <span class="text-sm font-medium text-gray-500 bg-red-100 px-2 py-1 rounded">
-                <%= @percentage_change %>%
+                <%= service.percentage_change %>%
               </span>
             <% end %>
         </div>
