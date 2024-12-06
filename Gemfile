@@ -41,8 +41,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use Sass to process CSS
-gem "sassc-rails"
 
 # Use devise for authentication
 gem "devise"
@@ -121,3 +119,10 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+#Time zone converter
+gem 'tzinfo'
+gem 'tzinfo-data'
+gem 'geocoder'
+gem 'timezone'
+gem "timezone_finder"

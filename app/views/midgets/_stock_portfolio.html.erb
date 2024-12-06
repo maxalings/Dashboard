@@ -1,0 +1,15 @@
+
+  <p class="text-xl font-semibold text-white-800">
+    <%= number_to_currency service.total_value %>
+  </p>
+  <% if service.percentage_change.positive? %>
+    <p class="text-green-500 font-medium flex items-center">
+      <span class="text-lg mr-1">▲</span>
+      <%= service.percentage_change %>%
+    </p>
+  <% else %>
+    <p class="text-red-500 font-medium flex items-center">
+      <span class="text-lg mr-1">▼</span>
+      <%= service.percentage_change %>%
+    </p>
+  <% end %>

@@ -65,6 +65,10 @@ class Stock < ApplicationRecord
     "UPST", "SOFI", "NOVA", "RIOT", "MARA", "BTBT", "SPCE", "SPWR", "DQ", "ARLO"
   ]
 
+  def current_price
+    StockService.new.fetch_stock_price(self.tickr)
+  end
+
   validates :tickr, presence: true
   validates :amount, presence: true
   validates :purchase_price, presence: true

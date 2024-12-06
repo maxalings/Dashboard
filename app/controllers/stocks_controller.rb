@@ -25,5 +25,4 @@ class StocksController < ApplicationController
   def stock_params
     params.require(:stock).permit(:tickr, :amount, :purchase_price)
   end
-
 end
