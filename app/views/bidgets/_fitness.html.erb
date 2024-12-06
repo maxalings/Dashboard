@@ -1,0 +1,7 @@
+<div class="grid grid-cols-2 w-100">
+  <div>
+    <%= render "widgets/fitness_countdown", widget: service.widget %>
+    <%= render "widgets/fitness_progress", widget: service.widget %>
+  </div>
+  <%= render "widgets/fitness_task", widget: service.widget, tasks: service.tasks %>
+</div>

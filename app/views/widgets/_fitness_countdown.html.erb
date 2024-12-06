@@ -1,12 +1,12 @@
 
-<div class="card bg-white shadow-xl w-1/3 p-4">
+<div class="card bg-white shadow-xl p-4">
   <h2 class="text-xl font-semibold mb-4">The Next Race Date</h2>
   <%= turbo_frame_tag "new_race" do %>
-  <form action="/widgets/<%= @widget.id %>/new_race" method="POST">
+  <form action="/widgets/<%= widget.id %>/new_race" method="POST">
     <!-- Date Dropdowns -->
     <div class="flex space-x-4">
       <!-- Day Dropdown -->
-      <select name="day" class="w-1/3 p-2 border border-gray-300 rounded-md">
+      <select name="day" class="p-2 border border-gray-300 rounded-md">
         <option value="">Day</option>
         <% (1..31).each do |day| %>
           <option value="<%= day %>"><%= day %></option>
@@ -14,7 +14,7 @@
       </select>
 
       <!-- Month Dropdown -->
-      <select name="month" class="w-1/3 p-2 border border-gray-300 rounded-md">
+      <select name="month" class="p-2 border border-gray-300 rounded-md">
         <option value="">Month</option>
         <option value="1">January</option>
         <option value="2">February</option>
@@ -31,7 +31,7 @@
       </select>
 
       <!-- Year Dropdown -->
-      <select name="year" class="w-1/3 p-2 border border-gray-300 rounded-md">
+      <select name="year" class="p-2 border border-gray-300 rounded-md">
         <option value="">Year</option>
         <option value="2024">2024</option>
         <option value="2025">2025</option>

@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
     @task.save!
-    redirect_to widget_fitness_path
+    # now not directing back task list, need JS
   end
 
   def race

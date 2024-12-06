@@ -1,5 +1,5 @@
 
-  <div class="card bg-white shadow-xl w-1/3 p-4">
+  <div class="card bg-white shadow-xl p-4">
     <h1 class="text-xl font-bold mb-4">Goal Setting</h1>
     <p class="mb-2">Progress bars for goal tracking:</p>
     <%= turbo_frame_tag "new_goal" do %>
@@ -7,11 +7,11 @@
       <div class="flex justify-between mt-2">
         <p class="order-first">0</p>
         <p>
-        <input type="text" name="goal" value="distance" class="form-input order-last" action="/widgets/<%= @widget.id %>/new_goal" method="POST">
+        <input type="text" name="goal" value="distance" class="form-input order-last" action="/widgets/<%= widget.id %>/new_goal" method="POST">
         km
         </p>
       </div>
-     <%= link_to "Log my run", widget_new_goal_path(@widget), class:"btn btn-primary" %>
+     <%= link_to "Log my run", widget_new_goal_path(widget), class:"btn btn-primary" %>
     <% end %>
   </div>
   <br>
