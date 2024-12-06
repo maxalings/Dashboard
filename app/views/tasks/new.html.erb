@@ -1,4 +1,5 @@
 <%= turbo_frame_tag "new_habit" do %> 
+  <%= link_to 'x', widgets_path(current_user), class: "text-right" %> 
   <%= form_with(model: [ @widget, @task ], class: "flex flex-col items-center m-5 gap-y-3") do |f| %>
     <%= f.text_field :title,
       class: "rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500",
