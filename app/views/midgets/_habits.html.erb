@@ -7,18 +7,21 @@
     <h2 class="card-title text-left">Habits</h2>
     <%= link_to '+', new_widget_task_path(service.widget) %>
   </div>
-    <div class="overflow-y-auto max-h-[200px] pr-2">
-      <% service.tasks.each do |task| %>
+    <div class="overflow-y-auto max-h-[200px] pr-2" data-controller="habits">
+      <% service.tasks.sort.each do |task| %>
         <div class="form-control ms-5">
           <label class="label cursor-pointer gap-2 flex justify-start">
-            <input type="checkbox" 
-            <%= task.done == true ? "checked" : "" %>
-              <%# need to implement way to update task as done when checked. probably stimulus %>
-            class="checkbox checkbox-primary" />
+            <input type="checkbox"
+              <%= task.done == true ? "checked" : "" %>
+              data-action="click->habits#done"
+              data-id="<%= task.id %>"
+              class="checkbox checkbox-primary" />
             <span class="label-text"><%= task.title %></span>
           </label>
         </div>
       <% end %>
     </div>
+    <%# this should link to the edit partial via turbo frames %>
+  <button>edit</button>
   <% end %>
 </div>

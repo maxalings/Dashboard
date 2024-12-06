@@ -17,6 +17,11 @@ class TasksController < ApplicationController
     redirect_to widget_fitness_path
   end
 
+  def mark_done
+    @task = Task.find(params[:id])
+    @task.update(done: !@task.done)
+  end
+
   def race
   end
 

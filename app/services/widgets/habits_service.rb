@@ -6,4 +6,8 @@ attr_reader :tasks, :widget
     @tasks = @widget.tasks
   end
 
+  def progress
+    
+  end
+
 end
