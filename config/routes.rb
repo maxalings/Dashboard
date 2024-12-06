@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/new_routine', to: 'tasks#new_routine'
     post 'new_routine', to: 'tasks#create_routine'
     post '/new_race', to: 'tasks#race'
+    post '/new_goal', to: 'tasks#goal'
     member do
       get 'habits'
     end
@@ -34,4 +35,6 @@ Rails.application.routes.draw do
 
   # Top-level Stocks
   resources :stocks, only: :destroy
+  
+  post 'tasks/:id/done', to: 'tasks#mark_done'
 end

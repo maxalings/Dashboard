@@ -1,28 +1,33 @@
-    <div class="card bg-white shadow-xl w-1/3 p-4">
-      <h1 class="text-xl font-bold mb-4">Routine Setting</h1>
-      <p class="mb-4">This is to set your daily/weekly routine on workouts.</p>
-      <%= turbo_frame_tag "new_routine" do %>
-        <ul>
-          <li class="mb-2">
-            <div class="flex flex-col space-y-4">
-                <% @tasks.each do |task| %>
-                  <div class="p-2">
-                    <input type="checkbox" id="cardio1" class="form-checkbox h-5 w-5">
-                    <label for="cardio1" class="text-base font-semibold"><%= task.title %></label>
-                    <p class="text-xs text-gray-600">
-                      <%= "Monday" if task.monday %>
-                      <%= "Tuesday" if task.tuesday %>
-                      <%= "Wednesday" if task.wednesday %>
-                      <%= "Thursday" if task.thursday %>
-                      <%= "Friday" if task.friday %>
-                      <%= "Saturday" if task.saturday %>
-                      <%= "Sunday" if task.sunday %>
-                    </p>
-                  </div>
-                <% end %>
+<div class="card bg-white shadow-xl p-6 rounded-lg">
+  <h1 class="text-2xl font-bold mb-4 text-gray-800">Routine Setting</h1>
+  <p class="mb-6 text-gray-600">Set your daily/weekly routine for workouts below.</p>
+
+  <%= turbo_frame_tag "new_routine" do %>
+    <ul class="space-y-4">
+      <% tasks.each do |task| %>
+        <li class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+          <div class="flex flex-col space-y-2">
+            <div class="flex items-center space-x-3">
+              <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox h-5 w-5 text-blue-600">
+              <label for="task_<%= task.id %>" class="text-base font-semibold text-gray-800"><%= task.title %></label>
             </div>
-          </li>
-        </ul>
-        <%= link_to "Add", widget_new_routine_path(@widget), class:"btn btn-primary" %>
+            <p class="text-xs text-gray-500">
+              <%= "Monday" if task.monday %>
+              <%= "Tuesday" if task.tuesday %>
+              <%= "Wednesday" if task.wednesday %>
+              <%= "Thursday" if task.thursday %>
+              <%= "Friday" if task.friday %>
+              <%= "Saturday" if task.saturday %>
+              <%= "Sunday" if task.sunday %>
+            </p>
+          </div>
+        </li>
       <% end %>
+    </ul>
+
+    <!-- Add Button -->
+    <div class="mt-6">
+      <%= link_to "Add New Routine", widget_new_routine_path(widget), class: "btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md shadow-md" %>
     </div>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "new_habit" do %> 
+<%= turbo_frame_tag "edit_habit" do %> 
   <%= link_to 'x', widgets_path(current_user), class: "text-right" %> 
   <%= form_with(model: [ @widget, @task ], class: "flex flex-col items-center m-5 gap-y-3") do |f| %>
     <%= f.text_field :title,
@@ -11,4 +11,3 @@
     %>
   <% end %>
 <% end %> 
-
