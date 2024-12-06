@@ -20,6 +20,9 @@ class TasksController < ApplicationController
   def race
   end
 
+  def goal
+  end
+
   def create
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
