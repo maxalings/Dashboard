@@ -42,6 +42,7 @@ Task.create!(title: "journal", done: false, widget: habit_widget)
 
 
 puts "user and widget created"
+Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 3,timezone: "new york")
 flashcard = Widget.create!(user: fra, category: "flashcards")
 
 Flashcard.create!(question: "what is the capital of France ?", answer: "Paris", widget: flashcard)
