@@ -2,14 +2,16 @@
 <div class="card bg-base-100 w-[1000px] shadow-xl bg-red-300 h-96 mx-auto">
   <div class="card-body">
     <h2 class="card-title text-center justify-center text-2xl mb-3">Habits</h2>
-    <div class="p-4 flex-col space-y-6 flex justify-center items-center">
-        <% service.tasks.each do |task| %>
-          <div class="flex justify-between gap-x-8">
-            <p class="w-24"><%= task.title %></p>
-            <progress class="progress progress-primary w-[700px] h-6 row" value="20" max="100"></progress>
-          </div>
-        <% end %>
-    </div>
+    <div class="overflow-y-auto max-h-[300px] pr-2">
+      <div class="p-4 flex-col space-y-6 flex justify-center items-center">
+          <% service.tasks.each do |task| %>
+            <div class="flex justify-between gap-x-8">
+              <p class="w-24"><%= task.title %></p>
+              <progress class="progress progress-primary w-[700px] h-6 row" value="20" max="100"></progress>
+            </div>
+          <% end %>
+        </div>
+      </div>
     <div class="card-actions justify-end">
     </div>
   </div>
