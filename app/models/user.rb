@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable, :trackable
   pay_customer stripe_attibutes: :stripe_attibutes
 
 
