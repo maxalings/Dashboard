@@ -5,19 +5,6 @@ class Widgets::HabitsService
     @widget = widget
     @tasks = @widget.tasks
   end
-
-  # def user_tz
-  #   #  determine time zone using current_sign_in_ip from devise
-  #   user_ip = widget.user.current_sign_in_ip
-  #   user_location = Geocoder.search(user_ip).first
-  #   if user_location
-  #     tf = TimezoneFinder.create
-  #     timezone_name = tf.timezone_at(lng:user_location.data["center"][0], lat: user_location.data["center"][1])
-  #     TZInfo::Timezone.get(timezone_name)
-  #   else
-  #     "UTC"
-  #   end
-  # end
   
   def local_timestamp(timestamp)
     # Since localtime can only be called on a Time object:
