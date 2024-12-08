@@ -1,6 +1,3 @@
-require 'tzinfo'
-require 'geocoder'
-
 class Widgets::HabitsService
   attr_reader :tasks, :widget
 
@@ -9,40 +6,50 @@ class Widgets::HabitsService
     @tasks = @widget.tasks
   end
 
-  def user_tz
-    #  determine time zone using current_sign_in_ip from devise
-    user_ip = widget.user.current_sign_in_ip
-    user_location = Geocoder.search(user_ip).first
-    if user_location
-      tf = TimezoneFinder.create
-      timezone_name = tf.timezone_at(lng:user_location.data["center"][0], lat: user_location.data["center"][1])
-      TZInfo::Timezone.get(timezone_name)
-    else
-      "UTC"
-    end
+  # def user_tz
+  #   #  determine time zone using current_sign_in_ip from devise
+  #   user_ip = widget.user.current_sign_in_ip
+  #   user_location = Geocoder.search(user_ip).first
+  #   if user_location
+  #     tf = TimezoneFinder.create
+  #     timezone_name = tf.timezone_at(lng:user_location.data["center"][0], lat: user_location.data["center"][1])
+  #     TZInfo::Timezone.get(timezone_name)
+  #   else
+  #     "UTC"
+  #   end
+  # end
+  
+  def local_timestamp(timestamp)
+    # Since localtime can only be called on a Time object:
+    # Parse the timestamp (converted to a string since parse requires a string)
+    # into a Time object
+    t = Time.parse(timestamp.to_s)
+    # call localtime on the Time object
+    t.localtime
   end
 
   def first_session_today?
-    # Need to convert the following values into users time zone using
-    #  .in_time_zone(user_tz)
-    last_sign_in = widget.user.current_sign_in_at
-    previous_sign_in = widget.user.last_sign_in_at
+    current_signin = local_timestamp(widget.user.current_sign_in_at)
+    previous_signin = local_timestamp(widget.user.last_sign_in_at)
 
     # Debugging output
-    puts "Last sign in: #{last_sign_in}"
-    puts "Previous sign in: #{previous_sign_in}"
+    puts "Current sign in: #{current_signin}"
+    puts "Previous sign in: #{previous_signin}"
 
     # If previous sign-in and last sign-in are the same, this must be their first session:
-    return true if previous_sign_in == last_sign_in
+    return true if previous_signin == current_signin
+
     # If the last sign in was today, and the previous sign in was not today, this must be their first session today:
-    last_sign_in.to_date == Date.current && previous_sign_in.to_date != Date.current
+    current_signin.to_date == Date.current && previous_signin.to_date != Date.current
   end
 
   def reset_habits
     if first_session_today?
+      # Debugging output
       puts "Resetting habits for widget: #{widget.id}"
       widget.tasks.update_all(done: false)
     else
+      # Debugging output
       puts "Not the first session today, no reset needed."
     end
   end
