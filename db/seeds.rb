@@ -18,6 +18,7 @@ max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: 
 eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: "Eva", last_name:"Orlandini")
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini", last_name:"Shen")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra", last_name:"Christmas")
+booboo = User.create!(email: "booboo@dashboard.com", password: "1234567", first_name: "Boob", last_name:"Boobson")
 
 finance = Widget.create!(user: max, category: "stock_portfolio", height: 2, width: 2)
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
@@ -32,6 +33,7 @@ fitness_task_4 = Task.create!(title: "Lowerbody Strength", done: false, widget: 
 
 puts "habit widgets created"
 habit_widget = Widget.create!( category: "habits", position_x: 0, position_y: 0, width: 2, height: 2, user: sugi)
+habit_widget_booboo = Widget.create!( category: "habits", position_x: 0, position_y: 0, width: 2, height: 2, user: booboo)
 
 puts "tasks for task widget created"
 Task.create!(title: "read", done: false, widget: habit_widget)
@@ -40,14 +42,22 @@ Task.create!(title: "exercise", done: false, widget: habit_widget)
 Task.create!(title: "floss", done: true, widget: habit_widget)
 Task.create!(title: "journal", done: false, widget: habit_widget)
 
+Task.create!(title: "read", done: false, widget: habit_widget_booboo)
+Task.create!(title: "meditate", done: true, widget: habit_widget_booboo)
+Task.create!(title: "exercise", done: false, widget: habit_widget_booboo)
+Task.create!(title: "floss", done: true, widget: habit_widget_booboo)
+Task.create!(title: "journal", done: false, widget: habit_widget_booboo)
+
 
 puts "user and widget created"
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: sugi, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
+Widget.create!( category: "time", user: booboo, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
 
 flashcard = Widget.create!(user: fra, category: "flashcards")
 
 Flashcard.create!(question: "what is the capital of France ?", answer: "Paris", widget: flashcard)
 Flashcard.create!(question: "what is the capital of Brazil ?", answer: "Brasilia", widget: flashcard)
+
