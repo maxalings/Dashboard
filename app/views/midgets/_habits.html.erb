@@ -4,14 +4,14 @@
   <%= turbo_frame_tag "new_habit" do %>
   <div class="flex justify-between w-full pb-3">
     <h4 class="card-title flex justify-start text-xl">Habits</h4>
-    <%= link_to '+', new_widget_task_path(service.widget), 
-    class:"bg-red-dark text-red-light px-3 rounded-md " %>
+    <%= link_to lucide_icon("plus"), new_widget_task_path(service.widget), 
+    class:"bg-red-dark text-red-light px-2 py-1 rounded-md " %>
   </div>
     <div class="overflow-y-auto max-h-[200px] pr-2" data-controller="habits">
       <%# display habits %>
       <% service.tasks.sort.each do |task| %>
         <div class="form-control">
-          <label class="py-2 cursor-pointer gap-3 flex justify-start">
+          <label class="py-2 gap-3 flex justify-start">
             <input type="checkbox"
               <%= task.done == true ? "checked" : "" %>
               data-action="click->habits#done"
