@@ -2,7 +2,7 @@
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
     <div class="w-full flex items-start">
-    <h4 class="bold " >Flashcards</h4>
+    <h3 class="text-blue-dark" >Flashcards</h3>
     </div>
     <p  class="justify-center text-center mt-4 text-grey-dark"
         data-flashcards-handler-target="text"

@@ -2,7 +2,7 @@
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
      <div class="w-full flex justify-center">
-    <h3 class="bold" >Flashcards</h3>
+    <h3 class="bold text-blue-dark" >Flashcards</h3>
     </div>
     <h1  class=" justify-center text-center mt-12 text-blue-dark"
         data-flashcards-handler-target="text"
@@ -60,13 +60,13 @@
                 <%= form.label :question, class: "label" do %>
                     <span class="label-text text-blue-dark font-bold">Question</span>
                 <% end %>
-                <%= form.text_field :question, class: "rounded-md input input-bordered w-full", maxlength: 100 %>
+                <%= form.text_field :question, class: "rounded-md input input-bordered w-full", maxlength: 70 %>
             </div>
             <div class="form-control m-2">
                 <%= form.label :answer, class: "label" do %>
                     <span class="label-text text-blue-dark font-bold">Answer</span>
                 <% end %>
-                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full", maxlength: 100 %>
+                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full", maxlength: 70 %>
             </div>
             <div class="flex mt-9">
             <div class="form-control mt-2">
@@ -76,8 +76,20 @@
             <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
             </div>
             </div>
-        </div>
         <% end %>
+        </div>
+        <div class="flex">
+           <div class="pl-12">
+                <%  service.flashcards.each do |flashcard| %>
+                    <h3><%= flashcard.question %></h3>
+                <% end %>
+            </div>
+           <div class=" pl-52">
+                <%  service.flashcards.each do |flashcard| %>
+                    <h3><%= flashcard.answer %></h3>
+                <% end %>
+           </div>
+        </div>
     </div>
 </div>
 
