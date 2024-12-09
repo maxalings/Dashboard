@@ -16,7 +16,7 @@ class Widgets::TimeService
       tf = TimezoneFinder.create
       timezone_name = tf.timezone_at(lng:results.first.data["center"][0], lat: results.first.data["center"][1])
       timezone = TZInfo::Timezone.get(timezone_name).now
-      return timezone.strftime("%H:%M:%S")
+      clock = timezone.strftime("%H:%M:%S")
     else
       "Location not found"
     end

@@ -1,20 +1,26 @@
-        <div class="grid gap-4 grid-cols-2 flex justify-center p-4">
-            <div class="border border-black  w-8 rounded-lg  flex items-center justify-center aspect-square">
-                <%= lucide_icon("clock", class: "h-4 w-4") %>        
-            </div>
-            <div class="border border-black  w-8 rounded-lg  flex items-center justify-center aspect-square">
-                <%= lucide_icon("list-checks", class: "h-4 w-4") %>        
-            </div>
-            <div class="border border-black  w-8 rounded-lg flex items-center justify-center aspect-square">
-                <%= lucide_icon("heart-pulse", class: "h-4 w-4") %>        
-            </div>
-                  <div class="border border-black  w-8 rounded-lg flex items-center justify-center aspect-square">
-                <%= lucide_icon("haze", class: "h-4 w-4") %>        
-            </div>
-                  <div class="border border-black  w-8 rounded-lg flex items-center justify-center aspect-square">
-                <%= lucide_icon("notebook-pen", class: "h-4 w-4") %>        
-            </div>
-            <div class="border border-black  w-8 rounded-lg flex items-center justify-center aspect-square">
-                <%= lucide_icon("dollar-sign", class: "h-4 w-4") %>       
-            </div>
-          </div>
+<div class="grid gap-4 w-3/5 grid-cols-2 p-4 place-items-center">
+  <div class="bg-mint-dark w-[40px] w-[40px] rounded-lg flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("clock", class: "h-[25px] w-[25px] text-mint-light"),"widgets?category=time",
+      data: { turbo_method: :post } %>
+  </div>
+  <div class="bg-red-dark w-[40px] rounded-lg  flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("list-checks", class: "h-[25px] w-[25px] text-red-light"),"widgets?category=habits",
+      data: { turbo_method: :post } %>
+  </div>
+  <div class="bg-purple-dark w-[40px] rounded-lg flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("heart-pulse", class: "h-[25px] w-[25px] text-purple-light"),"widgets?category=fitness",
+      data: { turbo_method: :post } %>
+  </div>
+        <div class="bg-mint-dark w-[40px] rounded-lg flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("haze", class: "h-[25px] w-[25px] text-mint-light"),
+      data: { turbo_method: :post } %>
+  </div>
+        <div class="bg-red-dark w-[40px] rounded-lg flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("notebook-pen", class: "h-[25px] w-[25px] text-red-light"),
+      data: { turbo_method: :post } %>
+  </div>
+  <div class="bg-green-dark w-[40px] rounded-lg flex items-center justify-center aspect-square">
+      <%= link_to lucide_icon("dollar-sign", class: "h-[25px] w-[25px] text-green-light"), "widgets?category=finance",
+      data: { turbo_method: :post } %>
+  </div>
+</div>

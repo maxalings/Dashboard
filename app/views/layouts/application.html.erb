@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="corporate">
+<html>
   <head>
     <title>LightningRails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -36,13 +36,13 @@
     <script src="https://js.stripe.com/v3/"></script>
   </head>
 
-  <body>
-    <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
+  <body class="bg-[#F9F9F9]">
+    <div class="w-screen h-screen flex justify-center items-center">
       <% if @show_navbar %>
         <%= render "shared/navbar" %>
       <% end %>
 
-      <main class="container mx-auto mt-8">
+      <main class="mx-5">
         <%= render "shared/alerts" %>
         <%= yield %>
       </main>

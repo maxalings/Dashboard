@@ -6,4 +6,22 @@ class Widget < ApplicationRecord
 
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards"],
     message: "%{value} is not a valid category"}
+
+  def self.default_width(category)
+    case category
+    when "habits" then return 2
+    when "fitness" then return 3
+    else return 1
+    end
+  end
+
+  def self.default_height(category)
+    case category
+    when "habits" then return 2
+    when "fitness" then return 2
+    else return 1
+    end
+  end
+
+  
 end
