@@ -5,7 +5,5 @@ class Widgets::FlashcardsService
     @widget = widget
     @flashcards = @widget.flashcards
   end 
-  
-  
 
 end
