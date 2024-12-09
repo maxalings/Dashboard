@@ -1,8 +1,8 @@
 <%# reset habits if first session of the day %>
-<div class="bg-red-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center”>
+<div class="bg-red-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center">
 <% service.reset_habits %>
   <%= turbo_frame_tag "new_habit" do %>
-  <div class="flex justify-between">
+  <div class="flex -between">
     <h2 class="card-title">Habits</h2>
     <%= link_to '+', new_widget_task_path(service.widget) %>
   </div>
