@@ -26,9 +26,9 @@ h1 {
 }
 
 h2{
-  font-size: 33px;
+  font-size: 33px !important;
   font-family: "Urbanist", serif;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 h3{
@@ -52,6 +52,7 @@ p{
 .btn {
   padding: 0px 30px;
   border-radius: 10px;
+  border: none;
 }
 
 .btn-primary{
@@ -112,6 +113,9 @@ color: #CEE3DE;
 .bg-mint-dark {
 background-color: #86ADA5;
 }
+.border-mint-dark {
+  border: 2px solid #86ADA5;
+  }
 
 /* Stock Portfolio widget */
 .text-green-dark {
@@ -126,6 +130,9 @@ background-color: #D6DEAF;
 .bd-green-dark {
 background-color: #B4BE89;
 }
+.border-green-dark {
+  border: 2px solid #B4BE89;
+  }
 
  /* Flashcard widget */
 .text-blue-dark {
@@ -140,6 +147,9 @@ background-color: #CBDDEF;
 .bg-blue-dark {
 background-color: #82ADD9;
 }
+.border-blue-dark {
+  border: 2px solid #82ADD9;
+  }
 
 /* Habits widget */
 .text-red-dark {
@@ -154,6 +164,9 @@ background-color: #F2CAC9;
 .bg-red-dark {
 background-color: #DB6D6B;
 }
+.border-red-dark {
+  border: 2px solid #DB6D6B;
+  }
 
 /* Fitness widget */
 .text-purple-dark {
@@ -168,6 +181,9 @@ background-color: #D9CDED;
 .bg-purple-dark {
 background-color: #A487D4;
 }
+.border-red-dark {
+  border: 2px solid #A487D4;
+  }
 
 /* Grey */
 .text-grey-dark {
