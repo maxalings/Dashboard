@@ -14,7 +14,11 @@ class StockService
       response = URI.open(url).read
       data = JSON.parse(response)
       # data["Time Series (Daily)"][formatted_yesterday]["4. close"].to_f
-      data["Global Quote"]["05. price"].to_f
+      if data["Information"].nil?
+        data["Global Quote"]["05. price"].to_f
+      else
+        10000
+      end
     end
   end
 end
