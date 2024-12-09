@@ -22,8 +22,25 @@ class WidgetsController < ApplicationController
     redirect_to widgets_path
   end
 
+  def edit
+    @widget = Widget.find(params[:id])
+  end
+
+  def update
+    @widget = Widget.find(params[:id])
+    @widget.update(widget_params)
+    # No need for app/views/restaurants/update.html.erb
+    redirect_to widget_path(@widget)
+  end
+
   def fitness
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
+  end
+
+  private
+
+  def widget_params
+    params.require(:widget).permit(:timezone)
   end
 end
