@@ -6,7 +6,10 @@ export default class extends Controller {
     console.log("connected");
   }
 
-  back() {
+  back(event) {
     console.log("connected");
+    alert("Routine task added successfully!");
+    const mainPage = document.getElementById("main_page");
+    mainPage.scrollIntoView({ behavior: "smooth" });
   }
 }
