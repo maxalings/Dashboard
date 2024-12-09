@@ -23,9 +23,11 @@ class TasksController < ApplicationController
   end
 
   def race
+    redirect_to widgets_path
   end
 
   def goal
+
   end
 
   def create

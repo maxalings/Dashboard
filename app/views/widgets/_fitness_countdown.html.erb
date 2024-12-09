@@ -1,5 +1,5 @@
 
-<div class="card bg-white shadow-xl p-4">
+<div class="card bg-white p-4">
   <h1 class="text-xl font-semibold mb-4">The Next Race Date</h1>
   <%= turbo_frame_tag "new_race" do %>
   <form action="/widgets/<%= widget.id %>/new_race" method="POST">
@@ -39,7 +39,11 @@
         <option value="2027">2027</option>
         <!-- Add more options for years -->
       </select>
-      <input type="submit" class="btn btn-primary">
+
+      <!-- Submit button-->
+      <div class="mt-6">
+        <button class="btn btn-primary">Submit</button>
+      </div>
     </div>
   </form>
   <% end %>
