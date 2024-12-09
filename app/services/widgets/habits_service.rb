@@ -1,9 +1,11 @@
 class Widgets::HabitsService
-  attr_reader :tasks, :widget
+  attr_reader :tasks, :widget, :height, :width
 
   def initialize(widget)
     @widget = widget
     @tasks = @widget.tasks
+    @height = 2
+    @width = 2
   end
   
   def local_timestamp(timestamp)

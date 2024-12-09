@@ -12,7 +12,11 @@ class WidgetsController < ApplicationController
   def create
     @user = current_user
     @category = params[:category]
-    @widget = Widget.new(user: @user, category: @category, width: 3, height: 3)
+    @widget = Widget.new(
+      user: @user,
+      category: @category,
+      width: Widget.default_width(@category),
+      height: Widget.default_height(@category))
     @widget.save!
     redirect_to widgets_path
   end
