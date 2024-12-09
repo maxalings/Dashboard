@@ -45,33 +45,32 @@
     </div>
 
     <%# below the form  to add a flashcards %>
-<div class="hidden" 
-    data-flashcards-handler-target="form">
-    <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
-    <div class="flex justify-center">
-        <div class="form-control m-8">
-            <%= form.label :question, class: "label" do %>
-            <span class="label-text">Question</span>
-            <% end %>
-            <%= form.text_field :question, class: "input input-bordered w-full" %>
+    <div class="hidden" 
+        data-flashcards-handler-target="form">
+        <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
+        <div class="flex justify-center">
+            <div class="form-control m-8">
+                <%= form.label :question, class: "label" do %>
+                    <span class="label-text">Question</span>
+                <% end %>
+                <%= form.text_field :question, class: "rounded-md input input-bordered w-full" %>
+            </div>
+            <div class="form-control m-8">
+                <%= form.label :answer, class: "label" do %>
+                    <span class="label-text">Answer</span>
+                <% end %>
+                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full" %>
+            </div>
+            <div class="flex mt-9">
+            <div class="form-control mt-8">
+            <%= form.submit "Add", class: "btn btn-primary w-full" %>
+            </div>
+            <div class="form-control m-8">
+            <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+            </div>
+            </div>
         </div>
-        <div class="form-control m-8">
-            <%= form.label :answer, class: "label" do %>
-            <span class="label-text">Answer</span>
-            <% end %>
-            <%= form.text_field :answer, class: "input input-bordered w-full" %>
-        </div>
+        <% end %>
     </div>
-    <div class="mt-4 flex justify-center">
-        <div class="form-control mt-8">
-        <%= form.submit "Submit", class: "btn btn-primary w-full" %>
-        </div>
-        <div class="form-control m-8">
-        <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
-        </div>
-    </div>
-    </div>
-    <% end %>
 </div>
-
 
