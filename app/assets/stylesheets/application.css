@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .widget-layout{
 border-radius: 8px;
 background-color:rgb(76, 207, 222);
@@ -27,7 +30,7 @@ h1 {
 
 h2{
   font-size: 33px !important;
-  font-family: "Urbanist", serif;
+  font-family: "Urbanist", serif !important;
   font-weight: 500 !important;
 }
 
