@@ -122,19 +122,19 @@ background-color: #86ADA5;
 
 /* Stock Portfolio widget */
 .text-green-dark {
-  color: #B4BE89;
+  color: #6e7551;
 }
 .text-green-light {
 color: #D6DEAF;
 }
-.bd-green-light {
+.bg-green-light {
 background-color: #D6DEAF;
 }
-.bd-green-dark {
-background-color: #B4BE89;
+.bg-green-dark {
+background-color: #868f61;
 }
 .border-green-dark {
-  border: 2px solid #B4BE89;
+  border: 2px solid #868f61;
   }
 
  /* Flashcard widget */
