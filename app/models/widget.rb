@@ -14,7 +14,6 @@ class Widget < ApplicationRecord
         "habits" => {dark: "#DB6D6B", light: "#F2CAC9", darkgrey: "#383838", grey: "#707070"},
         "fitness" => {dark: "#A487D4", light: "#D9CDED", darkgrey: "#383838", grey: "#707070"},
         "flashcards" => {dark: "#A487D4", light: "#D9CDED", darkgrey: "#383838", grey: "#707070"}
-
       }
-  end
+    end
 end

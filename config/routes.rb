@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     post '/new_goal', to: 'tasks#goal'
     member do
       get 'habits'
+
+    resources :flashcards, only: :create
+    
     end
   end
 
