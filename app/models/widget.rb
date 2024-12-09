@@ -10,6 +10,7 @@ class Widget < ApplicationRecord
   def self.default_width(category)
     case category
     when "habits" then return 2
+    when "fitness" then return 3
     else return 1
     end
   end
@@ -17,6 +18,7 @@ class Widget < ApplicationRecord
   def self.default_height(category)
     case category
     when "habits" then return 2
+    when "fitness" then return 2
     else return 1
     end
   end

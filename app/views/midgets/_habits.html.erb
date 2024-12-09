@@ -1,21 +1,22 @@
 <%# reset habits if first session of the day %>
-<div class="bg-red-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center">
+<div class="bg-red-light h-full w-full rounded-lg p-4 flex flex-col">
 <% service.reset_habits %>
   <%= turbo_frame_tag "new_habit" do %>
-  <div class="flex -between">
-    <h2 class="card-title">Habits</h2>
-    <%= link_to '+', new_widget_task_path(service.widget) %>
+  <div class="flex justify-between w-full pb-3">
+    <h4 class="card-title flex justify-start text-xl">Habits</h4>
+    <%= link_to '+', new_widget_task_path(service.widget), 
+    class:"bg-red-dark text-red-light px-3 rounded-md " %>
   </div>
     <div class="overflow-y-auto max-h-[200px] pr-2" data-controller="habits">
       <%# display habits %>
       <% service.tasks.sort.each do |task| %>
-        <div class="form-control ms-5">
-          <label class="label cursor-pointer gap-2 flex justify-start">
+        <div class="form-control">
+          <label class="py-2 cursor-pointer gap-3 flex justify-start">
             <input type="checkbox"
               <%= task.done == true ? "checked" : "" %>
               data-action="click->habits#done"
               data-id="<%= task.id %>"
-              class="checkbox checkbox-primary" />
+              class="checkbox bg-red-dark border-none w-[20px] h-[20px] " />
             <span class="label-text"><%= task.title %></span>
           </label>
         </div>
