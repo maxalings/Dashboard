@@ -41,7 +41,7 @@ Task.create!(title: "floss", done: true, widget: habit_widget)
 Task.create!(title: "journal", done: false, widget: habit_widget)
 
 puts "user and widget created"
-Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
+Widget.create!( category: "time", user: nini, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: sugi, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
@@ -56,5 +56,3 @@ Flashcard.create!(question: "what is the capital of Ouganda ?", answer: "Kampala
 Flashcard.create!(question: "what is the capital of argentina ?", answer: "Buenos Aires", widget: flashcard)
 Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
-
-
