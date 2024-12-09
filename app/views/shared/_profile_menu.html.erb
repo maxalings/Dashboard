@@ -1,29 +1,29 @@
 <%= turbo_frame_tag :edit_profile do %>
     <%= turbo_frame_tag :edit_profile do %>
-<label class="block" style="overflow: scroll">    
-    <label class="input input-bordered flex items-center gap-2 mb-4">
-    Name
-    <input type="text" class="grow italic" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
+<label class="block overflow-scroll mt-5">
+    <label class="input rounded-lg flex items-center gap-2 mb-3">
+      <input type="text" class="grow" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
+      <%= lucide_icon("user", "class" => "h-4 w-4 text-gray-500") %>
+   </label>
+
+    <label class="input rounded-lg flex items-center gap-2 mb-3">
+      <input type="text" class="grow" value="<%= @user.last_name %>" placeholder="myName", disabled="true" />
+      <%= lucide_icon("user", "class" => "h-4 w-4 text-gray-500") %>
     </label>
 
-    <label class="input input-bordered flex items-center gap-2 mb-4">
-    Name
-    <input type="text" class="grow italic" value="<%= @user.last_name %>" placeholder="myName", disabled="true" />
+
+    <label class="input rounded-lg flex items-center gap-2 mb-3">
+      <input type="text" class="grow" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
+      <%= lucide_icon("mail", "class" => "h-4 w-4 text-gray-500") %>
     </label>
 
-
-    <label class="input input-bordered flex items-center gap-2 mb-4">
-    Email
-    <input type="text" class="grow italic" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
-    </label>
-
-    <label class="input input-bordered flex items-center gap-2">
-    Password
-    <input type="text" class="grow italic" value="***********" placeholder="*********" disabled="true"/>
+    <label class="input rounded-lg flex items-center gap-2">
+      <input type="text" class="grow" value="***********" placeholder="*********" disabled="true"/>
+      <%= lucide_icon("lock", "class" => "h-4 w-4 text-gray-500") %>
     </label>
 </label>
-    <% end %>     
-<% end %>  
+    <% end %>
+<% end %>
 
 <div class="flex justify-center">
         <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
@@ -32,6 +32,6 @@
             <% end %>
         </div>
     <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
-        <%= lucide_icon("log-out", class: "h-4 w-4") %>        
+        <%= lucide_icon("log-out", class: "h-4 w-4") %>
     </div>
 </div>
