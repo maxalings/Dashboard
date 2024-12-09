@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["time"]; // Définit les cibles accessibles
+  static targets = ["midget"]; // Définit les cibles accessibles
 
   connect() {
     this.startClock();
   }
 
   startClock() {
-    const initialTime = this.parseTime(this.timeTarget.dataset.time);
+    const initialTime = this.parseTime(this.midgetTarget.dataset.time);
 
     const updateClock = () => {
       const now = new Date();
@@ -20,7 +20,7 @@ export default class extends Controller {
       const [time, period] = currentTime.toLocaleTimeString("en-US", options).split(" ");
 
       // Mettre à jour l'affichage
-      this.timeTarget.innerHTML = `
+      this.midgetTarget.innerHTML = `
       <p class="font-['Orbitron'] text-mint-dark text-xs">${period}</p>
       <p class="font-['Orbitron'] text-mint-dark text-2xl">${time}</p>
       `;
