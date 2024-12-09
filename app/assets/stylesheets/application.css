@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-.widget-layout{
-border-radius: 8px;
-background-color:rgb(76, 207, 222);
-margin: 15px ;
-}
-
-
-.setting-layout {
-    height: calc(120px * 5 + 20px * 3);
-    border-radius: 8px;
-    background-color: rgb(240, 240, 240);
-    display: flex; /* To center content if needed */
-    justify-content: center;
-    align-items: center;
-}
-
 
 /* ---------- FONTS ----------- */
 
@@ -97,12 +81,36 @@ p{
   0px 0px 50px rgba(0, 0, 0, 0.08);
 }
 
+.shadow-menu{
+  box-shadow:
+  0px 0px 1.6px rgba(0, 0, 0, 0.014),
+  0px 0px 3.9px rgba(0, 0, 0, 0.02),
+  0px 0px 7.3px rgba(0, 0, 0, 0.025),
+  0px 0px 13px rgba(0, 0, 0, 0.03),
+  0px 0px 24.2px rgba(0, 0, 0, 0.036),
+  0px 0px 58px rgba(0, 0, 0, 0.05)
+;
+}
+
 #hero-header{
   font-size: 54px !important;
   line-height: 54px;
 }
 
-/* ---------- COLORS ----------- */
+/* ---------- COLORS BRANDING ----------- */
+.text-primary {
+  color: #575EAD;
+}
+.text-secondary {
+  color: #9296C9;
+}
+.bg-primary {
+  background-color: #575EAD;
+}
+.bg-secondary {
+  background-color: #9296C9;
+}
+/* ---------- COLORS WIDGETS ----------- */
 
  /* Time widget */
  .text-mint-dark {
@@ -202,3 +210,8 @@ background-color: #EEEEEE;
 .bg-grey-dark {
 background-color: #707070;
 }
+
+.border-grey-light {
+  border: 2px solid #EEEEEE;
+  border-radius: 20px;
+  }
