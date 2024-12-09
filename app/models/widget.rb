@@ -11,6 +11,8 @@ class Widget < ApplicationRecord
     case category
     when "habits" then return 2
     when "fitness" then return 3
+    when "flashcards" then return 3
+    when "stock_portfolio" then return 2
     else return 1
     end
   end
@@ -19,6 +21,8 @@ class Widget < ApplicationRecord
     case category
     when "habits" then return 2
     when "fitness" then return 2
+    when "flashcards" then return 1
+    when "stock_portfolio" then return 1
     else return 1
     end
   end
