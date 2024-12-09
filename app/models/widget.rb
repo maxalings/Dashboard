@@ -3,6 +3,7 @@ class Widget < ApplicationRecord
   has_many :tasks
   has_many :stocks
   has_many :flashcards
+  has_many :races
 
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards"],
     message: "%{value} is not a valid category"}
@@ -23,5 +24,5 @@ class Widget < ApplicationRecord
     end
   end
 
-  
+
 end
