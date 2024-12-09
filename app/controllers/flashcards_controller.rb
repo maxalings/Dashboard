@@ -1,26 +1,19 @@
 class FlashcardsController < ApplicationController
-
-  def index
-    @flashcard = Flashcard.all
-  end
-  
-  def create
-    @flashcard = Flashcard
-  end
-
-  def new
-    @flashcard = Flashcard.new
-  end
-
   def create
     @flashcard = Flashcard.new(flaschard_params)
+    @flashcard.widget = Widget.find(params[:widget_id])
     @flashcard.save
-    redirect_to widgets_path(current_user)
-      
+    redirect_to widgets_path
   end
     
-    private
-    def flaschard_params
-      params.require(:flashcard).permit(:question, :answer)
-    end
+  def destroy
+    flashcard = Flashcard.find(params[:flashcard])
+    flashcard.destroy
+    redirect_to widget_flashcards_path, notice: "Flashcard deleted successfully."
+  end
+
+  private
+  def flaschard_params
+    params.require(:flashcard).permit(:question, :answer)
+  end
 end

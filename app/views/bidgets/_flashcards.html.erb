@@ -43,7 +43,7 @@
                 </span>
             </div>
             <div class="flex ml-auto">
-                <button class="btn btn-neutral bg-blue-dark"
+                <button class="btn btn-secondary bg-blue-dark"
                 data-action="click->flashcards-handler#toggleForm"
                 >Add a new flashcard</button>
             </div>
@@ -78,16 +78,19 @@
             </div>
         <% end %>
         </div>
-        <div class="flex">
-           <div class="pl-12">
-                <%  service.flashcards.each do |flashcard| %>
+        <div class="flex flex-col">
+            <%  service.flashcards.each do |flashcard| %>
+                <div class="flex items-center mb-4">
                     <h3><%= flashcard.question %></h3>
-                <% end %>
-            </div>
-           <div class=" pl-52">
-                <%  service.flashcards.each do |flashcard| %>
-                    <h3><%= flashcard.answer %></h3>
-                <% end %>
+                    
+                    <h3 ><%= flashcard.answer %></h3>
+
+                    <%= button_to "Delete", flashcard_path(flashcard), 
+                        class: "btn btn-danger ml-2", 
+                        data: { turbo_method: :delete, confirm: "Delete this flashcard?" } %>
+                </div>
+            <% end %>
+        </div>
            </div>
         </div>
     </div>
