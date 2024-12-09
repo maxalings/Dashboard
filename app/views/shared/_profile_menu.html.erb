@@ -25,13 +25,10 @@
     <% end %>
 <% end %>
 
-<div class="flex justify-center">
-        <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
-            <%= link_to edit_user_registration_path(current_user), data: { turbo_frame: "edit_profile" } do %>
-                <%= lucide_icon("pencil", class: "h-4 w-4") %>
-            <% end %>
-        </div>
-    <div class="border border-black  w-8 rounded-lg m-4 flex items-center justify-center aspect-square">
-        <%= lucide_icon("log-out", class: "h-4 w-4") %>
-    </div>
+<div class="flex justify-center w-full">
+  <%= link_to "Edit", edit_user_registration_path(current_user),
+      class: "button flex-1 border border-black rounded-lg m-2 text-center py-2 bg-gray-200 hover:bg-gray-300",
+      data: { turbo_frame: "edit_profile" } %>
+  <%= link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete},
+      class: "button flex-1 border border-black rounded-lg m-2 text-center py-2 bg-red-200 hover:bg-red-300" %>
 </div>
