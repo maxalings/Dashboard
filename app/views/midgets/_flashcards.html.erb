@@ -1,39 +1,42 @@
 <div class="h-full w-full rounded-lg p-3 flex flex-col justify-center items-center bg-blue-light" 
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
-    <h6  class=" justify-center text-center mt-4 text-blue-dark"
+    <div class="w-full flex items-start">
+    <h4 class="bold " >Flashcards</h4>
+    </div>
+    <p  class="justify-center text-center mt-4 text-grey-dark"
         data-flashcards-handler-target="text"
         data-question="<%= service.flashcards[0].question %>"
         data-answer="<%= service.flashcards[0].answer %>" >
-        <%= service.flashcards[0].question %></h6>
+        <%= service.flashcards[0].question %></p>
 
     <div class="flex justify-between mt-auto w-full">
-        <div class="border border-black w-12 rounded-xl flex items-center justify-center aspect-square bg-blue-dark">
+        <div class="w-12 rounded-xl flex items-center justify-center aspect-square bg-blue-dark">
             <span 
             role="button" 
             aria-label="Toggle Question/Answer"
             data-icon="eye" 
             data-flashcards-handler-target="show" 
             data-action="click->flashcards-handler#show">
-            <%= lucide_icon("eye", class: "h-6 w-6 item-center justify-center") %> 
+            <%= lucide_icon("eye", class: "h-6 w-6 item-center justify-center text-blue-dark") %> 
             </span>
         </div>
 
         <div class="flex place-content-end items-center justify-center">
             <span 
-            class="border-black w-12 rounded-xl"
+            class="w-12 rounded-xl"
             role="button" 
             aria-label="Previous Question"
             data-action="click->flashcards-handler#previousQuestion">
-            <%= lucide_icon("chevron-left", class: "h-12 w-12") %>
+            <%= lucide_icon("chevron-left", class: "h-12 w-12 text-blue-dark") %>
                 </span>
 
             <span 
-            class="border-black w-12 rounded-xl"
+            class="w-12 rounded-xl"
             role="button" 
             aria-label="Next Question"
             data-action="click->flashcards-handler#nextQuestion">
-            <%= lucide_icon("chevron-right", class: "h-12 w-12") %>
+            <%= lucide_icon("chevron-right", class: "h-12 w-12 text-blue-dark") %>
             </span>
         </div>
     </div>
