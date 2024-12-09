@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :widgets do
     get 'stocks', to: 'widgets#stock_portfolio'
     resources :stocks, only: :create
-
+    resources :flashcards, only: :create
     resources :tasks
     get 'fitness'
     get '/new_routine', to: 'tasks#new_routine'
@@ -30,9 +30,6 @@ Rails.application.routes.draw do
     post '/new_goal', to: 'tasks#goal'
     member do
       get 'habits'
-
-    resources :flashcards, only: :create
-    
     end
   end
 

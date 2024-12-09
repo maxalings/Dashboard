@@ -1,5 +1,5 @@
 class Widgets::FlashcardsService
-  attr_reader :flashcards
+  attr_reader :flashcards, :widget
 
   def initialize(widget)
     @widget = widget

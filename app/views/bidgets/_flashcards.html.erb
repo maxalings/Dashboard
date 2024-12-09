@@ -41,31 +41,34 @@
     <div class="flex ml-auto">
         <button class="btn btn-neutral m-8">Add a new flashcard</button>
     </div>
+
     <%# below the form  to add a flashcards %>
-    <div> 
-        <%= form_with(model: Flashcard.new, url: flashcards_path)  do |form| %>
-  <div class="form-control">
-    <%= form.label :question, class: "label" do %>
-      <span class="label-text">Question</span>
-    <% end %>
-    <%= form.text_field :tickr, class: "input input-bordered w-full" %>
-  </div>
-
-  <div class="form-control">
-    <%= form.label :answer, class: "label" do %>
-      <span class="label-text">Answer</span>
-    <% end %>
-    <%= form.text_field :amount, class: "input input-bordered w-full" %>
-  </div>
-
-  <div class="form-control mt-4">
-    <%= form.submit "Submit", class: "btn btn-primary w-full" %>
-    <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
-
-  </div>
-<% end %>
+<div class="border-green-500"> 
+    <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
+    <div class="flex justify-center">
+        <div class="form-control m-8">
+            <%= form.label :question, class: "label" do %>
+            <span class="label-text">Question</span>
+            <% end %>
+            <%= form.text_field :question, class: "input input-bordered w-full" %>
+        </div>
+        <div class="form-control m-8">
+            <%= form.label :answer, class: "label" do %>
+            <span class="label-text">Answer</span>
+            <% end %>
+            <%= form.text_field :amount, class: "input input-bordered w-full" %>
+        </div>
+    </div>
+    <div class="mt-4 flex justify-center">
+        <div class="form-control mt-8">
+        <%= form.submit "Submit", class: "btn btn-primary w-full" %>
+        </div>
+        <div class="form-control m-8">
+        <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+        </div>
     </div>
     </div>
+    <% end %>
 </div>
-</div>
+
 
