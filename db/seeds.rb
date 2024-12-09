@@ -19,7 +19,7 @@ eva = User.create!(email: "eva@dashboard.com", password: "1234567", first_name: 
 nini = User.create!(email: "nini@dashboard.com", password: "1234567", first_name: "Nini", last_name:"Shen")
 fra = User.create!(email: "fra@dashboard.com", password: "1234567", first_name: "Fra", last_name:"Christmas")
 
-finance = Widget.create!(user: max, category: "stock_portfolio", height: 2, width: 2)
+finance = Widget.create!(user: max, category: "stock_portfolio", height: 1, width: 2)
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
 puts "Creating sample widget"
 fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
@@ -42,6 +42,7 @@ Task.create!(title: "journal", done: false, widget: habit_widget)
 
 puts "user and widget created"
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
+Widget.create!( category: "time", user: max, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: sugi, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
@@ -56,5 +57,3 @@ Flashcard.create!(question: "what is the capital of Ouganda ?", answer: "Kampala
 Flashcard.create!(question: "what is the capital of argentina ?", answer: "Buenos Aires", widget: flashcard)
 Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
-
-
