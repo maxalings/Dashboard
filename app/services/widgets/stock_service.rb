@@ -12,8 +12,12 @@ class StockService
       url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo"
       response = URI.open(url).read
       data = JSON.parse(response)
+      if data["Information"].nil?
+        100
+      else
       data["Time Series (Daily)"][formatted_yesterday]["4. close"].to_f
       # data["Global Quote"]["05. price"].to_f
+      end
     end
   end
 end
