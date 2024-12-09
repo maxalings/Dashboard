@@ -1,4 +1,4 @@
-<div class="flex-col hadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-blue-light" 
+<div class="flex-col shadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-blue-light" 
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
      <div class="w-full flex justify-center">
@@ -23,32 +23,30 @@
                 </span>
             </div>
         </div>
-
-            <div>
-                <span 
-                class="border-black w-12 rounded-xl"
-                role="button" 
-                aria-label="Previous Question"
-                data-action="click->flashcards-handler#previousQuestion">
-                <%= lucide_icon("chevron-left", class: "h-12 w-12 text-blue-dark") %>
-                </span>
-            </div>
-            <div>
-                <span 
-                class="border-black w-12 rounded-xl"
-                role="button" 
-                aria-label="Next Question"
-                data-action="click->flashcards-handler#nextQuestion">
-                <%= lucide_icon("chevron-right", class: "h-12 w-12 text-blue-dark") %>
-                </span>
-            </div>
-            <div class="flex ml-auto">
-                <button class="btn btn-secondary bg-blue-dark"
-                data-action="click->flashcards-handler#toggleForm"
-                >Add a new flashcard</button>
-            </div>
+        <div>
+            <span 
+            class="border-black w-12 rounded-xl"
+            role="button" 
+            aria-label="Previous Question"
+            data-action="click->flashcards-handler#previousQuestion">
+            <%= lucide_icon("chevron-left", class: "h-12 w-12 text-blue-dark") %>
+            </span>
+        </div>
+        <div>
+            <span 
+            class="border-black w-12 rounded-xl"
+            role="button" 
+            aria-label="Next Question"
+            data-action="click->flashcards-handler#nextQuestion">
+            <%= lucide_icon("chevron-right", class: "h-12 w-12 text-blue-dark") %>
+            </span>
+        </div>
+        <div class="flex ml-auto">
+            <button class="btn btn-secondary bg-blue-dark"
+            data-action="click->flashcards-handler#toggleForm"
+            >Add a new flashcard</button>
+        </div>
     <%# this part below shall be only on the BIDGET %>
-
     </div>
 
     <%# below the form  to add a flashcards %>
@@ -69,29 +67,32 @@
                 <%= form.text_field :answer, class: "rounded-md input input-bordered w-full", maxlength: 70 %>
             </div>
             <div class="flex mt-9">
-            <div class="form-control mt-2">
-            <%= form.submit "Add", class: "btn btn-primary w-ful bg-blue-dark" %>
-            </div>
-            <div class="form-control m-2">
-            <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
-            </div>
+                <div class="form-control mt-2">
+                    <%= form.submit "Add", class: "btn btn-primary w-ful bg-blue-dark" %>
+                </div>
+                <div class="form-control m-2">
+                    <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+                </div>
             </div>
         <% end %>
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col mt-8 pl-8 pr-14">
             <%  service.flashcards.each do |flashcard| %>
-                <div class="flex items-center mb-4">
-                    <h3><%= flashcard.question %></h3>
-                    
-                    <h3 ><%= flashcard.answer %></h3>
-
-                    <%= button_to "Delete", flashcard_path(flashcard), 
-                        class: "btn btn-danger ml-2", 
-                        data: { turbo_method: :delete, confirm: "Delete this flashcard?" } %>
+                <div class="justify-between flex items-center mb-4 ">
+                    <div class="mr-12">
+                        <h3><%= flashcard.question %></h3>
+                    </div>
+                    <div class=" mr-12">
+                        <h3 ><%= flashcard.answer %></h3>
+                    </div>
+                    <div class="mr-12">
+                        <%= link_to "Delete", flashcard_path(flashcard), 
+                            class: "btn btn-danger ml-2", 
+                            data: { turbo_method: :delete, 
+                            confirm: "Delete this flashcard?" } %>
+                    </div>
                 </div>
             <% end %>
-        </div>
-           </div>
         </div>
     </div>
 </div>

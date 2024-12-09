@@ -7,9 +7,9 @@ class FlashcardsController < ApplicationController
   end
     
   def destroy
-    flashcard = Flashcard.find(params[:flashcard])
+    flashcard = Flashcard.find(params[:id])
     flashcard.destroy
-    redirect_to widget_flashcards_path, notice: "Flashcard deleted successfully."
+    redirect_to widget_path, notice: "Flashcard deleted successfully."
   end
 
   private
