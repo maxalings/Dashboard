@@ -1,20 +1,21 @@
-<%# TODO this partial needs to use turbo frame tags to load tasks/new.html.erb which contains a form for user to
-<%# input their new habit, save to db, and return to this _habits partial %> 
-
+<%# reset habits if first session of the day %>
+<% service.reset_habits %>
 <div class="bg-red-300 p-3">
   <%= turbo_frame_tag "new_habit" do %>
   <div class="flex justify-between m-5">
     <h2 class="card-title text-left">Habits</h2>
     <%= link_to '+', new_widget_task_path(service.widget) %>
   </div>
-    <div class="overflow-y-auto max-h-[200px] pr-2">
-      <% service.tasks.each do |task| %>
+    <div class="overflow-y-auto max-h-[200px] pr-2" data-controller="habits">
+      <%# display habits %>
+      <% service.tasks.sort.each do |task| %>
         <div class="form-control ms-5">
           <label class="label cursor-pointer gap-2 flex justify-start">
-            <input type="checkbox" 
-            <%= task.done == true ? "checked" : "" %>
-              <%# need to implement way to update task as done when checked. probably stimulus %>
-            class="checkbox checkbox-primary" />
+            <input type="checkbox"
+              <%= task.done == true ? "checked" : "" %>
+              data-action="click->habits#done"
+              data-id="<%= task.id %>"
+              class="checkbox checkbox-primary" />
             <span class="label-text"><%= task.title %></span>
           </label>
         </div>
