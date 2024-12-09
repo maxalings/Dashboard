@@ -4,15 +4,6 @@ background-color:rgb(76, 207, 222);
 margin: 15px ;
 }
 
-/* .setting-layout{
-     height: calc(120px * 4 + 45px * 3);
-     border-radius: 8px;
-     margin: 15px 15px 15px 15px;
-     background-color: rgb(240, 240, 240);
-     border: solid 1px black;
-     margin-top: auto;
-    margin-bottom: auto;
-} */
 
 .setting-layout {
     height: calc(120px * 5 + 20px * 3);
@@ -23,6 +14,9 @@ margin: 15px ;
     align-items: center;
 }
 
+
+/* ---------- FONTS ----------- */
+
 body{
   background-color: #F9F9F9;
 }
@@ -32,9 +26,9 @@ h1 {
 }
 
 h2{
-  font-size: 33px;
+  font-size: 33px !important;
   font-family: "Urbanist", serif;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 h3{
@@ -58,6 +52,7 @@ p{
 .btn {
   padding: 0px 30px;
   border-radius: 10px;
+  border: none;
 }
 
 .btn-primary{
@@ -103,10 +98,103 @@ p{
   line-height: 54px;
 }
 
+/* ---------- COLORS ----------- */
 
-/* primary: '#575EAD',
-secondary: '#9296C9',
-darkgrey: "#707070",
-grey: "#E0E0E0",
-lightgrey: "#EEEEEE"
-natural: "#F9F9F9"*/
+ /* Time widget */
+ .text-mint-dark {
+  color: #86ADA5;
+}
+.text-mint-light {
+color: #CEE3DE;
+}
+.bg-mint-light {
+  background-color: #CEE3DE;
+}
+.bg-mint-dark {
+background-color: #86ADA5;
+}
+.border-mint-dark {
+  border: 2px solid #86ADA5;
+  }
+
+/* Stock Portfolio widget */
+.text-green-dark {
+  color: #B4BE89;
+}
+.text-green-light {
+color: #D6DEAF;
+}
+.bd-green-light {
+background-color: #D6DEAF;
+}
+.bd-green-dark {
+background-color: #B4BE89;
+}
+.border-green-dark {
+  border: 2px solid #B4BE89;
+  }
+
+ /* Flashcard widget */
+.text-blue-dark {
+  color: #82ADD9;
+}
+.text-blue-light {
+  color: #CBDDEF;
+}
+.bg-blue-light {
+background-color: #CBDDEF;
+}
+.bg-blue-dark {
+background-color: #82ADD9;
+}
+.border-blue-dark {
+  border: 2px solid #82ADD9;
+  }
+
+/* Habits widget */
+.text-red-dark {
+  color: #DB6D6B;
+}
+.text-red-light {
+  color: #F2CAC9;
+}
+.bg-red-light {
+background-color: #F2CAC9;
+}
+.bg-red-dark {
+background-color: #DB6D6B;
+}
+.border-red-dark {
+  border: 2px solid #DB6D6B;
+  }
+
+/* Fitness widget */
+.text-purple-dark {
+  color: #A487D4;
+}
+.text-purple-light {
+color: #D9CDED;
+}
+.bg-purple-light {
+background-color: #D9CDED;
+}
+.bg-purple-dark {
+background-color: #A487D4;
+}
+.border-red-dark {
+  border: 2px solid #A487D4;
+  }
+
+/* Grey */
+.text-grey-dark {
+  color: #707070;
+}
+.text-grey-light {
+color: #EEEEEE;
+}
+.bg-grey-light {
+background-color: #EEEEEE;
+}
+.bg-grey-dark {
+background-color: #707070;
+}
