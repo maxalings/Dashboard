@@ -1,54 +1,69 @@
-<div class="bg-purple-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center">
-  <!-- Section Title: Fitness -->
-  <h2 class="text-2xl font-bold mb-4 text-gray-800">Fitness</h2>
+<div class="bg-purple-light h-full w-full rounded-lg p-6 space-y-8">
+  <!-- Section Title -->
+  <h1 class="text-2xl font-bold text-gray-800 text-center">Fitness</h1>
 
   <!-- Next Race Countdown -->
-  <div class="mb-6">
-    <p class="text-lg font-semibold mb-2 text-gray-600">Next race is in...</p>
-    <%#= render "tasks/race_countdown" %>
-    <div class="bg-neutral rounded-box text-neutral-content flex p-2">
-      <span class="countdown font-mono text-5xl">
+  <div class="space-y-2">
+    <h3 class="text-lg font-semibold text-gray-600 mb-3">Next race is in...</h3>
+    <div class="bg-purple-dark rounded-lg text-neutral-content p-3 text-center">
+      <span class="countdown font-mono text-4xl">
         <span style="--value:<%= @days %>;"></span>
       </span>
-      days
+      <p class="text-sm mt-1">days</p>
     </div>
   </div>
 
   <!-- Progress Bar -->
-  <div class="mb-6">
-    <p class="text-lg font-semibold mb-2 text-gray-600">Progress bars for goal tracking:</p>
-    <progress class="progress progress-success w-full" value="50" max="100"></progress>
-    <div class="flex justify-between mt-2 text-sm text-gray-500">
-      <p class="order-first">0</p>
-      <p class="order-last">300km</p>
+  <%# <div class="space-y-3">
+    <p class="text-lg font-semibold text-gray-600">Progress bars for goal tracking:</p>
+    <progress class="progress progress-success w-full rounded-lg" value="50" max="100"></progress>
+    <div class="flex justify-between text-sm text-gray-500">
+      <span>0</span>
+      <span>300km</span>
     </div>
-  </div>
+  </div> %>
 
   <!-- Routine Tasks -->
   <div>
-    <p class="text-lg font-semibold mb-2 text-gray-600">Routine Tasks:</p>
-    <% service.tasks.each do |task| %>
-      <% today = Date.today.strftime("%A").downcase %>
-      <% if task.send(today) %>
-        <div class="p-2 mb-4 border-b border-gray-200">
-          <!-- Task Checkbox and Title -->
-          <div class="flex items-center space-x-3">
-            <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox h-5 w-5 text-blue-600">
-            <label for="task_<%= task.id %>" class="text-base font-semibold text-gray-800"><%= task.title %></label>
-          </div>
+    <h3 class="text-lg font-semibold text-gray-600 mb-3">Routine Tasks:</h3>
+    <div class="space-y-4">
+      <% service.tasks.each do |task| %>
+        <% today = Date.today.strftime("%A").downcase %>
+        <% if task.send(today) %>
+          <div class="task-item flex flex-col space-y-3 p-4 bg-white shadow-sm rounded-lg hover:shadow-md transition-shadow" data-id="<%= task.id %>">
+            <!-- Task Checkbox and Title -->
+            <div class="flex items-center space-x-3">
+              <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox h-5 w-5 text-blue-600 task-checkbox" <%= 'checked' if task.done %>>
+              <label for="task_<%= task.id %>" class="text-base font-medium text-gray-800"><%= task.title %></label>
+            </div>
 
-          <!-- Days of the week -->
-          <p class="text-xs text-gray-600 mt-1">
-            <%= "Monday" if task.monday %>
-            <%= "Tuesday" if task.tuesday %>
-            <%= "Wednesday" if task.wednesday %>
-            <%= "Thursday" if task.thursday %>
-            <%= "Friday" if task.friday %>
-            <%= "Saturday" if task.saturday %>
-            <%= "Sunday" if task.sunday %>
-          </p>
-        </div>
+            <!-- Days of the Week -->
+            <div class="flex flex-wrap gap-2">
+              <% if task.monday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Monday</span>
+              <% end %>
+              <% if task.tuesday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Tuesday</span>
+              <% end %>
+              <% if task.wednesday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Wednesday</span>
+              <% end %>
+              <% if task.thursday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Thursday</span>
+              <% end %>
+              <% if task.friday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Friday</span>
+              <% end %>
+              <% if task.saturday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Saturday</span>
+              <% end %>
+              <% if task.sunday %>
+                <span class="text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-full">Sunday</span>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

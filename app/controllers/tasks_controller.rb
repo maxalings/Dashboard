@@ -23,9 +23,11 @@ class TasksController < ApplicationController
   end
 
   def race
+
   end
 
   def goal
+
   end
 
   def create
