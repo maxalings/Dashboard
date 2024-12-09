@@ -1,0 +1,40 @@
+<div class="card h-[400px] border-green-500 flex-col bg-green-200 rounded-2xl" 
+    data-controller="flashcards-handler" 
+    data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
+    <h1  class=" justify-center text-center mt-36"
+        data-flashcards-handler-target="text"
+        data-question="<%= service.flashcards[0].question %>"
+        data-answer="<%= service.flashcards[0].answer %>" >
+        <%= service.flashcards[0].question %></h1>
+
+    <div class="flex justify-between">
+        <div class="border border-black w-12 rounded-xl m-8 flex items-center justify-center aspect-square">
+            <span 
+            role="button" 
+            aria-label="Toggle Question/Answer"
+            data-icon="eye" 
+            data-flashcards-handler-target="show" 
+            data-action="click->flashcards-handler#show">
+            <%= lucide_icon("eye", class: "h-6 w-6 item-center justify-center") %> 
+            </span>
+        </div>
+
+        <div class="flex place-content-end items-center justify-center mr-20">
+            <span 
+            class="border-black w-12 rounded-xl"
+            role="button" 
+            aria-label="Previous Question"
+            data-action="click->flashcards-handler#previousQuestion">
+            <%= lucide_icon("chevron-left", class: "h-12 w-12") %>
+                </span>
+
+            <span 
+            class="border-black w-12 rounded-xl"
+            role="button" 
+            aria-label="Next Question"
+            data-action="click->flashcards-handler#nextQuestion">
+            <%= lucide_icon("chevron-right", class: "h-12 w-12") %>
+            </span>
+        </div>
+    </div>
+</div>
