@@ -39,11 +39,14 @@
     </div>
     <%# this part below shall be only on the BIDGET %>
     <div class="flex ml-auto">
-        <button class="btn btn-neutral m-8">Add a new flashcard</button>
+        <button class="btn btn-neutral m-8"
+        data-action="click->flashcards-handler#toggleForm"
+        >Add a new flashcard</button>
     </div>
 
     <%# below the form  to add a flashcards %>
-<div class="border-green-500"> 
+<div class="hidden" 
+    data-flashcards-handler-target="form">
     <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
     <div class="flex justify-center">
         <div class="form-control m-8">
@@ -56,7 +59,7 @@
             <%= form.label :answer, class: "label" do %>
             <span class="label-text">Answer</span>
             <% end %>
-            <%= form.text_field :amount, class: "input input-bordered w-full" %>
+            <%= form.text_field :answer, class: "input input-bordered w-full" %>
         </div>
     </div>
     <div class="mt-4 flex justify-center">

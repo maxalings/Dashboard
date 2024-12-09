@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 // "arrow_left", "arrow_right",
 // Connects to data-controller="flashcards-handler"
 export default class extends Controller {
-  static targets = ["show", "text"]
+  static targets = ["show", "text", "form"]
   connect() {
 
     console.log ("controller OK"); 
@@ -49,6 +49,9 @@ export default class extends Controller {
     this.showingQuestion = !this.showingQuestion;
   }
 
+  toggleForm() {
+    this.formTarget.classList.toggle("hidden");
+  }
 
 
   previousQuestion() {
