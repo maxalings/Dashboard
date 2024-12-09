@@ -25,5 +25,4 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
   end
-
 end

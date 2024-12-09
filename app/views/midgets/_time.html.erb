@@ -1,4 +1,9 @@
-  <div class="bg-mint-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center">
-    <p class="font-['Orbitron'] text-mint-dark text-xl"><%= service.converted_time %></p>
-    <h4 class="uppercase text-mint-dark text-md mt-3"><%= service.timezone %></h4>
+<div class="bg-mint-light h-full w-full rounded-lg p-3 flex flex-col justify-center items-center"
+     data-controller="live-clock">
+  <div class="text-center"
+     data-live-clock-target="time"
+     data-time="<%= service.converted_time %>">
+     <%# live clock controller %>
+  </div>
+  <h4 class="uppercase text-mint-dark text-sm mt-3"><%= service.timezone %></h4>
 </div>
