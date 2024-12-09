@@ -4,14 +4,14 @@
     <div class="w-full flex items-start">
     <h3 class="text-blue-dark" >Flashcards</h3>
     </div>
-    <p  class="justify-center text-center mt-4 text-grey-dark"
+    <p  class="justify-center text-center text-grey-dark"
         data-flashcards-handler-target="text"
         data-question="<%= service.flashcards[0].question %>"
         data-answer="<%= service.flashcards[0].answer %>" >
         <%= service.flashcards[0].question %></p>
 
     <div class="flex justify-between mt-auto w-full">
-        <div class="w-12 rounded-xl flex items-center justify-center aspect-square bg-blue-dark">
+        <div class="w-9 h-9 flex items-center justify-center rounded-lg aspect-square btn min-h-0 btn-secondary p-0 bg-blue-dark mr-10 mb-3">
             <span 
             role="button" 
             aria-label="Toggle Question/Answer"
@@ -28,7 +28,7 @@
             role="button" 
             aria-label="Previous Question"
             data-action="click->flashcards-handler#previousQuestion">
-            <%= lucide_icon("chevron-left", class: "h-12 w-12 text-blue-dark") %>
+            <%= lucide_icon("chevron-left", class: "btn-arrow btn-arrow:hover h-10 w-10 text-blue-dark pb-2") %>
                 </span>
 
             <span 
@@ -36,7 +36,7 @@
             role="button" 
             aria-label="Next Question"
             data-action="click->flashcards-handler#nextQuestion">
-            <%= lucide_icon("chevron-right", class: "h-12 w-12 text-blue-dark") %>
+            <%= lucide_icon("chevron-right", class: "btn-arrow btn-arrow:hover h-10 w-10 text-blue-dark pb-2") %>
             </span>
         </div>
     </div>
