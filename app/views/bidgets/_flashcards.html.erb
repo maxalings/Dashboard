@@ -1,4 +1,4 @@
-<div class="card h-[400px] border-green-500 flex-col bg-green-200 rounded-2xl" 
+<div class="card h-[700px] border-green-500 flex-col bg-green-200 rounded-2xl" 
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
     <h1  class=" justify-center text-center mt-36"
@@ -37,4 +37,38 @@
             </span>
         </div>
     </div>
+    <%# this part below shall be only on the BIDGET %>
+    <div class="flex ml-auto">
+        <button class="btn btn-neutral m-8">Add a new flashcard</button>
+    </div>
+
+    <%# below the form  to add a flashcards %>
+<div class="border-green-500"> 
+    <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
+    <div class="flex justify-center">
+        <div class="form-control m-8">
+            <%= form.label :question, class: "label" do %>
+            <span class="label-text">Question</span>
+            <% end %>
+            <%= form.text_field :question, class: "input input-bordered w-full" %>
+        </div>
+        <div class="form-control m-8">
+            <%= form.label :answer, class: "label" do %>
+            <span class="label-text">Answer</span>
+            <% end %>
+            <%= form.text_field :amount, class: "input input-bordered w-full" %>
+        </div>
+    </div>
+    <div class="mt-4 flex justify-center">
+        <div class="form-control mt-8">
+        <%= form.submit "Submit", class: "btn btn-primary w-full" %>
+        </div>
+        <div class="form-control m-8">
+        <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+        </div>
+    </div>
+    </div>
+    <% end %>
 </div>
+
+
