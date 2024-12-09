@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 .widget-layout{
 border-radius: 8px;
 background-color:rgb(76, 207, 222);
@@ -51,6 +50,8 @@ p{
   font-weight: 200;
   font-family: "Montserrat", serif;
 }
+
+/* ---------- BUTTONS ----------- */
 
 .btn {
   padding: 0px 30px;
