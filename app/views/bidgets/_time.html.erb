@@ -2,7 +2,7 @@
 data-controller="live-clock">
   <h2 class="text-lg mt-4 text-mint-dark">Time zone converter</h2>
   <div class="text-center grow self-center flex flex-col justify-center items-center">
-  <div class="my-5"
+  <div class="mb-8 border-mint-dark p-5 rounded-lg"
     data-live-clock-target="midget"
     data-time="<%= service.converted_time %>">
   </div>
@@ -10,7 +10,7 @@ data-controller="live-clock">
 
     <%= form_with model: service.widget do |f| %>
       <div class="my-3">
-        <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-transparent border-mint-dark w-[300px] rounded-lg px-4 py-2"%>
+        <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2"%>
       </div>
       <div class= "btn mt-3 bg-mint-dark text-mint-light">
         <%= f.submit%>

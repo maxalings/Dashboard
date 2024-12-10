@@ -17,10 +17,10 @@
             <div class="grow">
               <%= render "bidgets/#{widget.category}", service: WidgetsService.new.call(widget) %>
             </div>
-            <div class="modal-action">
-              <form method="dialog">
+            <div class="modal-action align-center justify-center">
+              <form method="dialog" class="w-5/12">
                 <!-- if there is a button, it will close the modal -->
-                <button class="btn">Close</button>
+                <button class="btn w-full">Close</button>
               </form>
             </div>
           </div>
