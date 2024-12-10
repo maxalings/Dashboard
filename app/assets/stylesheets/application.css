@@ -177,7 +177,10 @@ background-color: #82ADD9;
 .btn-arrow:hover{
   border: none;
   color: #9296C9;
-  }
+}
+.inner-shadow-list{
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
 
 /* Habits widget */
@@ -250,7 +253,7 @@ background-color: #707070;
 
 
 .question-width {
-    width: 40%;
+    width: 43%;
 }
 
 /* ---------- ANIMATIONS----------- */
