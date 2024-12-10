@@ -1,7 +1,7 @@
 <%# This is my big widget that shows progress over time %>
 <div class="shadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-red-light">
     <h1 class="text-center justify-center mb-3">Habits</h1>
-      <div class="p-4 flex-col space-y-6 flex justify-center items-center overflow-y-auto">
+      <div class="p-4 flex-col space-y-6 flex justify-center justify-content-center items-center overflow-y-auto">
           <% service.tasks.sort.each do |task| %>
             <div class="flex justify-between gap-x-8">
               <p class="w-24"><%= task.title %></p>
