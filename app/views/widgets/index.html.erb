@@ -2,11 +2,6 @@
 <div class="flex justify-center items-center items-stretch">
 
     <div class="grid gap-8 m:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 grid-rows-4 h-[550px]">
-      <% time_widget = @widgets.where(category: "time").first %>
-      <div class="col-span-<%=time_widget%> row-span-<%=time_widget.height%> shadow-center card rounded-lg relative aspect-square">
-        <%= render "midgets/#{time_widget.category}", service: WidgetsService.new.call(time_widget) %>
-        <button class="absolute top-1 right-1 text-white" onclick="my_modal_<%=time_widget.id%>.showModal()"><%= lucide_icon("expand", class:"w-[15px] h-[15px]") %></button>
-      </div>
       <% @widgets.each do |widget| %>
         <div class="col-span-<%=widget.width%> row-span-<%=widget.height%> shadow-center card rounded-lg  relative">
           <%= render "midgets/#{widget.category}", service: WidgetsService.new.call(widget) %>
