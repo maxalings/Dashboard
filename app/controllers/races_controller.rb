@@ -22,5 +22,4 @@ class RacesController < ApplicationController
     params.permit(:day, :month, :year, :widget_id)
   end
 
-
 end
