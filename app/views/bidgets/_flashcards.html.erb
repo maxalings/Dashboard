@@ -11,7 +11,7 @@
         <%= service.flashcards[0].question %></h1>
 
     <div class="flex mt-6 w-full p-12">
-        <div class="w-12 rounded-xl flex items-center justify-center aspect-square bg-blue-dark mr-10">
+        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
             <div class="">
                 <span 
                 role="button" 
@@ -29,7 +29,7 @@
             role="button" 
             aria-label="Previous Question"
             data-action="click->flashcards-handler#previousQuestion">
-            <%= lucide_icon("chevron-left", class: "h-12 w-12 text-blue-dark") %>
+            <%= lucide_icon("chevron-left", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
         <div>
@@ -38,7 +38,7 @@
             role="button" 
             aria-label="Next Question"
             data-action="click->flashcards-handler#nextQuestion">
-            <%= lucide_icon("chevron-right", class: "h-12 w-12 text-blue-dark") %>
+            <%= lucide_icon("chevron-right", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
         <div class="flex ml-auto">
@@ -56,17 +56,17 @@
         <div class="flex justify-center">
             <div class="form-control m-2">
                 <%= form.label :question, class: "label" do %>
-                    <span class="label-text text-blue-dark font-bold">Question</span>
+                    <span class="label-text text-lg text-blue-dark font-bold">Question</span>
                 <% end %>
-                <%= form.text_field :question, class: "rounded-md input input-bordered w-full", maxlength: 70 %>
+                <%= form.text_field :question, class: "rounded-md input input-bordered w-full bg-gray-100 shadow-inner", maxlength: 70 %>
             </div>
             <div class="form-control m-2">
                 <%= form.label :answer, class: "label" do %>
-                    <span class="label-text text-blue-dark font-bold">Answer</span>
+                    <span class="label-text text-lg text-blue-dark font-bold">Answer</span>
                 <% end %>
-                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full", maxlength: 70 %>
+                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full bg-gray-100 shadow-inner", maxlength: 70 %>
             </div>
-            <div class="flex mt-9">
+            <div class="flex mt-11">
                 <div class="form-control mt-2">
                     <%= form.submit "Add", class: "btn btn-primary w-ful bg-blue-dark" %>
                 </div>
@@ -79,15 +79,15 @@
         <div class="flex flex-col mt-8 pl-8 pr-14">
             <%  service.flashcards.each do |flashcard| %>
                 <div class="justify-between flex items-center mb-4 ">
-                    <div class="mr-12">
+                    <div class="mr-12 question-width">
                         <h3><%= flashcard.question %></h3>
                     </div>
-                    <div class=" mr-12">
+                    <div class="flex-1 text-left mr-4">
                         <h3 ><%= flashcard.answer %></h3>
                     </div>
                     <div class="mr-12">
-                        <%= link_to "Delete", flashcard_path(flashcard), 
-                            class: "btn btn-danger ml-2", 
+                        <%= link_to lucide_icon("trash-2", class: "h-6 w-6 text-gray-100"), flashcard_path(flashcard), 
+                            class: "btn btn-secondary p-0 aspect-square ml-2", 
                             data: { turbo_method: :delete, 
                             confirm: "Delete this flashcard?" } %>
                     </div>
