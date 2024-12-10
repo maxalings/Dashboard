@@ -1,5 +1,7 @@
-<p  class="justify-center text-center text-grey-dark"
-  data-flashcards-handler-target="text"
-  data-question="<%= flashcard.question %>"
-  data-answer="<%= flashcard.answer %>" >
-  <%= flashcard.question %></p>
+<% tag ||= :p %>
+<%= content_tag(tag, class: "justify-center text-center text-grey-dark", 
+                data: { flashcards_handler_target: "text", 
+                        question: flashcard.question, 
+                        answer: flashcard.answer }) do %>
+  <%= flashcard.question %>
+<% end %>
