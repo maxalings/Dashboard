@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # Admin Panel for Admin Users
   authenticate :user, lambda { |u| u.admin? } do
     mount Motor::Admin => '/motor_admin'
@@ -23,10 +24,12 @@ Rails.application.routes.draw do
     resources :stocks, only: :create
     resources :flashcards, only: :create
     resources :tasks
+
     get 'fitness'
     get '/new_routine', to: 'tasks#new_routine'
     post 'new_routine', to: 'tasks#create_routine'
-    post '/new_race', to: 'tasks#race'
+
+    resources :races
 
     get '/new_goal', to: 'tasks#goal'
     member do

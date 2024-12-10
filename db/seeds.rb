@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Race.destroy_all
 Flashcard.destroy_all
 Stock.destroy_all
 Task.destroy_all
@@ -61,3 +62,5 @@ Flashcard.create!(question: "what is the capital of argentina ?", answer: "Bueno
 Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
+
+Race.create!(day: 12, month: 11, year: 2025, widget: fitness_widget)

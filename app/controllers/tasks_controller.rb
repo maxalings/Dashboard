@@ -22,10 +22,6 @@ class TasksController < ApplicationController
     @task.update(done: !@task.done)
   end
 
-  def race
-
-  end
-
   def goal
 
   end
