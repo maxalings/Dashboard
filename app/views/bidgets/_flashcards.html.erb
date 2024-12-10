@@ -8,8 +8,9 @@
         <%= render"widgets/flashcards_qna_display", flashcard: service.flashcards[0], tag: :h2 %>
     <% else  %>
         <p>No flashcard yet. create some to display them</p>
-    <% end  %>    <div class="flex mt-6 w-full p-12">
-        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
+    <% end  %>    
+    <div class="flex mt-6 ml-6 w-full">
+        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-4">
             <div class="">
                 <span 
                 role="button" 
@@ -30,7 +31,7 @@
             <%= lucide_icon("chevron-left", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
-        <div>
+        <div class="mr-12">
             <span 
             class="border-black w-12 rounded-xl"
             role="button" 
@@ -39,7 +40,7 @@
             <%= lucide_icon("chevron-right", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
-        <div class="flex ml-auto">
+        <div class="flex ml-auto mr-6">
             <button class="btn btn-secondary bg-blue-dark"
             data-action="click->flashcards-handler#toggleForm"
             >Add a new flashcard</button>
@@ -74,10 +75,10 @@
             </div>
         <% end %>
         </div>
-        <div class="flex flex-col mt-8 pl-8 pr-14 overflow-scroll">
+        <div class="flex flex-col mt-2 pl-8 pr-14 overflow-y-scroll max-h-64">
             <%  service.flashcards.each do |flashcard| %>
                 <div class="justify-between flex items-center mb-4 ">
-                    <div class="mr-12 question-width">
+                    <div class="mr-12 question-width ">
                         <h3><%= flashcard.question %></h3>
                     </div>
                     <div class="flex-1 text-left mr-4">
