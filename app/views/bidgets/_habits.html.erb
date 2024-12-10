@@ -4,7 +4,7 @@
       <div class="p-4 flex-col space-y-6 flex justify-center items-center overflow-y-auto">
           <% service.tasks.sort.each do |task| %>
             <div class="flex justify-between gap-x-8">
-              <%= link_to lucide_icon('trash-2'), widget_task_path(service.widget, task), data: {turbo_method: :delete}  %>
+              <%= link_to lucide_icon('trash-2'), widget_task_path(service.widget, task), data: {turbo_method: :delete}, class: 'text-grey-light hover:text-black focus:outline-none'  %>
               <p class="w-24"><%= task.title %></p>
               <progress class="progress progress-red-dark w-[700px] bg-grey-light h-6 row" value="<%= rand(1..100) %>" max="100"></progress>
             </div>
