@@ -47,7 +47,7 @@ Widget.create!( category: "time", user: nini, position_x: 0, position_y: 0, widt
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: fra, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: max, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
-Widget.create!( category: "time", user: sugi, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
+Widget.create!( category: "time", user: brian, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
 Widget.create!( category: "time", user: brian, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LightningRails</title>
+    <title>Dashly</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -42,10 +42,11 @@
         <%= render "shared/navbar" %>
       <% end %>
 
-      <main class="mx-5 flex justify-center items-center min-h-screen">
+      <main class="flex justify-center items-center min-h-screen">
         <%= render "shared/alerts" %>
         <%= yield %>
       </main>
+
       <% if params[:controller] ==  "pages" %>
       <%= render "shared/footer" %>
       <% end %>
