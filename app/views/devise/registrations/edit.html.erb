@@ -6,6 +6,13 @@
 <div class="overflow-auto h-[250px]">
   <h6 class="text-center mt-3">Edit your profile</h6>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-2 flex flex-col justify-center" }) do |f| %>
+      <div class="relative flex flex-col items-center">
+        <label class="btn btn-primary cursor-pointer">
+          Upload profile picture
+          <%= f.file_field :photo, class: "hidden", as: :file %>
+        </label>
+        <p id="file-name" class="mt-2 text-sm text-gray-500"></p>
+      </div>
     <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.text_field :first_name, autofocus: true, placeholder: "email address", class: "h-[40px] p-3 rounded-lg border-gray-100 focus:outline-none my-1 bg-white" %>
       <%= f.text_field :last_name, placeholder: "last name", class: "h-[40px] p-3 rounded-lg border border-white focus:outline-none my-1 bg-white" %>
