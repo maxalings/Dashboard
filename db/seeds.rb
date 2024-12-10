@@ -12,7 +12,6 @@ Task.destroy_all
 Widget.destroy_all
 User.destroy_all
 
-
 puts "Creating sample users..."
 sugi = User.create!(email: "sugi@dashboard.com", password: "1234567", first_name: "Sugi", last_name:"Henson")
 max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: "Max", last_name:"Alings")

@@ -5,7 +5,7 @@ class Widget < ApplicationRecord
   has_many :flashcards
   has_many :races
 
-  validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards"],
+  validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map"],
     message: "%{value} is not a valid category"}
 
   def self.default_width(category)
@@ -14,6 +14,7 @@ class Widget < ApplicationRecord
     when "fitness" then return 3
     when "stock_portfolio" then return 2
     when "flashcards" then return 3
+    when "map" then return 2
     when "time" then return 1
     else return 1
     end
@@ -25,6 +26,7 @@ class Widget < ApplicationRecord
     when "fitness" then return 2
     when "stock_portfolio" then return 1
     when "flashcards" then return 1
+    when "map" then return 2
     when "time" then return 1
     else return 1
     end
