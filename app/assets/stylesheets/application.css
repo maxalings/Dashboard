@@ -214,6 +214,14 @@ background-color: #A487D4;
   border: 2px solid #A487D4;
   }
 
+/* Map widget */
+.bg-orange-light {
+  background-color: #F2DAC7;
+  }
+.bg-orange-dark {
+  background-color: #E0A87B;
+}
+
 /* Grey */
 .text-grey-dark {
   color: #707070;
