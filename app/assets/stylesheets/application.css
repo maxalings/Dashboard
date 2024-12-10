@@ -221,6 +221,13 @@ background-color: #A487D4;
 .bg-orange-dark {
   background-color: #E0A87B;
 }
+.text-orange-light {
+  color: #F2DAC7
+}
+.text-orange-dark {
+  color: #E0A87B
+}
+
 
 /* Grey */
 .text-grey-dark {
