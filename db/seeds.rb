@@ -54,11 +54,11 @@ Widget.create!( category: "time", user: brian, position_x: 0, position_y: 0, wid
 flashcard = Widget.create!(user: fra, category: "flashcards", position_x: 0, position_y: 0, width: 3, height: 1)
 
 puts "flashcards deck created"
-# Flashcard.create!(question: "what is the capital of France ?", answer: "Paris", widget: flashcard)
-# Flashcard.create!(question: "what is the capital of Brazil ?", answer: "Brasilia", widget: flashcard)
-# Flashcard.create!(question: "what is the capital of Ouganda ?", answer: "Kampala", widget: flashcard)
-# Flashcard.create!(question: "what is the capital of argentina ?", answer: "Buenos Aires", widget: flashcard)
-# Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
+Flashcard.create!(question: "what is the capital of France ?", answer: "Paris", widget: flashcard)
+Flashcard.create!(question: "what is the capital of Brazil ?", answer: "Brasilia", widget: flashcard)
+Flashcard.create!(question: "what is the capital of Ouganda ?", answer: "Kampala", widget: flashcard)
+Flashcard.create!(question: "what is the capital of argentina ?", answer: "Buenos Aires", widget: flashcard)
+Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
 
