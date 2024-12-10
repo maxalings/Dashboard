@@ -1,13 +1,13 @@
 <div class="flex-col shadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-blue-light" 
     data-controller="flashcards-handler" 
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
-     <div class="w-full flex justify-center">
+     <div class="w-full flex justify-center mb-8">
     <h3 class="bold text-blue-dark" >Flashcards</h3>
     </div>
     <% if service.flashcards[0].present? %>
-    <%= render "widgets/flashcards_qna_display", flashcard: service.flashcards[0] %>
+        <%= render"widgets/flashcards_qna_display", flashcard: service.flashcards[0], tag: :h2 %>
     <% else  %>
-    <p>No flashcard yet. create some to display them</p>
+        <p>No flashcard yet. create some to display them</p>
     <% end  %>    <div class="flex mt-6 w-full p-12">
         <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
             <div class="">

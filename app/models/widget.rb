@@ -11,7 +11,7 @@ class Widget < ApplicationRecord
 
   def default_flashcard()
     if category == "flashcards"
-      Flashcard.create!(question: "INITIALIZE QUESTION", answer: "INITIALIZE ANSWER", widget: self)
+      Flashcard.create!(question: "What is the most famous dish from Indonesia", answer: "The Nasi Goreng", widget: self)
     end
   end
 
