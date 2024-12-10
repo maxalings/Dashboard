@@ -16,8 +16,8 @@
 
 <div class="flex justify-center w-full">
   <%= link_to "Edit", edit_user_registration_path(current_user),
-      class: "flex-1 btn btn-primary my-2 mr-1 text-center py-2",
+      class: "flex-1 rounded-lg btn-primary my-2 mr-1 text-center py-1",
       data: { turbo_frame: "edit_profile" } %>
   <%= link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete},
-      class: "flex-1 btn btn-secondary my-2 ml-1 text-center py-2" %>
+      class: "flex-1 rounded-lg btn-secondary my-2 ml-1 text-center py-1" %>
 </div>
