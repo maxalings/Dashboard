@@ -62,5 +62,9 @@ puts "flashcards deck created"
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
 
+puts "sample races created.."
 Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)
 Race.create!(day: 1, month: 2, year: 2025, widget: fitness_widget)
+
+puts "sample progress widget created.."
+Widget.create!(goal: 100.00, progress: 48.5, category: "fitness", user: nini)
