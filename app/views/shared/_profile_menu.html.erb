@@ -1,27 +1,16 @@
 <%= turbo_frame_tag :edit_profile do %>
     <%= turbo_frame_tag :edit_profile do %>
-<label class="block overflow-scroll mt-5">
-    <label class="input rounded-lg flex items-center gap-2 mb-3">
-      <input type="text" class="grow" value="<%= @user.first_name %>" placeholder="myName", disabled="true" />
-      <%= lucide_icon("user", "class" => "h-4 w-4 text-gray-500") %>
-   </label>
+    <label class="block overflow-scroll mt-5">
+        <label class="input rounded-lg flex items-center gap-2 mb-3">
+          <input type="text" class="grow" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
+          <%= lucide_icon("mail", "class" => "h-4 w-4 text-gray-500") %>
+        </label>
 
-    <label class="input rounded-lg flex items-center gap-2 mb-3">
-      <input type="text" class="grow" value="<%= @user.last_name %>" placeholder="myName", disabled="true" />
-      <%= lucide_icon("user", "class" => "h-4 w-4 text-gray-500") %>
+        <label class="input rounded-lg flex items-center gap-2">
+          <input type="text" class="grow" value="***********" placeholder="*********" disabled="true"/>
+          <%= lucide_icon("lock", "class" => "h-4 w-4 text-gray-500") %>
+        </label>
     </label>
-
-
-    <label class="input rounded-lg flex items-center gap-2 mb-3">
-      <input type="text" class="grow" value="<%= @user.email %>" placeholder="user@dahboard.com" disabled="true"/>
-      <%= lucide_icon("mail", "class" => "h-4 w-4 text-gray-500") %>
-    </label>
-
-    <label class="input rounded-lg flex items-center gap-2">
-      <input type="text" class="grow" value="***********" placeholder="*********" disabled="true"/>
-      <%= lucide_icon("lock", "class" => "h-4 w-4 text-gray-500") %>
-    </label>
-</label>
     <% end %>
 <% end %>
 
