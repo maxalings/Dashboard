@@ -24,7 +24,7 @@ brian = User.create!(email: "brian@dashboard.com", password: "1234567", first_na
 finance = Widget.create!(user: max, category: "stock_portfolio", height: 1, width: 2)
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
 puts "Creating sample widget"
-fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
+fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 3, height: 2, user: nini)
 
 puts "Creating sample fitness tasks"
 fitness_task_1 = Task.create!(title: "Cardio intense 5k", done: false, widget: fitness_widget, monday: true, wednesday: true)
@@ -47,7 +47,7 @@ Widget.create!( category: "time", user: nini, position_x: 0, position_y: 0, widt
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: fra, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: max, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
-Widget.create!( category: "time", user: sugi, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
+Widget.create!( category: "time", user: brian, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 2, height: 1, timezone: "new york")
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, width: 1, height: 2, timezone: "new york")
 Widget.create!( category: "time", user: brian, position_x: 0, position_y: 0, width: 1, height: 1, timezone: "new york")
@@ -63,4 +63,4 @@ Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakar
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
 
-Race.create!(day: 12, month: 11, year: 2025, widget: fitness_widget)
+# Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)

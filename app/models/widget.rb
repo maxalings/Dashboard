@@ -14,6 +14,7 @@ class Widget < ApplicationRecord
     when "fitness" then return 3
     when "stock_portfolio" then return 2
     when "flashcards" then return 3
+    when "time" then return 1
     else return 1
     end
   end
@@ -24,6 +25,7 @@ class Widget < ApplicationRecord
     when "fitness" then return 2
     when "stock_portfolio" then return 1
     when "flashcards" then return 1
+    when "time" then return 1
     else return 1
     end
   end
