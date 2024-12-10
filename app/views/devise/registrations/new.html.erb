@@ -1,11 +1,11 @@
-<section class="lg:mb-24 h-screen mt-[110px]">
+<section class="lg:mb-24 mt-[150px] h-screen">
     <div>
       <div class="w-5/12 m-auto text-center">
 
-        <h1 class="mb-5">Get started today !</h1>
+        <h1 class="mb-3">Get started today !</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla eaque error neque ipsa culpa autem, at itaque nostrum!</p>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "my-12 w-9/12 mx-auto text-left" }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "my-8 w-9/12 mx-auto text-left" }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="mt-5 grid grid-cols-2 gap-3">
               <label class="input shadow-center flex items-center gap-2 rounded-lg">
