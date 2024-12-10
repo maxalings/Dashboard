@@ -1,27 +1,30 @@
-  <% service.set_time_until_race! %>
-  <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
-    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-      <span class="countdown font-mono text-5xl">
-        <span style="--value:<%= service.days %>;"></span>
-      </span>
-      days
-    </div>
-    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-      <span class="countdown font-mono text-5xl">
-        <span style="--value:<%= service.hours %>;"></span>
-      </span>
-      hours
-    </div>
-    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-      <span class="countdown font-mono text-5xl">
-        <span style="--value:<%= service.minutes %>;"></span>
-      </span>
-      min
-    </div>
-    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-      <span class="countdown font-mono text-5xl">
-        <span style="--value:<%= service.seconds %>;"></span>
-      </span>
-      sec
-    </div>
+<% service.set_time_until_race! %>
+<div class="grid auto-cols-max grid-flow-col gap-5 text-center">
+  <div class="bg-purple-dark rounded-box flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:<%= service.days %>;"></span>
+    </span>
+    days
   </div>
+  <div class="bg-purple-dark rounded-box flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:<%= service.hours %>;"></span>
+    </span>
+    hours
+  </div>
+  <div class="bg-purple-dark rounded-box flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:<%= service.minutes %>;"></span>
+    </span>
+    min
+  </div>
+  <div class="bg-purple-dark rounded-box flex flex-col p-2">
+    <span class="countdown font-mono text-5xl">
+      <span style="--value:<%= service.seconds %>;"></span>
+    </span>
+    sec
+  </div>
+  <div>
+    <%= link_to "🗑️", widget_race_path(service.widget, service.widget.races.last), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
+</div>

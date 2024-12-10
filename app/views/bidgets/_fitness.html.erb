@@ -1,19 +1,19 @@
-<div id="main_page" class="grid grid-cols-1 md:grid-cols-2 gap-6 shadow-lg rounded-lg w-full h-full p-6 bg-purple-light items-start">
+<div id="main_page" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full h-full p-6 bg-purple-light items-start">
   <!-- Left Column: Countdown and Progress -->
-  <div class="space-y-6">
+  <div class="space-y-6 flex flex-col">
     <!-- Fitness Countdown -->
-    <div class="p-5 bg-white rounded-lg">
+    <div class="p-5 bg-white rounded-lg shadow-md">
       <%= render "widgets/fitness_countdown", service: service %>
     </div>
 
     <!-- Fitness Progress -->
-    <div class="p-5 bg-white rounded-lg">
+    <div class="p-5 bg-white rounded-lg shadow-md">
       <%= render "widgets/fitness_progress", widget: service.widget %>
     </div>
   </div>
 
   <!-- Right Column: Routine Tasks -->
-  <div class="p-5 bg-white rounded-lg">
+  <div class="p-5 bg-white rounded-lg shadow-md flex flex-col">
     <%= render "widgets/fitness_task", widget: service.widget, tasks: service.tasks %>
   </div>
 </div>

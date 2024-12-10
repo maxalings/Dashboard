@@ -62,4 +62,5 @@ Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakar
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
 
-# Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)
+Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)
+Race.create!(day: 1, month: 2, year: 2025, widget: fitness_widget)
