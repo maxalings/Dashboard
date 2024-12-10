@@ -37,12 +37,12 @@
   </head>
 
   <body class="bg-[#F9F9F9]">
-    <div class="w-screen h-screen flex justify-center items-center">
+    <div class="flex justify-center items-center">
       <% if @show_navbar %>
         <%= render "shared/navbar" %>
       <% end %>
 
-      <main class="mx-5">
+      <main class="mx-5 w-screen h-screen flex justify-center items-center">
         <%= render "shared/alerts" %>
         <%= yield %>
       </main>
