@@ -12,6 +12,13 @@ class TasksController < ApplicationController
     redirect_to widgets_path(current_user.id)
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.widget = Widget.find(params[:widget_id])
+    @task.destroy
+    redirect_to widgets_path(current_user)
+  end
+
   def mark_done
     @task = Task.find(params[:id])
     @task.update(done: !@task.done)
