@@ -27,8 +27,8 @@
 
 <div class="flex justify-center w-full">
   <%= link_to "Edit", edit_user_registration_path(current_user),
-      class: "button flex-1 border border-black rounded-lg m-2 text-center py-2 bg-gray-200 hover:bg-gray-300",
+      class: "flex-1 btn btn-primary my-2 mr-1 text-center py-2",
       data: { turbo_frame: "edit_profile" } %>
   <%= link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete},
-      class: "button flex-1 border border-black rounded-lg m-2 text-center py-2 bg-red-200 hover:bg-red-300" %>
+      class: "flex-1 btn btn-secondary my-2 ml-1 text-center py-2" %>
 </div>
