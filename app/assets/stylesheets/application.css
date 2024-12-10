@@ -137,6 +137,23 @@ background-color: #86ADA5;
   border: 2px solid #86ADA5;
   }
 
+ /* Weather widget */
+ .text-yellow-dark {
+  color: #EDD182;
+}
+.text-yellow-light {
+color: #F8EDCF;
+}
+.bg-yellow-light {
+  background-color: #F8EDCF;
+}
+.bg-yellow-dark {
+background-color: #EDD182;
+}
+.border-yellow-dark {
+  border: 2px solid #EDD182;
+  }
+
 /* Stock Portfolio widget */
 .text-green-dark {
   color: #6e7551;
