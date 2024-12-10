@@ -89,6 +89,7 @@ gem "motor-admin", "~> 0.4.28"
 
 # Icons
 gem "lucide-rails", "~> 0.5.1"
+gem "font-awesome-sass", "~> 6.1"
 
 # Remove Metex_ warning
 gem "mutex_m"

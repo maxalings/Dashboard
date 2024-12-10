@@ -1,0 +1,8 @@
+<div class="bg-yellow-light h-full w-full rounded-lg p-3 flex flex justify-center items-center"
+data-controller="weather" data-weather-timezone-value="<%= service.widget.timezone%>">
+  <div class="flex-1 flex justify-center items-center" data-weather-target="icon"></div>
+  <div class="flex-1 flex flex-col justify-content items-center">
+    <span class="text-yellow-dark text-[50px] leading-[50px] font-bold" data-weather-target="temperature"></span>
+    <span class="uppercase text-yellow-dark font-md font-bold"><%= service.widget.timezone %></span>
+  </div>
+</div>
