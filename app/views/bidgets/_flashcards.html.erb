@@ -8,8 +8,10 @@
         <%= render"widgets/flashcards_qna_display", flashcard: service.flashcards[0], tag: :h2 %>
     <% else  %>
         <p>No flashcard yet. create some to display them</p>
-    <% end  %>    <div class="flex mt-2 w-full p-4">
+    <% end  %>    
+      <div class="flex mt-2 w-full p-4">
         <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
+
             <div class="">
                 <span 
                 role="button" 
@@ -30,7 +32,7 @@
             <%= lucide_icon("chevron-left", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
-        <div>
+        <div class="mr-12">
             <span 
             class="border-black w-12 rounded-xl"
             role="button" 
@@ -69,6 +71,7 @@
             <%  service.flashcards.each do |flashcard| %>
                 <div class="justify-between flex items-center mb-4">
                     <div class="mr-12 question-width">
+
                         <h3><%= flashcard.question %></h3>
                     </div>
                     <div class="flex-1 text-left mr-4">

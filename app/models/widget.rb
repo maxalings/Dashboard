@@ -6,7 +6,7 @@ class Widget < ApplicationRecord
   has_many :flashcards
   has_many :races
 
-  validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map"],
+  validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map", "weather"],
     message: "%{value} is not a valid category"}
 
   def default_flashcard()
@@ -23,6 +23,7 @@ class Widget < ApplicationRecord
     when "flashcards" then return 3
     when "map" then return 2
     when "time" then return 1
+    when "weather" then return 2
     else return 1
     end
   end
@@ -35,6 +36,7 @@ class Widget < ApplicationRecord
     when "flashcards" then return 1
     when "map" then return 2
     when "time" then return 1
+    when "weather" then return 1
     else return 1
     end
   end
