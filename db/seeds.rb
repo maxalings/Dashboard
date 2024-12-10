@@ -58,6 +58,6 @@ Flashcard.create!(question: "what is the capital of Ouganda ?", answer: "Kampala
 Flashcard.create!(question: "what is the capital of argentina ?", answer: "Buenos Aires", widget: flashcard)
 Flashcard.create!(question: "what is the capital of Indonesia ?", answer: "Jakarta but soon Nusantara", widget: flashcard)
 
-Widget.create!( category: "weather", user: eva, timezone: "new york")
+Widget.create!( category: "weather", user: eva, width: 2, height: 1, timezone: "new york")
 
 # Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)

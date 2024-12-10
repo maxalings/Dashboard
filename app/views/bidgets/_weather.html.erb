@@ -1,14 +1,18 @@
 <div class="shadow-center rounded-lg w-full h-full p-5 flex flex-col justify-start items-center bg-yellow-light">
   <h2 class="text-lg mt-4 text-yellow-dark">Weather</h2>
-  <div class="text-center grow self-center flex flex-col justify-center items-center" data-controller="weather">
-  <div class="mb-8 border-yellow-dark p-5 rounded-lg" data-weather-target="bidget">
-  </div>
+  <div class="text-center grow self-center flex flex-col justify-center items-center"
+  data-controller="weather" data-weather-timezone-value="<%= service.widget.timezone%>">
+    <div class="mb-8 border-yellow-dark p-5 rounded-lg">
+      <div class="text-center" data-weather-target="icon">
+      </div>
+      <div class="text-center" data-weather-target="temperature">
+      </div>
+    </div>
     <h4 class="mb-2 text-yellow-dark uppercase">Change location</h4>
 
-    <%= form_with model: service.widget, data: { action: "submit->weather#submitForm" }  do |f| %>
+    <%= form_with model: service.widget do |f| %>
       <div class="my-3">
-        <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2",
-        data: { weather_target: "location" }%>
+        <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2"%>
       </div>
       <div class= "btn mt-3 bg-yellow-dark text-yellow-light">
         <%= f.submit%>
