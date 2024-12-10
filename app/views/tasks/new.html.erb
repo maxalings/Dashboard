@@ -1,13 +1,14 @@
 <%= turbo_frame_tag "new_habit" do %> 
-  <%= link_to 'x', widgets_path(current_user), class: "text-right" %> 
+  <%= link_to lucide_icon("x"), widgets_path(current_user), 
+    class:"text-red-dark rounded-md" %> 
   <%= form_with(model: [ @widget, @task ], class: "flex flex-col items-center m-5 gap-y-3") do |f| %>
     <%= f.text_field :title,
-      class: "rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500",
+      class: "rounded-lg text-center",
       placeholder: "Enter new task...",
       required: true
     %>
     <%= f.submit "Add Task", 
-      class: "px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+      class: "mt-2 px-4 py-2 bg-red-dark text-white rounded-lg cursor-pointer"
     %>
   <% end %>
 <% end %> 
