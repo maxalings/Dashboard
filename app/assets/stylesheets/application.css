@@ -237,3 +237,41 @@ background-color: #707070;
 .question-width {
     width: 40%;
 }
+
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  25% {
+    transform: translate(-5px, -10px) rotate(-3deg); /* Légèrement à gauche et incliné */
+  }
+  50% {
+    transform: translate(10px, 0) rotate(3deg); /* À droite et incliné */
+  }
+  75% {
+    transform: translate(-5px, 10px) rotate(-3deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position de départ et fin */
+  }
+  25% {
+    transform: translate(10px, -5px) rotate(5deg); /* Légèrement à droite et incliné */
+  }
+  50% {
+    transform: translate(-15px, 5px) rotate(-5deg); /* À gauche et incliné plus fortement */
+  }
+  75% {
+    transform: translate(10px, 0) rotate(5deg); /* À droite, légèrement à la verticale */
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 4s ease-in-out infinite;
+}
