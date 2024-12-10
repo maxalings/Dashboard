@@ -50,13 +50,13 @@
                 <%= form.label :question, class: "label" do %>
                     <span class="label-text text-lg text-blue-dark font-bold">Question</span>
                 <% end %>
-                <%= form.text_field :question, class: "rounded-md input inner-shadow-list border-blue-dark w-full bg-blue-50 shadow-inner", maxlength: 70 %>
+                <%= form.text_field :question, class: "rounded-md input inner-shadow-list w-full bg-blue-50 shadow-inner", maxlength: 70 %>
             </div>
             <div class="form-control m-2">
                 <%= form.label :answer, class: "label" do %>
                     <span class="label-text text-lg text-blue-dark font-bold">Answer</span>
                 <% end %>
-                <%= form.text_field :answer, class: "rounded-md input inner-shadow-list border-blue-dark w-full bg-blue-50 shadow-inner", maxlength: 70 %>
+                <%= form.text_field :answer, class: "rounded-md input inner-shadow-list  w-full bg-blue-50 shadow-inner", maxlength: 70 %>
             </div>
             <div class="flex mt-11">
                 <div class="form-control mt-2">
@@ -65,7 +65,7 @@
             </div>
         <% end %>
         </div>
-        <div class="flex flex-col mt-4 pl-8 pr-8 overflow-scroll h-64 rounded-xl inner-shadow-list bg-blue-50 border-blue-dark pt-2">
+        <div class="flex flex-col mt-4 pl-4 pr-4 mr-5 ml-5 overflow-scroll h-64 rounded-xl inner-shadow-list bg-blue-50 pt-2">
             <%  service.flashcards.each do |flashcard| %>
                 <div class="justify-between flex items-center mb-4">
                     <div class="mr-12 question-width">
