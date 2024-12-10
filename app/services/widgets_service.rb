@@ -6,6 +6,7 @@ class WidgetsService
     when "flashcards" then return Widgets::FlashcardsService.new(widget)
     when "fitness" then return Widgets::FitnessService.new(widget)
     when "stock_portfolio" then return Widgets::StockPortfolioService.new(widget)
+    when "map" then return Widgets::MapService.new(widget)
     end
   end
 end
