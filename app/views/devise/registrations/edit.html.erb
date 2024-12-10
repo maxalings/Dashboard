@@ -1,37 +1,24 @@
 <section class="bg-white mb-12 lg:mb-24">
   <div class="lg:grid lg:grid-cols-12">
     <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
-  
-<%= turbo_frame_tag :edit_profile do %>
-<div class="overflow-auto h-52 w-60">
-  <h6 class="text-center ">Edit your profile</h6>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-8" }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.text_field :first_name, autofocus: true, placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
-    </div>
 
-    <div class="field">
-      <%= f.text_field :last_name, placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
-    </div>
-      <div class="col-span-6">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address", class: "input input-bordered flex items-center gap-2 mb-4" %>
-      </div>
+<%= turbo_frame_tag :edit_profile do %>
+<div class="overflow-auto h-[250px]">
+  <h6 class="text-center mt-3">Edit your profile</h6>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-2 flex flex-col justify-center" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.text_field :first_name, autofocus: true, placeholder: "email address", class: "h-[40px] p-3 rounded-lg border my-1" %>
+      <%= f.text_field :last_name, placeholder: "email address", class: "h-[40px] p-3 rounded-lg border my-1" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address", class: "h-[40px] p-3 rounded-lg border my-1" %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <div class="col-span-6 sm:col-span-3">
-        <%= f.password_field :password, autocomplete: "new-password",placeholder: "New password", class: "input input-bordered flex items-center gap-2 mb-4" %>
+        <%= f.password_field :password, autocomplete: "new-password",placeholder: "New password", class: "h-[40px] p-3 rounded-lg border my-1" %>
         <% if @minimum_password_length %>
-        <em class="block text sm font-small text-gray-700">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-    </div>
-
-    <div class="col-span-6 sm:col-span-3">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "input input-bordered flex items-center gap-2 mb-4" %>
-    </div>
-    <div class="col-span-6 sm:col-span-3">
-      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password", class: "input input-bordered flex items-center gap-2 mb-4" %>
+        <em class="text-xs text-grey-dark">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "h-[40px] p-3 rounded-lg border my-1" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password", class: "h-[40px] p-3 rounded-lg border my-1" %>
       <div class="flex sm:items-center gap-4">
         <%= f.submit "Update", class: "btn btn-primary" %>
         <%= link_to widgets_path(current_user), data: { turbo_frame: "return_profile" } do %>
@@ -86,5 +73,3 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
-

@@ -1,11 +1,11 @@
 <div class="w-screen h-screen flex justify-center items-center">
 
   <div class="flex justify-center items-center items-stretch w-screen h-screen p-10">
-    <div class="grid gap-8 m:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 grid-rows-4 w-[1100px] h-[650px]">
+    <div class="grid gap-8 m:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 grid-rows-4 w-[1100px] h-[650px]" data-controller="dashboard">
       <% @widgets.each do |widget| %>
-        <div class="col-span-<%=widget.width%> row-span-<%=widget.height%> shadow-center card rounded-lg relative w-full h-full">
+        <div class="col-span-<%=widget.width%> row-span-<%=widget.height%> shadow-center card rounded-lg relative w-full h-full" data-action="mouseover->dashboard#addanimation mouseout->dashboard#removeanimation">
           <%= render "midgets/#{widget.category}", service: WidgetsService.new.call(widget) %>
-          <button class="absolute top-1 right-1 text-white" onclick="my_modal_<%=widget.id%>.showModal()"><%= lucide_icon("expand", class:"w-[15px] h-[15px]") %></button>
+          <button class="absolute bottom-1 right-1 text-white" onclick="my_modal_<%=widget.id%>.showModal()"><%= lucide_icon("expand", class:"w-[15px] h-[15px]", data: { dashboard_target: "icon" }) %></button>
         </div>
             <!-- You can open the modal using ID.showModal() method -->
         <dialog id="my_modal_<%=widget.id%>" class="modal">
@@ -24,20 +24,20 @@
       <% end %>
     </div>
 
-    <div class="flex justify-center flex-col ml-5 border-grey-light">
+    <div class="flex justify-center flex-col ml-5 border-grey-light" data-controller="menu" data-action="mouseover->menu#floating mouseout->menu#stopfloating">
       <div class="collapse py-3">
-        <input type="checkbox"/>
+        <input type="checkbox" data-menu-target="checkbox" data-action="click->menu#uncheck"/>
           <div class="collapse-title p-0 flex justify-center ">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" class="rounded-xl w-20 justify-center shadow-menu"/>
+              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" class="rounded-xl w-20 h-20 justify-center shadow-menu" data-menu-target="profile"/>
           </div>
           <div class="collapse-content">
               <%= render "shared/profile_menu" %>
           </div>
       </div>
       <div class="collapse py-3">
-        <input type="checkbox"/>
+        <input type="checkbox" data-menu-target="checkbox" data-action="click->menu#uncheck"/>
             <div class="collapse-title p-0 flex justify-center">
-        <div class="bg-white shadow-menu w-20 rounded-lg flex items-center justify-center aspect-square">
+        <div class="bg-white shadow-menu w-20 rounded-lg flex items-center justify-center aspect-square" data-menu-target="widgets">
           <%= lucide_icon("plus", class: "h-12 w-12 text-grey-dark") %>
         </div>        </div>
         <div class="collapse-content flex justify-center">
