@@ -8,9 +8,8 @@ class RacesController < ApplicationController
     p params
     @race = Race.new(race_params)
     @race.widget = Widget.find(params[:widget_id])
-    @race.save!
-    redirect_to widgets_path
-
+    @race.save
+    redirect_to widgets_path(current_user)
   end
 
   def race_params
