@@ -81,6 +81,14 @@ p{
   0px 0px 50px rgba(0, 0, 0, 0.08);
 }
 
+.shadow-field {
+  box-shadow:
+  0px 0px 1px rgba(0, 0, 0, 0.024),
+  0px 0px 2.9px rgba(0, 0, 0, 0.035),
+  0px 0px 6.9px rgba(0, 0, 0, 0.046),
+  0px 0px 23px rgba(0, 0, 0, 0.07)
+}
+
 .shadow-menu{
   box-shadow:
   0px 0px 1.6px rgba(0, 0, 0, 0.014),
@@ -228,4 +236,78 @@ background-color: #707070;
 
 .question-width {
     width: 40%;
+}
+
+/* ---------- ANIMATIONS----------- */
+
+
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  25% {
+    transform: translate(-5px, -10px) rotate(-3deg); /* Légèrement à gauche et incliné */
+  }
+  50% {
+    transform: translate(10px, 0) rotate(3deg); /* À droite et incliné */
+  }
+  75% {
+    transform: translate(-5px, 10px) rotate(-3deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position de départ et fin */
+  }
+  25% {
+    transform: translate(10px, -5px) rotate(5deg); /* Légèrement à droite et incliné */
+  }
+  50% {
+    transform: translate(-15px, 5px) rotate(-5deg); /* À gauche et incliné plus fortement */
+  }
+  75% {
+    transform: translate(10px, 0) rotate(5deg); /* À droite, légèrement à la verticale */
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1) translateX(0) translateY(0); /* Taille normale, position initiale */
+  }
+  25% {
+    transform: scale(1.2) translateX(-2px) translateY(-2px); /* Légèrement agrandi avec un petit mouvement vers le haut à gauche */
+  }
+  50% {
+    transform: scale(0.9) translateX(2px) translateY(2px); /* Réduit et décalé légèrement vers la droite et vers le bas */
+  }
+  75% {
+    transform: scale(1.2) translateX(-2px) translateY(-2px); /* Retour à l'agrandissement avec le mouvement à gauche en haut */
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Position normale */
+  }
+  50% {
+    transform: translateY(-10px); /* Légère montée */
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 4s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 4s ease-in-out infinite;
+}
+
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
