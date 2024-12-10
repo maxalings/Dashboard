@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get 'fitness'
     get '/new_routine', to: 'tasks#new_routine'
     post 'new_routine', to: 'tasks#create_routine'
+    delete '/tasks/:id', to: 'tasks#destroy', as: :routine_delete
 
     resources :races
 

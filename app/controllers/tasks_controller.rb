@@ -5,6 +5,18 @@ class TasksController < ApplicationController
     @widget = Widget.find(params[:widget_id])
   end
 
+  def create
+    @task = Task.new(task_params)
+    @task.widget = Widget.find(params[:widget_id])
+    @task.save!
+    redirect_to widgets_path(current_user.id)
+  end
+
+  def mark_done
+    @task = Task.find(params[:id])
+    @task.update(done: !@task.done)
+  end
+
   def new_routine
     @task = Task.new
     @widget = Widget.find(params[:widget_id])
@@ -17,20 +29,11 @@ class TasksController < ApplicationController
     redirect_to widgets_path(current_user)
   end
 
-  def mark_done
+  def destroy
     @task = Task.find(params[:id])
-    @task.update(done: !@task.done)
-  end
-
-  def goal
-
-  end
-
-  def create
-    @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
-    @task.save!
-    redirect_to widgets_path(current_user.id)
+    @task.destroy
+    redirect_to widgets_path(current_user)
   end
 
   private
