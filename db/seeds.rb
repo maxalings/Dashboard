@@ -12,7 +12,6 @@ Task.destroy_all
 Widget.destroy_all
 User.destroy_all
 
-
 puts "Creating sample users..."
 sugi = User.create!(email: "sugi@dashboard.com", password: "1234567", first_name: "Sugi", last_name:"Henson")
 max = User.create!(email: "max@dashboard.com", password: "1234567", first_name: "Max", last_name:"Alings")
@@ -24,7 +23,7 @@ brian = User.create!(email: "brian@dashboard.com", password: "1234567", first_na
 finance = Widget.create!(user: max, category: "stock_portfolio", height: 1, width: 2)
 Stock.create!(tickr: "VOO", amount: 10, purchase_price: 100, widget: finance)
 puts "Creating sample widget"
-fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 2, height: 2, user: nini)
+fitness_widget = Widget.create!(category: "fitness", position_x: 0, position_y: 0, width: 3, height: 2, user: nini)
 
 puts "Creating sample fitness tasks"
 fitness_task_1 = Task.create!(title: "Cardio intense 5k", done: false, widget: fitness_widget, monday: true, wednesday: true)
@@ -63,4 +62,4 @@ puts "flashcards deck created"
 
 Widget.create!( category: "time", user: eva, position_x: 0, position_y: 0, timezone: "new york")
 
-Race.create!(day: 12, month: 11, year: 2025, widget: fitness_widget)
+# Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)
