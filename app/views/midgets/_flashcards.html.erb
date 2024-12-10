@@ -4,12 +4,11 @@
     <div class="w-full flex items-start">
     <h3 class="text-blue-dark" >Flashcards</h3>
     </div>
-    <p  class="justify-center text-center text-grey-dark"
-        data-flashcards-handler-target="text"
-        data-question="<%= service.flashcards[0].question %>"
-        data-answer="<%= service.flashcards[0].answer %>" >
-        <%= service.flashcards[0].question %></p>
-
+    <% if service.flashcards[0].present? %>
+    <%= render "widgets/flashcards_qna_display", flashcard: service.flashcards[0] %>
+    <% else  %>
+    <p>No flashcard yet. create some to display them</p>
+    <% end  %>
     <div class="flex justify-between mt-auto w-full">
         <div class="w-9 h-9 flex items-center justify-center rounded-lg aspect-square btn min-h-0 btn-secondary p-0 bg-blue-dark mr-10 mb-3">
             <span 

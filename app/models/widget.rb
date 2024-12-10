@@ -1,4 +1,5 @@
 class Widget < ApplicationRecord
+  after_create :default_flashcard
   belongs_to :user
   has_many :tasks
   has_many :stocks
@@ -7,6 +8,12 @@ class Widget < ApplicationRecord
 
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map"],
     message: "%{value} is not a valid category"}
+
+  def default_flashcard()
+    if category == "flashcards"
+      Flashcard.create!(question: "INITIALIZE QUESTION", answer: "INITIALIZE ANSWER", widget: self)
+    end
+  end
 
   def self.default_width(category)
     case category
@@ -31,6 +38,4 @@ class Widget < ApplicationRecord
     else return 1
     end
   end
-
-
 end
