@@ -29,9 +29,9 @@
       <% end %>
     </div>
 
-    <div class="flex justify-center flex-col ml-5 border-grey-light">
+    <div class="flex justify-center flex-col ml-5 border-grey-light" data-controller="menu">
       <div class="collapse py-3">
-        <input type="checkbox"/>
+        <input type="checkbox" data-menu-target="checkbox" data-action="click->menu#uncheck"/>
           <div class="collapse-title p-0 flex justify-center ">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" class="rounded-xl w-20 justify-center shadow-menu"/>
           </div>
@@ -40,7 +40,7 @@
           </div>
       </div>
       <div class="collapse py-3">
-        <input type="checkbox"/>
+        <input type="checkbox" data-menu-target="checkbox" data-action="click->menu#uncheck"/>
             <div class="collapse-title p-0 flex justify-center">
         <div class="bg-white shadow-menu w-20 rounded-lg flex items-center justify-center aspect-square">
           <%= lucide_icon("plus", class: "h-12 w-12 text-grey-dark") %>
