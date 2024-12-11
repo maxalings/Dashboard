@@ -1,66 +1,72 @@
  <div class="shadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-green-light">
-  <%= form_with(model: service.stock, url: [service.widget, service.stock])  do |form| %>
-    <div class="form-control">
-      <%= form.label :tickr, class: "label" do %>
-        <span class="label-text text-green-dark">Ticker</span>
+  <h1 class="text-lg mt-4 text-green-dark uppercase">Stock Portfolio</h1>
+  <div class="mt-12 flex justfiy-center">
+    <div class="flex-1 flex flex-col justify-center items-center">
+    <%= form_with(model: service.stock, url: [service.widget, service.stock])  do |form| %>
+      <div class="form-control">
+        <%= form.label :tickr, class: "label text-green-darl font-bold" do %>
+          <span class="label-text text-green-dark">Ticker</span>
+        <% end %>
+        <%= form.text_field :tickr, class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2" %>
+      </div>
+
+      <div class="form-control">
+        <%= form.label :amount, class: "label" do %>
+          <span class="label-text text-green-dark">Amount of Shares</span>
+        <% end %>
+        <%= form.number_field :amount, class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2" %>
+      </div>
+
+      <div class="form-control">
+        <%= form.label :purchase_price, class: "label" do %>
+          <span class="label-text text-green-dark">Average Purchase Price</span>
+        <% end %>
+        <%= form.number_field :purchase_price, step: 0.01, class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2" %>
+      </div>
+
+      <div class="form-control mt-4">
+        <%= form.submit "Submit", class: "w-[300px] px-4 py-3 rounded-lg mt-3 bg-green-dark text-green-light cursor-pointer" %>
+      </div>
       <% end %>
-      <%= form.text_field :tickr, class: "input input-bordered w-full" %>
     </div>
-
-    <div class="form-control">
-      <%= form.label :amount, class: "label" do %>
-        <span class="label-text text-green-dark">Amount of Shares</span>
-      <% end %>
-      <%= form.number_field :amount, class: "input input-bordered w-full" %>
-    </div>
-
-    <div class="form-control">
-      <%= form.label :purchase_price, class: "label" do %>
-        <span class="label-text text-green-dark">Average Purchase Price</span>
-      <% end %>
-      <%= form.number_field :purchase_price, step: 0.01, class: "input input-bordered w-full" %>
-    </div>
-
-    <div class="form-control mt-4">
-      <%= form.submit "Submit", class: "btn btn-primary w-full bg-green-dark" %>
-    </div>
-  <% end %>
-
-
-  <ul>
-    <% service.stocks.each do |stock| %>
-      <li class="text-green-dark">
-        <strong>Ticker:</strong> <%= stock.tickr %>,
-        <strong>Shares:</strong> <%= stock.amount %>,
-        <strong>Purchase Price:</strong> <%= number_to_currency stock.purchase_price %>
-        <strong>Total Value:</strong> <%= number_to_currency stock.purchase_price * stock.amount  %>
-        <%= link_to "Delete", stock_path(stock),
-                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                    class: "bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded leading-[3rem]" %>
-      </li>
-    <% end %>
-  </ul>
-
-  <% if Stock.exists? %>
-    <div class="flex items-center justify-center mt-10">
-      <div class="card bg-white w-96 shadow-lg rounded-lg overflow-hidden">
-        <div class="card-body p-6">
-          <div class="flex items-baseline justify-between">
-              <h2 class="text-2xl font-bold text-green-dark">
-                <%= number_to_currency service.total_value %>
-              </h2>
-              <% if service.percentage_change.positive? %>
-                <span class="text-sm font-medium text-green-dark bg-green-light px-2 py-1 rounded">
-                  <%= service.percentage_change %>%
-                </span>
-              <% else %>
-                <span class="text-sm font-medium text-green-dark bg-red-100 px-2 py-1 rounded">
-                  <%= service.percentage_change %>%
-                </span>
-              <% end %>
+    <% if Stock.exists? %>
+      <div class="border-green-dark p-5 ml-12 rounded-lg flex-1 h-[304px] overflow-scroll">
+        <div class="flex items-center justify-center mb-5">
+          <div class="card bg-white w-96 shadow-lg rounded-lg overflow-hidden">
+            <div class="card-body p-6">
+              <div class="flex items-baseline justify-between">
+                  <h2 class="text-2xl font-bold text-green-dark">
+                    <%= number_to_currency service.total_value %>
+                  </h2>
+                  <% if service.percentage_change.positive? %>
+                    <span class="text-sm font-medium text-green-dark bg-green-light px-2 py-1 rounded">
+                      <%= service.percentage_change %>%
+                    </span>
+                  <% else %>
+                    <span class="text-sm font-medium text-green-dark bg-red-100 px-2 py-1 rounded">
+                      <%= service.percentage_change %>%
+                    </span>
+                  <% end %>
+              </div>
+            </div>
           </div>
         </div>
+        <ul>
+          <% service.stocks.each do |stock| %>
+          <div class="bg-green-dark p-2 rounded-lg relative mb-5">
+            <li class="text-green-light">
+              <strong>Ticker:</strong> <%= stock.tickr %><br>
+              <strong>Shares:</strong> <%= stock.amount %><br>
+              <strong>Purchase Price:</strong> <%= number_to_currency stock.purchase_price %><br>
+              <strong>Total Value:</strong> <%= number_to_currency stock.purchase_price * stock.amount  %>
+              <%= link_to lucide_icon('trash-2'), stock_path(stock),
+                          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                          class: "text-green-light absolute right-2 top-2" %>
+            </li>
+          </div>
+          <% end %>
+        </ul>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
