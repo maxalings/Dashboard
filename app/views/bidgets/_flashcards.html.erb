@@ -1,91 +1,72 @@
-<div class="flex-col shadow-center rounded-lg w-full h-full p-3 flex flex-col justify-start items-center bg-blue-light" 
-    data-controller="flashcards-handler" 
+<div class="flex flex-col shadow-center rounded-lg w-full h-full p-3 justify-start items-center bg-blue-light"
+    data-controller="flashcards-handler"
     data-flashcards='<%= service.flashcards.to_json(only: [:question, :answer]) %>'>
-     <div class="w-full flex justify-center mb-8">
-    <h3 class="bold text-blue-dark" >Flashcards</h3>
-    </div>
-    <% if service.flashcards[0].present? %>
-        <%= render"widgets/flashcards_qna_display", flashcard: service.flashcards[0], tag: :h2 %>
-    <% else  %>
-        <p>No flashcard yet. create some to display them</p>
-    <% end  %>    
-      <div class="flex mt-2 w-full p-4">
-        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
-
-            <div class="">
-                <span 
-                role="button" 
-                aria-label="Toggle Question/Answer"
-                data-icon="eye" 
-                data-flashcards-handler-target="show" 
-                data-action="click->flashcards-handler#show">
-                <%= lucide_icon("eye", class: "h-6 w-6 item-center justify-center text-blue-light") %> 
-                </span>
-            </div>
+    <h1 class="uppercase text-blue-dark" >Flashcards</h1>
+    <div class="flex items-stretch mt-4">
+      <div class="px-3 mr-2 flex items-center justify-center rounded-lg text-blue-light bg-blue-dark">
+        <span
+        role="button"
+        aria-label="Toggle Question/Answer"
+        data-icon="eye"
+        data-flashcards-handler-target="show"
+        data-action="click->flashcards-handler#show">
+        <%= lucide_icon("eye", class: "h-5 w-5 item-center justify-center") %>
+        </span>
+      </div>
+      <div class="w-[600px] p-2 bg-blue-dark rounded-lg flex justify-between items-center">
+        <div class="left">
+          <span role="button" aria-label="Previous Question" data-action="click->flashcards-handler#previousQuestion">
+            <%= lucide_icon("chevron-left", class: "h-8 w-8 text-blue-light") %>
+          </span>
         </div>
-        <div>
-            <span 
-            class="border-black w-12 rounded-xl"
-            role="button" 
-            aria-label="Previous Question"
-            data-action="click->flashcards-handler#previousQuestion">
-            <%= lucide_icon("chevron-left", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
-            </span>
+        <div class="middle">
+          <% if service.flashcards[0].present? %>
+          <%= render "widgets/flashcards_qna_display", flashcard: service.flashcards[0] %>
+          <% else  %>
+          <p>No flashcard yet. create some to display them</p>
+          <% end  %>
         </div>
-        <div class="mr-12">
-            <span 
-            class="border-black w-12 rounded-xl"
-            role="button" 
-            aria-label="Next Question"
-            data-action="click->flashcards-handler#nextQuestion">
-            <%= lucide_icon("chevron-right", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
-            </span>
+        <div class="right">
+          <span
+          class="w-12 rounded-xl"
+          role="button"
+          aria-label="Next Question"
+          data-action="click->flashcards-handler#nextQuestion">
+          <%= lucide_icon("chevron-right", class: "h-8 w-8 text-blue-light") %>
+          </span>
         </div>
-    <%# this part below shall be only on the BIDGET %>
+      </div>
     </div>
 
-    <%# below the form  to add a flashcards %>
-    <div>
-        <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget)) do |form| %>
-        <div class="flex justify-center ml-5 mr-8">
-            <div class="form-control m-2">
-                <%= form.label :question, class: "label" do %>
-                    <span class="label-text text-lg text-blue-dark font-bold">Question</span>
-                <% end %>
-                <%= form.text_field :question, class: "rounded-md input inner-shadow-list w-full bg-blue-50 shadow-inner", maxlength: 70 %>
-            </div>
-            <div class="form-control m-2">
-                <%= form.label :answer, class: "label" do %>
-                    <span class="label-text text-lg text-blue-dark font-bold">Answer</span>
-                <% end %>
-                <%= form.text_field :answer, class: "rounded-md input inner-shadow-list  w-full bg-blue-50 shadow-inner", maxlength: 70 %>
-            </div>
-            <div class="flex mt-11">
-                <div class="form-control mt-2">
-                    <%= form.submit "Add a flashcard", class: " ml-3 pr-2 pl-2 btn btn-primary w-full bg-blue-dark" %>
-                </div>
-            </div>
+    <div class="flex w-full mt-8">
+      <div class="w-5/12 mx-8" data-flashcards-handler-target="form">
+        <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
+          <div class="question">
+            <%= form.label :question, class: "label text-blue-dark font-bold text-md pb-1" do %>Question<% end %>
+            <%= form.text_field :question, class: "w-full bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2", maxlength: 70 %>
+          </div>
+          <div class="answer mt-2">
+            <%= form.label :answer, class: "label text-blue-dark font-bold text-md pb-1" do %>Answer<% end %>
+            <%= form.text_field :answer, class: "w-full bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2", maxlength: 70 %>
+          </div>
+          <div class="buttons mt-4 w-full flex">
+            <%= form.submit "Add", class: "btn mt-3 w-full bg-blue-dark text-blue-light" %>
+          </div>
         <% end %>
-        </div>
-        <div class="flex flex-col mt-4 pl-4 pr-4 mr-5 ml-5 overflow-scroll h-64 rounded-xl inner-shadow-list bg-blue-50 pt-2">
-            <%  service.flashcards.each do |flashcard| %>
-                <div class="justify-between flex items-center mb-4">
-                    <div class="mr-12 question-width">
-
-                        <h3><%= flashcard.question %></h3>
-                    </div>
-                    <div class="flex-1 text-left mr-4">
-                        <h3 ><%= flashcard.answer %></h3>
-                    </div>
-                    <div class="mr-6">
-                        <%= link_to lucide_icon("trash-2", class: "h-6 w-6 text-gray-100"), flashcard_path(flashcard), 
-                            class: "btn btn-secondary p-0 aspect-square ml-2", 
-                            data: { turbo_method: :delete, 
-                            confirm: "Delete this flashcard?" } %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
+      </div>
+      <div class="w-7/12 mx-8 max-h-[320px] overflow-scroll">
+          <%  service.flashcards.each do |flashcard| %>
+          <div class="flex justify-between w-full border-blue-dark px-4 py-2 mb-3 rounded-lg">
+            <div>
+              <p class="font-medium">Q: <%= flashcard.question %></p>
+              <p >A: <%= flashcard.answer %></p>
+            </div>
+            <%= link_to lucide_icon("trash-2", class: "h-6 w-6 text-gray-100"), flashcard_path(flashcard),
+              class: "btn bg-blue-dark text-blue-light p-0 aspect-square",
+              data: { turbo_method: :delete,
+              confirm: "Delete this flashcard?" } %>
+          </div>
+          <% end %>
+      </div>
     </div>
 </div>
-
