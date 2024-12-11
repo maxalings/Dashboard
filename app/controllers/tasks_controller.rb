@@ -9,14 +9,14 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
     @task.save!
-    redirect_to widgets_path(current_user)
+    redirect_to widgets_path
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.widget = Widget.find(params[:widget_id])
     @task.destroy
-    redirect_to widgets_path(current_user)
+    redirect_to widgets_path
   end
 
   def mark_done
@@ -33,14 +33,14 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.widget = Widget.find(params[:widget_id])
     @task.save
-    redirect_to widgets_path(current_user)
+    redirect_to widgets_path
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.widget = Widget.find(params[:widget_id])
     @task.destroy
-    redirect_to widgets_path(current_user)
+    redirect_to widgets_path
   end
 
   private
