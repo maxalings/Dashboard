@@ -12,10 +12,12 @@
             <div class="grow">
               <%= render "bidgets/#{widget.category}", service: WidgetsService.new.call(widget) %>
             </div>
-            <div class="modal-action align-center justify-center">
-              <form method="dialog" class="w-5/12">
+            <div class="modal-action">
+              <form method="dialog" class="w-full  mx-3  flex justify-center">
                 <!-- if there is a button, it will close the modal -->
-                <button class="btn w-full">Close</button>
+                <button class="btn  w-3/12">Close</button>
+                <!-- if there is a button, it will delete the widget -->
+                <%= link_to "Delete", widget_path(widget),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn bg-red-dark mx-3 w-3/12"%>
               </form>
             </div>
           </div>
