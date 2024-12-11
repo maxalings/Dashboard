@@ -1,13 +1,30 @@
 <%= render "components/hero" %>
 <!-- The problem we solve -->
-      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-          <div class="mx-auto max-w-lg text-center">
-              <!-- Change the text to your own text, explain the problem you solve and try to use data to make it more convincing-->
-              <h2 class="text-2xl font-bold md:text-3xl">App Overload is a Growing Problem</h2>
-              <p class="hidden sm:mt-4 sm:block">People spend significant time switching between multiple apps, leading to mental clutter and decreased productivity, while running numerous applications at once can significantly slow down your machine.</p>
-          </div>
-          <div class="mx-auto mt-8 max-w-xl">
-              <%= image_tag 'pain.png', class:"w-full rounded-lg shadow-2xl" %>
-          </div>
-      </div>
+<div class="p-8 md:p-12 flex items-center justify-space-evenly mb-10">
+    <div class="p-10 w-3/4">
+        <%= image_tag 'pain.png', class:"rounded-lg shadow-2xl" %>
+    </div>
+    <div class="p-10">
+        <h2 class="text-2xl font-bold md:text-3xl mb-7">App Overload is a Growing Problem</h2>
+        <ul class="">
+          <h4>Wasted time</h4>
+          <li class="hidden sm:block mb-3">Significant time is spent switching between multiple apps.</li>
+          <h4>Focus disruption</h4>
+          <li class="hidden sm:block mb-3">Constantly juggling apps leads to mental clutter and decreased productivity.</li>
+          <h4>Reduced Performance</h4>
+          <li class="hidden sm:block mb-3">Running numerous applications at once can significantly slow down your machine.</li>
+        </ul>
+    </div>
+</div>
+<!-- Introducing Dashly: -->
+<div class="p-8 md:p-12 flex flex-col mt-10 items-center">
+  <h2 class="">Introducing Dashly</h2>
+  <div class="p-10 w-3/4">
+      <%= image_tag 'Dashly.png', class:"rounded-lg shadow-2xl" %>
+    <div class="mt-10">
+      <h3 class="mb-3 text-center">All Your Tools in One Place</h3>
+      <p class="text-center">Dashly enhances your productivity by providing a centralized hub for all your essential tools, increasing your focus with a streamlined interface, and offering a personalized experience tailored to your unique needs.</p>
+    </div>
+  </div>
+</div>
 <%= render "components/cards" %>
