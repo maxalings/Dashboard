@@ -3,22 +3,20 @@
   <p class="mb-4 text-gray-700">Adjust your progress:</p>
 
   <%= form_with(model: widget, url: widget_path(widget), method: :patch, class: "space-y-4") do |f| %>
-  <%# 0 <input type="range" min="0" max="100" value="40" class="range"> <%= widget.goal %>
     <div class="flex items-center space-x-4">
       <p class="text-gray-700 font-medium">0</p>
       <input
         type="range"
         min="0"
-        max= <%= widget.goal %>
-        value= <%= widget.progress %>
+        max="<%= widget.goal %>"
+        value="<%= widget.progress %>"
         class="range w-full focus:ring-blue-400 focus:outline-none"
         id="progressSlider"
         oninput="document.getElementById('progressValue').textContent = this.value" >
       <p id="progressValue" class="text-gray-700 font-medium">
-      <%= widget.goal %>
+        <%= widget.goal %>
       </p>
     </div>
-
 
     <div class="flex flex-row-2">
       <div>
@@ -31,9 +29,9 @@
         <span class="text-gray-600">km</span>
       </div>
     </div>
-  <% end %>
 
-  <div class="flex mt-4">
-    <button type="submit" class="btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-md shadow-md">Log</button>
-  </div>
+    <div class="flex mt-4">
+      <button type="submit" class="btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-md shadow-md">Log</button>
+    </div>
+  <% end %>
 </div>
