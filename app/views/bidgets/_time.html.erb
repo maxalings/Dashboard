@@ -1,18 +1,18 @@
 <div class="shadow-center rounded-lg w-full h-full p-5 flex flex-col justify-start items-center bg-mint-light"
 data-controller="live-clock">
-  <h2 class="text-lg mt-4 text-mint-dark">Time zone converter</h2>
+  <h1 class="text-lg mt-4 text-mint-dark uppercase">Time zone converter</h1>
   <div class="text-center grow self-center flex flex-col justify-center items-center">
-  <div class="mb-8 border-mint-dark p-5 rounded-lg"
-    data-live-clock-target="midget"
-    data-time="<%= service.converted_time %>">
-  </div>
+    <div class="border-mint-dark mb-8 p-5 rounded-lg">
+      <div data-live-clock-target="midget" data-time="<%= service.converted_time %>">
+      </div>
+      <h4 class="uppercase text-mint-dark text-sm"><%= service.widget.timezone %></h4>
+    </div>
     <h4 class="mb-2 text-mint-dark uppercase">Change location</h4>
-
     <%= form_with model: service.widget do |f| %>
       <div class="my-3">
         <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2"%>
       </div>
-      <div class= "btn mt-3 bg-mint-dark text-mint-light">
+      <div class= "px-4 py-3 rounded-lg mt-3 bg-mint-dark text-mint-light cursor-pointer">
         <%= f.submit%>
       </div>
     <% end %>
