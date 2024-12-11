@@ -1,40 +1,37 @@
 <div class="card bg-white p-6 rounded-lg" data-controller="progress">
   <h1 class="text-xl font-bold mb-4">Goal Setting</h1>
-  <p class="mb-4 text-gray-700">Adjust your progress:</p>
-
   <%= form_with(model: widget, url: widget_path(widget), method: :patch, class: "space-y-4", data: { action: "submit->progress#setGoal" }) do |f| %>
-    <!-- Range Slider -->
-    <div class="flex items-center space-x-4">
-      <p class="text-gray-700 font-medium">0</p>
-      <input
-        type="range"
-        name="widget[progress]"
-        min="0"
-        max="<%= widget.goal %>"
-        value="<%= widget.progress %>"
-        class="range w-full focus:ring-blue-400 focus:outline-none"
-        data-progress-target="slider"
-        data-action="input->progress#updateValue">
-      <p id="progressValue" class="text-gray-700 font-medium" data-progress-target="output">
-        <strong><%= widget.progress %></strong>
-      </p>
-      <p class="text-gray-700 font-medium">/<%= widget.goal %>km</p>
-    </div>
-
     <!-- Goal Input -->
     <div class="flex items-center space-x-2">
-      <p class="text-gray-600">Set your goal:</p>
+      <p class="text-gray-600">Set your training goal:</p>
       <%= f.text_field :goal,
         class: "form-input border border-gray-300 rounded-md p-2 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-blue-400",
         placeholder: "100",
         required: true
       %>
       <span class="text-gray-600">km</span>
-    </div>
-
-    <!-- Submit Button -->
-    <div class="flex mt-4">
-      <button type="submit" class="btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-md shadow-md">Log</button>
+    <p><button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-md text-sm px-3 py-2 text-center shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
+      Log
+    </button>
+    </p>
     </div>
   <% end %>
+  <br>
+  <!-- Range Slider -->
+  <p class="mb-4 text-gray-700">Adjust your progress:</p>
+  <div class="flex items-center space-x-4">
+    <p class="text-gray-700 font-medium">0</p>
+    <input
+      type="range"
+      name="widget[progress]"
+      min="0"
+      max="<%= widget.goal %>"
+      value="<%= widget.progress %>"
+      class="range w-full focus:ring-blue-400 focus:outline-none"
+      data-progress-target="slider"
+      data-action="input->progress#updateValue">
+    <p id="progressValue" class="text-gray-700 font-medium" data-progress-target="output">
+      <%= widget.progress %>/<%= widget.goal %>
+    <p class="text-gray-700 font-medium">km</p>
+  </div>
 </div>

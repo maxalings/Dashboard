@@ -1,17 +1,15 @@
-import { Controller } from "@hotwired/stimulus"
-
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="progress"
 export default class extends Controller {
   static targets = ["slider", "output"];
 
   connect() {
-    // Set initial output value
-    this.updateValue();
-    console.log("connected!")
+    this.updateValue(); // Update the displayed value on load
   }
 
   updateValue() {
+    // Update the output display when the slider value changes
     this.outputTarget.textContent = this.sliderTarget.value;
   }
 
@@ -31,7 +29,6 @@ export default class extends Controller {
       goalDisplay.textContent = `/${newGoal}km`;
     }
   }
-
 }
 
 document.addEventListener('DOMContentLoaded', function() {
