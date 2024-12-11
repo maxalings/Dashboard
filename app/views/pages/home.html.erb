@@ -1,2 +1,13 @@
 <%= render "components/hero" %>
+<!-- The problem we solve -->
+      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+          <div class="mx-auto max-w-lg text-center">
+              <!-- Change the text to your own text, explain the problem you solve and try to use data to make it more convincing-->
+              <h2 class="text-2xl font-bold md:text-3xl">App Overload is a Growing Problem</h2>
+              <p class="hidden sm:mt-4 sm:block">People spend significant time switching between multiple apps, leading to mental clutter and decreased productivity, while running numerous applications at once can significantly slow down your machine.</p>
+          </div>
+          <div class="mx-auto mt-8 max-w-xl">
+              <%= image_tag 'pain.png', class:"w-full rounded-lg shadow-2xl" %>
+          </div>
+      </div>
 <%= render "components/cards" %>
