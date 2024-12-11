@@ -9,6 +9,7 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
+
   def create
     @user = current_user
     @category = params[:category]
@@ -29,7 +30,6 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:id])
     @widget.update(widget_params)
     # No need for app/views/restaurants/update.html.erb
-    redirect_to widget_path(@widget)
   end
 
   def fitness
@@ -40,6 +40,6 @@ class WidgetsController < ApplicationController
   private
 
   def widget_params
-    params.require(:widget).permit(:timezone)
+    params.require(:widget).permit(:timezone, :progress, :goal)
   end
 end
