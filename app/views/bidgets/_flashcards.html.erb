@@ -9,8 +9,9 @@
     <% else  %>
         <p>No flashcard yet. create some to display them</p>
     <% end  %>    
-    <div class="flex mt-6 ml-6 w-full">
-        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-4">
+      <div class="flex mt-2 w-full p-4">
+        <div class="w-12 rounded-xl flex items-center justify-center aspect-square btn btn-secondary p-0 bg-blue-dark mr-10">
+
             <div class="">
                 <span 
                 role="button" 
@@ -40,51 +41,43 @@
             <%= lucide_icon("chevron-right", class: "btn-arrow btn-arrow:hover h-12 w-12 text-blue-dark") %>
             </span>
         </div>
-        <div class="flex ml-auto mr-6">
-            <button class="btn btn-secondary bg-blue-dark"
-            data-action="click->flashcards-handler#toggleForm"
-            >Add a new flashcard</button>
-        </div>
     <%# this part below shall be only on the BIDGET %>
     </div>
 
     <%# below the form  to add a flashcards %>
-    <div class="hidden" 
-        data-flashcards-handler-target="form">
-        <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget))  do |form| %>
-        <div class="flex justify-center">
+    <div>
+        <%= form_with(model: Flashcard.new, url: widget_flashcards_path(service.widget)) do |form| %>
+        <div class="flex justify-center ml-5 mr-8">
             <div class="form-control m-2">
                 <%= form.label :question, class: "label" do %>
                     <span class="label-text text-lg text-blue-dark font-bold">Question</span>
                 <% end %>
-                <%= form.text_field :question, class: "rounded-md input input-bordered w-full bg-gray-100 shadow-inner", maxlength: 70 %>
+                <%= form.text_field :question, class: "rounded-md input inner-shadow-list w-full bg-blue-50 shadow-inner", maxlength: 70 %>
             </div>
             <div class="form-control m-2">
                 <%= form.label :answer, class: "label" do %>
                     <span class="label-text text-lg text-blue-dark font-bold">Answer</span>
                 <% end %>
-                <%= form.text_field :answer, class: "rounded-md input input-bordered w-full bg-gray-100 shadow-inner", maxlength: 70 %>
+                <%= form.text_field :answer, class: "rounded-md input inner-shadow-list  w-full bg-blue-50 shadow-inner", maxlength: 70 %>
             </div>
             <div class="flex mt-11">
                 <div class="form-control mt-2">
-                    <%= form.submit "Add", class: "btn btn-primary w-ful bg-blue-dark" %>
-                </div>
-                <div class="form-control m-2">
-                    <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
+                    <%= form.submit "Add a flashcard", class: " ml-3 pr-2 pl-2 btn btn-primary w-full bg-blue-dark" %>
                 </div>
             </div>
         <% end %>
         </div>
-        <div class="flex flex-col mt-2 pl-8 pr-14 overflow-y-scroll max-h-64">
+        <div class="flex flex-col mt-4 pl-4 pr-4 mr-5 ml-5 overflow-scroll h-64 rounded-xl inner-shadow-list bg-blue-50 pt-2">
             <%  service.flashcards.each do |flashcard| %>
-                <div class="justify-between flex items-center mb-4 ">
-                    <div class="mr-12 question-width ">
+                <div class="justify-between flex items-center mb-4">
+                    <div class="mr-12 question-width">
+
                         <h3><%= flashcard.question %></h3>
                     </div>
                     <div class="flex-1 text-left mr-4">
                         <h3 ><%= flashcard.answer %></h3>
                     </div>
-                    <div class="mr-12">
+                    <div class="mr-6">
                         <%= link_to lucide_icon("trash-2", class: "h-6 w-6 text-gray-100"), flashcard_path(flashcard), 
                             class: "btn btn-secondary p-0 aspect-square ml-2", 
                             data: { turbo_method: :delete, 
