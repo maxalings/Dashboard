@@ -9,7 +9,6 @@ class WidgetsController < ApplicationController
     @user = current_user
   end
 
-
   def create
     @user = current_user
     @category = params[:category]
@@ -35,6 +34,13 @@ class WidgetsController < ApplicationController
   def fitness
     @widget = Widget.find(params[:widget_id])
     @tasks = @widget.tasks
+  end
+
+  def destroy
+    @widget = Widget.find(params[:id])
+    @widget.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to widgets_path, status: :see_other
   end
 
   private
