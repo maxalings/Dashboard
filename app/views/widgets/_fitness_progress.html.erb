@@ -1,18 +1,12 @@
 <div class="card bg-white p-4 rounded-lg">
   <h1 class="text-xl font-bold mb-4">Goal Setting</h1>
 
-  <%= turbo_frame_tag "new_goal" do %>
-    <!-- Goal Description -->
-    <p class="mb-4 text-gray-700">Adjust your progress:</p>
+  <!-- Goal Description -->
+  <p class="mb-4 text-gray-700">Adjust your progress:</p>
 
+  <%= turbo_frame_tag "new_training" do %>
     <!-- Slidable Progress Bar -->
-    <form
-      action="/widgets/<%= widget.id %>/new_goal"
-      method="POST"
-      class="space-y-4"
-    >
-      <%= csrf_meta_tag %>
-
+    <%= form_with(model: widget, url: widget_path(widget), method: :patch, class: "space-y-4") do |f| %>
       <!-- Range Slider -->
       <div class="flex items-center space-x-4">
         <p class="text-gray-500">0</p>
@@ -21,32 +15,44 @@
           name="progress"
           min="0"
           max="100"
-          value="20"
+          value= <%= widget.progress %>
           class="range w-full focus:ring-blue-400 focus:outline-none"
           id="progressSlider"
           oninput="document.getElementById('progressValue').textContent = this.value"
         >
-        <p id="progressValue" class="text-gray-700 font-medium">20</p>
+        <p id="progressValue" class="text-gray-700 font-medium">
+          <%= widget.goal %>
+        </p>
       </div>
 
       <!-- Goal Input -->
-      <div class="flex items-center space-x-2">
-        <label for="goalInput" class="text-gray-600">Set your goal:</label>
-        <input
-          type="text"
-          id="goalInput"
-          name="goal"
-          value="100"
-          class="form-input border border-gray-300 rounded-md p-2 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          placeholder="100"
-        >
-        <span class="text-gray-600">km</span>
-      </div>
+      <div>
+        <div>
+          <p>Set your goal:</p>
+          <%= f.text_field :goal,
+            class: "form-input border border-gray-300 rounded-md p-2 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-blue-400",
+            placeholder: "100",
+            required: true
+          %>
+          <span class="text-gray-600">km</span>
+        </div>
+        <br>
+        <div>
+          <p>Log today's progress:</p>
+          <%= f.text_field :progress,
+            class: "form-input border border-gray-300 rounded-md p-2 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-blue-400",
+            placeholder: "50",
+            required: true
+          %>
+          <span class="text-gray-600">km</span>
+        </div>
 
-      <!-- Submit Button -->
-      <%= link_to "submit",
-      class: "btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md shadow-md"
-      %>
-    </form>
+        <!-- Submit Button -->
+        <div class="flex mt-4">
+          <button type="submit" class="btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-md shadow-md">Log</button>
+        </div>
+      </div>
+    <% end %>
   <% end %>
+
 </div>
