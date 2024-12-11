@@ -14,6 +14,24 @@ export default class extends Controller {
   updateValue() {
     this.outputTarget.textContent = this.sliderTarget.value;
   }
+
+  setGoal(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the new goal value from the input
+    const newGoal = event.target.elements["widget[goal]"].value;
+    const slider = this.sliderTarget;
+
+    if (newGoal && !isNaN(newGoal)) {
+      // Update the range slider's max value
+      slider.max = newGoal;
+
+      // Update the displayed goal
+      const goalDisplay = slider.nextElementSibling.nextElementSibling;
+      goalDisplay.textContent = `/${newGoal}km`;
+    }
+  }
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
