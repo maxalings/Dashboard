@@ -9,6 +9,8 @@ class Widgets::FitnessService
       @hours = 0
       @minutes = 0
       @seconds = 0
+      @goal = 0
+      @progress = 0
     end
 
     def set_time_until_race!

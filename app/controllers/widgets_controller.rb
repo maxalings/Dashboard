@@ -29,6 +29,7 @@ class WidgetsController < ApplicationController
   def update
     @widget = Widget.find(params[:id])
     @widget.update(widget_params)
+    raise
     # No need for app/views/restaurants/update.html.erb
   end
 
