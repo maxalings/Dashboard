@@ -4,7 +4,6 @@
   <!-- Goal Description -->
   <p class="mb-4 text-gray-700">Adjust your progress:</p>
 
-  <%= turbo_frame_tag "new_training" do %>
     <!-- Slidable Progress Bar -->
     <%= form_with(model: widget, url: widget_path(widget), method: :patch, class: "space-y-4") do |f| %>
       <!-- Range Slider -->
@@ -53,6 +52,6 @@
         </div>
       </div>
     <% end %>
-  <% end %>
+
 
 </div>
