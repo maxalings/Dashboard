@@ -3,7 +3,12 @@
 @import "font-awesome";
 
 /* ---------- FONTS ----------- */
-
+.checkbox:checked{
+  background-color:#DB6D6B ;
+  background-image: url('checked.png');
+  background-size: 12px 9px;
+  background-position: center;
+}
 body{
   background-color: #F9F9F9;
 }
@@ -228,7 +233,7 @@ background-color: #D9CDED;
 .bg-purple-dark {
 background-color: #A487D4;
 }
-.border-red-dark {
+.border-purple-dark {
   border: 2px solid #A487D4;
   }
 
