@@ -3,7 +3,12 @@
 @import "font-awesome";
 
 /* ---------- FONTS ----------- */
-
+.checkbox:checked{
+  background-color:#DB6D6B ;
+  background-image: url('checked.png');
+  background-size: 12px 9px;
+  background-position: center;
+}
 body{
   background-color: #F9F9F9;
 }
@@ -157,7 +162,7 @@ background-color: #EDD182;
 
 /* Stock Portfolio widget */
 .text-green-dark {
-  color: #6e7551;
+  color: #8B9948;
 }
 .text-green-light {
 color: #D6DEAF;
@@ -166,10 +171,10 @@ color: #D6DEAF;
 background-color: #D6DEAF;
 }
 .bg-green-dark {
-background-color: #868f61;
+background-color: #8B9948;
 }
 .border-green-dark {
-  border: 2px solid #868f61;
+  border: 2px solid #8B9948;
   }
 
  /* Flashcard widget */
@@ -195,7 +200,10 @@ background-color: #82ADD9;
 .btn-arrow:hover{
   border: none;
   color: #9296C9;
-  }
+}
+.inner-shadow-list{
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
 
 /* Habits widget */
@@ -228,7 +236,7 @@ background-color: #D9CDED;
 .bg-purple-dark {
 background-color: #A487D4;
 }
-.border-red-dark {
+.border-purple-dark {
   border: 2px solid #A487D4;
   }
 
@@ -268,7 +276,7 @@ background-color: #707070;
 
 
 .question-width {
-    width: 40%;
+    width: 43%;
 }
 
 /* ---------- ANIMATIONS----------- */

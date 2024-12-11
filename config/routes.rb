@@ -31,8 +31,8 @@ Rails.application.routes.draw do
     delete '/tasks/:id', to: 'tasks#destroy', as: :routine_delete
 
     resources :races
+    resources :training
 
-    get '/new_goal', to: 'tasks#goal'
     member do
       get 'habits'
     end
