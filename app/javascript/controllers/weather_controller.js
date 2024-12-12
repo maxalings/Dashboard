@@ -10,8 +10,8 @@ export default class extends Controller {
   connect() {
     const API_KEY = "wuVpOQ0llQ9zEGWeChrbPCwGUdAyrVEB";
     const location = this.timezoneValue
-    // const url = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${location}`
-    const url = `plceholder`
+    const url = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${location}`
+    // const url = `placeholder`
     fetch(url)
       .then(response => response.json())
       .then((data) => {
