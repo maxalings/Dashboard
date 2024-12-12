@@ -1,6 +1,6 @@
 <%= render "components/hero" %>
 <!-- The problem we solve -->
-<div id="banner" class="p-8 md:p-12 flex items-center justify-space-evenly mb-10">
+<div id="banner" class="p-8 mt-12 md:p-12 flex items-center justify-space-evenly mb-10">
     <div class="p-10 w-3/4">
         <%= image_tag 'pain.png', class:"rounded-lg shadow-2xl" %>
     </div>
@@ -17,13 +17,13 @@
     </div>
 </div>
 <!-- Introducing Dashly: -->
-<div class="p-8 md:p-12 flex flex-col mt-10 items-center">
-  <h2 class="">Introducing Dashly</h2>
+<div class="p-8 mb-10 md:p-12 flex flex-col items-center justify-center text-center">
   <div class="p-10 w-3/4">
-      <%= image_tag 'Dashly.png', class:"rounded-lg shadow-2xl" %>
-    <div class="mt-10">
-      <h3 class="mb-3 text-center">All Your Tools in One Place</h3>
-      <p class="text-center">Dashly enhances your productivity by providing a centralized hub for all your essential tools, increasing your focus with a streamlined interface, and offering a personalized experience tailored to your unique needs.</p>
+    <h2 class="">Introducing Dashly</h2>
+    <%= image_tag 'dashboard.png', class:"w-10/12 mt-4 mx-auto rounded-lg shadow-center" %>
+    <div class="mt-8">
+      <h3 class="mb-3">All Your Tools in One Place</h3>
+      <p>Dashly enhances your productivity by providing a centralized hub for all your essential tools, increasing your focus with a streamlined interface, and offering a personalized experience tailored to your unique needs.</p>
     </div>
   </div>
 </div>
@@ -31,42 +31,42 @@
 <div class="flex flex-wrap px-20 items-center justify-center w-full">
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-mint-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("clock", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("clock", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Time zone converter</h4>
     <span class="text-sm font-light text-center pt-2">Convert and compare time zones to stay connected across different regions.</span>
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-yellow-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("sun", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("sun", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Weather</h4>
     <span class="text-sm font-light text-center pt-2">Get real-time weather updates and forecasts for your selected locations.</span>
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-orange-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("map", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("map", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Map</h4>
     <span class="text-sm font-light text-center pt-2">View and explore your current location with an interactive map.</span>
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-blue-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("layers", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("layers", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Flashcards</h4>
     <span class="text-sm font-light text-center pt-2">Review and memorize important information with customizable flashcards.</span>
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-purple-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("heart-pulse", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("heart-pulse", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Fitness</h4>
     <span class="text-sm font-light text-center pt-2">Set and track fitness goals, including race deadlines and daily/weekly workout routines.</span>
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-red-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("list-checks", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("list-checks", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Habits</h4>
     <span class="text-sm font-light text-center pt-2">Track your daily habits and goals with ease, and view your progress over time</span>
@@ -74,12 +74,12 @@
   </div>
   <div class="flex flex-col justify-center w-3/12 px-5 my-10 items-center">
     <div class="w-[80px] h-[80px] rounded bg-green-light flex justify-center items-center mb-6 shadow-center">
-      <%= lucide_icon("dollar-sign", class: "h-[50px] w-[50px] text-white") %> 
+      <%= lucide_icon("dollar-sign", class: "h-[50px] w-[50px] text-white") %>
     </div>
     <h4>Finance</h4>
     <span class="text-sm font-light text-center pt-2">Track and manage your stock portfolio, displaying your assets and their current values</span>
   </div>
 </div>
-<div class="flex items-center justify-center py-20">
+<div class="flex items-center justify-center py-10">
  <%= link_to "Create your Dashly", new_user_registration_path, class:"btn btn-secondary px-10"%>
 </div>

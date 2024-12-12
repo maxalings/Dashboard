@@ -16,15 +16,12 @@ html{
 /* ---------- FONTS ----------- */
 
 .checkbox:checked{
-  background-color:#DB6D6B ;
-  background-image: url('checked.png');
+  background-color:#EEEEEE ;
+  background-image: url('check.png');
   background-size: 12px 9px;
   background-position: center;
 }
 
-.form-checkbox:checked{
-  background-color: red;
-}
 body{
   background-color: #F9F9F9;
 }
@@ -254,6 +251,9 @@ background-color: #A487D4;
 }
 .border-purple-dark {
   border: 2px solid #A487D4;
+  }
+.border-purple-light {
+  border: 2px solid #D9CDED;
   }
 
 /* Map widget */

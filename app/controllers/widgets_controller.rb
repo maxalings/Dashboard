@@ -29,6 +29,7 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:id])
     @widget.update(widget_params)
     # No need for app/views/restaurants/update.html.erb
+    redirect_to widgets_path, status: :see_other
   end
 
   def fitness

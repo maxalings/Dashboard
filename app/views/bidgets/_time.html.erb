@@ -8,13 +8,11 @@ data-controller="live-clock">
       <h4 class="uppercase text-mint-dark text-sm"><%= service.widget.timezone %></h4>
     </div>
     <h4 class="mb-2 text-mint-dark uppercase">Change location</h4>
-    <%= form_with model: service.widget do |f| %>
+    <%= form_with model: service.widget, method: "patch"  do |f| %>
       <div class="my-3">
         <%= f.text_field :timezone, placeholder: "Enter a city (e.g., New York)", class: "bg-grey-light shadow-center w-[300px] rounded-lg px-4 py-2"%>
       </div>
-      <div class= "px-4 py-3 rounded-lg mt-3 bg-mint-dark text-mint-light cursor-pointer">
-        <%= f.submit%>
-      </div>
+      <%= f.submit class: "px-4 py-3 rounded-lg mt-3 bg-mint-dark text-mint-light cursor-pointer"%>
     <% end %>
   </div>
 </div>
