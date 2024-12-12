@@ -3,7 +3,7 @@ class Widget < ApplicationRecord
   belongs_to :user
   has_many :tasks
   has_many :stocks
-  has_many :flashcards
+  has_many :flashcards, :dependent => :destroy
   has_many :races
 
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map", "weather"],
