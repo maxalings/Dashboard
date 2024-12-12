@@ -7,6 +7,7 @@ class Widget < ApplicationRecord
   has_many :flashcards, dependent: :destroy
   has_many :races, dependent: :destroy
 
+
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map", "weather"],
     message: "%{value} is not a valid category"}
 
