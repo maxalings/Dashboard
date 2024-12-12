@@ -1,16 +1,16 @@
-<div class="card bg-white p-4 rounded-lg">
+<div class="card p-4 rounded-lg">
   <h1 class="text-2xl font-bold text-gray-800 mb-6">Routine Setting</h1>
   <p class="mb-6 text-gray-600">Set your daily/weekly routine for workouts below: </p>
 
   <%= turbo_frame_tag "new_routine" do %>
     <ul class="space-y-4">
       <% tasks.each do |task| %>
-        <li class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+        <li class="bg-purple-light p-4 rounded-lg border border-purple-dark shadow-sm">
         <div class="flex">
           <div class="flex flex-col space-y-2">
             <div class="flex items-center space-x-3">
               <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox h-5 w-5 text-blue-600">
-              <label for="task_<%= task.id %>" class="text-base font-semibold text-gray-800"><%= task.title %></label>
+              <label for="task_<%= task.id %>" class="text-base font-semibold text-gray-600"><%= task.title %></label>
               <%= link_to "🗑️", widget_routine_delete_path(widget, task), data: {turbo_method: :delete} %>
             </div>
             <p class="text-xs text-gray-500">
@@ -29,7 +29,7 @@
     </ul>
 
     <div class="mt-6 flex justify-center">
-      <%= link_to "Add New Routine", widget_new_routine_path(widget), class: "btn btn-primary text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md shadow-md" %>
+      <%= link_to "Add New Routine", widget_new_routine_path(widget), class: "btn text-white bg-purple-dark hover:bg-blue-700 px-4 py-2 rounded-md shadow-md" %>
     </div>
   <% end %>
 </div>

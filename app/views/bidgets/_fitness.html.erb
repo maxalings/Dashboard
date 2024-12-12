@@ -2,18 +2,18 @@
   <!-- Left Column: Countdown and Progress -->
   <div class="space-y-6 flex flex-col">
     <!-- Fitness Countdown -->
-    <div class="p-5 bg-white rounded-lg shadow-md">
+    <div class="p-5 border-purple-dark rounded-lg shadow-md">
       <%= render "widgets/fitness_countdown", service: service %>
     </div>
 
     <!-- Fitness Progress -->
-    <div class="p-5 bg-white rounded-lg shadow-md">
+    <div class="p-5 border-purple-dark rounded-lg shadow-md">
       <%= render "widgets/fitness_progress", widget: service.widget %>
     </div>
   </div>
 
   <!-- Right Column: Routine Tasks -->
-  <div class="p-5 bg-white rounded-lg shadow-md flex flex-col">
+  <div class="p-5 border-purple-dark rounded-lg shadow-md flex flex-col">
     <%= render "widgets/fitness_task", widget: service.widget, tasks: service.tasks %>
   </div>
 </div>
