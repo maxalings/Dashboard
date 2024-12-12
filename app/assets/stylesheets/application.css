@@ -2,6 +2,10 @@
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 @import "font-awesome";
 
+
+.image-background{
+  background-image: url('background.png');
+}
 /* ---------- FONTS ----------- */
 .checkbox:checked{
   background-color:#DB6D6B ;
