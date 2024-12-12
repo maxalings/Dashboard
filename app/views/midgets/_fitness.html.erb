@@ -11,7 +11,7 @@
         <% today = Date.today.strftime("%A").downcase %>
         <% if task.send(today) %>
           <div
-            class="task-item flex flex-col space-y-3 p-4 bg-white shadow-sm rounded-lg hover:shadow-md transition-shadow"
+            class="task-item flex flex-col space-y-3 p-4 bg-purple-light border-purple-dark shadow-sm rounded-lg hover:shadow-md transition-shadow"
             data-id="<%= task.id %>"
           >
             <!-- Task Checkbox and Title -->
@@ -49,9 +49,9 @@
   <!-- Next Race Countdown -->
   <div>
     <!-- Countdown Container -->
-    <div class="absolute top-3 right-3 bg-gradient-to-r bg-purple-dark text-white rounded-lg p-3 flex flex-col items-center space-y-2">
+    <div class="absolute top-5 right-6 bg-gradient-to-r bg-purple-dark text-white rounded-lg p-3 flex flex-col items-center space-y-2">
     <!-- Countdown Number -->
-    <span class="countdown font-mono text-4xl font-bold">
+    <span class="countdown font-mono text-3xl font-bold">
       <% if service.races.last != nil %>
         <% given_date = Time.new(service.races.last.year, service.races.last.month, service.races.last.day, 0, 0, 0) %>
         <% now = Time.now %>
@@ -63,7 +63,7 @@
       <span style="--value:<%= days_countdown %>;"></span>
     </span>
     <!-- Countdown Label -->
-    <p class="text-sm uppercase tracking-wider">Days til Race</p>
+    <p class="text-xs uppercase tracking-wider">Days til Race</p>
     </div>
 
   </div>
