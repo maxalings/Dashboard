@@ -13,6 +13,7 @@
         </label>
         <p id="file-name" class="mt-2 text-sm text-gray-500"></p>
       </div>
+
     <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.text_field :first_name, autofocus: true, placeholder: "email address", class: "h-[40px] p-3 border rounded-lg  focus:outline-none my-1 bg-white" %>
       <%= f.text_field :last_name, placeholder: "last name", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
@@ -20,14 +21,15 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-        <%= f.password_field :password, autocomplete: "new-password",placeholder: "New password", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
-        <% if @minimum_password_length %>
-        <em class="text-xs text-grey-dark">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
-      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
+        <%# <%= f.password_field :password, autocomplete: "new-password",placeholder: "New password", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
+        <%# <% if @minimum_password_length %>
+        <%# <em class="text-xs text-grey-dark">(<%= @minimum_password_length %> 
+          <%# characters minimum)</em>  %>
+        <%# <% end %>
+      <%# <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
+      <%= f.password_field :current_password, value: current_user.password, autocomplete: "current-password", placeholder: "Current password", class: "h-[40px] p-3 border rounded-lg border focus:outline-none my-1 bg-white" %>
       <div class="flex sm:items-center gap-4">
-        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= f.submit "Update", class: "btn btn-primary", data: {turbo_frame: "return_profile"} %>
         <%= link_to widgets_path(current_user), data: { turbo_frame: "return_profile" } do %>
           <%= button_to "Cancel", widgets_path, class: "btn btn-secondary" %>
     <% end %>
