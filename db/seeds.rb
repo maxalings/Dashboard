@@ -64,7 +64,6 @@ Widget.create!(category: "weather", user: eva, width: 2, height: 1, timezone: "n
 
 puts "sample races created.."
 Race.create!(day: 12, month: 1, year: 2025, widget: fitness_widget)
-Race.create!(day: 1, month: 2, year: 2025, widget: fitness_widget)
 
 puts "sample training widget created.."
 Widget.create!(category: "fitness", goal: 100.00, progress: 48.5, user: nini)

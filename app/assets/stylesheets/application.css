@@ -2,11 +2,15 @@
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 @import "font-awesome";
 
+html{
+  scroll-behavior: smooth;
+}
 
 .image-background{
   background-image: url('background.png');
 }
 /* ---------- FONTS ----------- */
+
 .checkbox:checked{
   background-color:#DB6D6B ;
   background-image: url('checked.png');
@@ -34,7 +38,7 @@ h3{
 }
 
 h4{
-  font-size: 20px;
+  font-size: 20px !important;
   font-family: "Urbanist", serif;
   font-weight: 900 !important;
 }
@@ -340,6 +344,66 @@ background-color: #707070;
   }
 }
 
+@keyframes hero-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  25% {
+    transform: translate(4px, 6px) rotate(3deg); /* Légèrement à gauche et incliné */
+  }
+  50% {
+    transform: translate(-1px, 2) rotate(1deg); /* À droite et incliné */
+  }
+  75% {
+    transform: translate(-7px, -3px) rotate(-4deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
+@keyframes hero-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  35% {
+    transform: translate(5px, -5px) rotate(-3deg); /* Légèrement à gauche et incliné */
+  }
+  60% {
+    transform: translate(3px, -4) rotate(1deg); /* À droite et incliné */
+  }
+  80% {
+    transform: translate(-2px, 2px) rotate(3deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
+@keyframes hero-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  15% {
+    transform: translate(-5px, 9px) rotate(-5deg); /* Légèrement à gauche et incliné */
+  }
+  45% {
+    transform: translate(-2px, 3) rotate(-1deg); /* À droite et incliné */
+  }
+  80% {
+    transform: translate(7px, -3px) rotate(4deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
+@keyframes hero-4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg); /* Position initiale */
+  }
+  20% {
+    transform: translate(7px, 4px) rotate(4deg); /* Légèrement à gauche et incliné */
+  }
+  55% {
+    transform: translate(-2px, 1) rotate(-1deg); /* À droite et incliné */
+  }
+  70% {
+    transform: translate(2px, -4px) rotate(-6deg); /* À gauche, légèrement en bas et incliné */
+  }
+}
+
 .animate-float-1 {
   animation: float-1 4s ease-in-out infinite;
 }
@@ -355,4 +419,19 @@ background-color: #707070;
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+.animate-hero-1 {
+  animation: hero-1 4s ease-in-out infinite;
+}
+
+.animate-hero-2 {
+  animation: hero-2 4s ease-in-out infinite;
+}
+.animate-hero-3 {
+  animation: hero-3 4s ease-in-out infinite;
+}
+
+.animate-hero-4 {
+  animation: hero-4 4s ease-in-out infinite;
 }

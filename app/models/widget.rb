@@ -1,6 +1,7 @@
 class Widget < ApplicationRecord
   after_create :default_flashcard
   belongs_to :user
+
   has_many :tasks, dependent: :destroy
   has_many :stocks, dependent: :destroy
   has_many :flashcards, dependent: :destroy
