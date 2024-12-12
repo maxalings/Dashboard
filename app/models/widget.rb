@@ -1,10 +1,10 @@
 class Widget < ApplicationRecord
   after_create :default_flashcard
   belongs_to :user
-  has_many :tasks
-  has_many :stocks
-  has_many :flashcards
-  has_many :races
+  has_many :tasks, dependent: :destroy
+  has_many :stocks, dependent: :destroy
+  has_many :flashcards, dependent: :destroy
+  has_many :races, dependent: :destroy
 
   validates :category, inclusion: { in: ["time","stock_portfolio", "habits", "fitness", "flashcards", "map", "weather"],
     message: "%{value} is not a valid category"}
