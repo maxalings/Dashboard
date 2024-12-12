@@ -3,28 +3,28 @@
   <p class="mb-6">Set your daily/weekly routine for workouts below: </p>
 
   <%= turbo_frame_tag "new_routine" do %>
-    <ul class="space-y-4">
+    <ul>
       <% tasks.each do |task| %>
-        <li class="bg-purple-light p-4 rounded-lg border border-purple-dark shadow-sm hover:shadow-md">
-        <div class="flex">
-          <div class="flex flex-col">
-            <div class="flex items-center">
-              <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox h-5 w-5 text-blue-600">
-              <label for="task_<%= task.id %>" class="text-base font-semibold text-gray-600"><%= task.title %></label>
-              <%= link_to "🗑️", widget_routine_delete_path(widget, task), data: {turbo_method: :delete} %>
+        <li class="mb-3 py-2 px-4 rounded-lg bg-purple-dark shadow-center">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="flex items-center mb-1">
+                  <input type="checkbox" id="task_<%= task.id %>" class="form-checkbox mr-3 h-5 w-5">
+                  <label for="task_<%= task.id %>" class="text-base font-semibold text-purple-light"><%= task.title %></label>
+                </span>
+                <span>
+                  <% ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].each do |day| %>
+                    <% if task.send(day) %>
+                      <span class="mr-2 text-xs text-purple-dark bg-purple-light px-2 py-1 rounded-md uppercase">
+                      <%= day.capitalize %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </span>
+              </div>
+              <%= link_to lucide_icon('trash-2'), widget_routine_delete_path(widget, task), data: {turbo_method: :delete}, class: 'text-purple-light focus:outline-none'  %>
             </div>
-            <p class="text-xs">
-              <%= "Monday" if task.monday %>
-              <%= "Tuesday" if task.tuesday %>
-              <%= "Wednesday" if task.wednesday %>
-              <%= "Thursday" if task.thursday %>
-              <%= "Friday" if task.friday %>
-              <%= "Saturday" if task.saturday %>
-              <%= "Sunday" if task.sunday %>
-            </p>
-          </div>
-        </div>
-        </li>
+          </li>
       <% end %>
     </ul>
 
