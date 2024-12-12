@@ -11,7 +11,7 @@
         <% today = Date.today.strftime("%A").downcase %>
         <% if task.send(today) %>
           <div
-            class="task-item flex flex-col space-y-3 p-4 bg-white shadow-sm rounded-lg hover:shadow-md transition-shadow"
+            class="task-item flex flex-col space-y-3 p-4 bg-purple-light border-purple-dark shadow-sm rounded-lg hover:shadow-md transition-shadow"
             data-id="<%= task.id %>"
           >
             <!-- Task Checkbox and Title -->
