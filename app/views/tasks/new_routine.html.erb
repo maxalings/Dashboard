@@ -1,29 +1,31 @@
 <%= turbo_frame_tag "new_routine" do %>
-  <%= form_with(model: @task, url: widget_new_routine_path, method: :post, class: "card m-5") do |f| %>
-    <h2 class="text-2xl font-semibold mb-6 text-gray-800">Create New Task</h2>
+  <%= form_with(model: @task, url: widget_new_routine_path, method: :post) do |f| %>
+    <h4 class="mb-2 text-purple-dark">Create New Task :</h4>
 
     <!-- Task Title Input -->
     <%= f.text_field :title,
-      class: "w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-800 p-3 mb-4",
+      class: "w-full shadow-center rounded-lg px-4 py-2",
       placeholder: "Enter new task...",
       required: true
     %>
 
     <!-- Select Days Section -->
-    <div class="flex flex-col gap-4 mb-6">
-      <span class="text-lg text-gray-700">Select Days:</span>
+    <div class="mt-4">
+      <h4 class="mb-2 text-purple-dark">Select Days:</h4>
+      <div class="flex flex-wrap justify-center w-[470px]">
       <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
-        <label class="inline-flex items-center space-x-2">
+        <label class="inline-flex items-center">
           <%= f.check_box day.downcase.to_sym,
-            class: "form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500" %>
-          <span class="text-sm text-gray-600"><%= day %></span>
+            class: "form-checkbox rounded-md  border-purple-dark w-[18px] h-[18px] " %>
+          <span class="m-2 text-sm text-gray-600"><%= day %></span>
         </label>
       <% end %>
+      </div>
     </div>
 
     <!-- Submit Button -->
     <div class="mt-6 flex justify-center">
-      <button class="px-6 py-3 bg-purple-dark text-white rounded-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+      <button class="font-bold bg-purple-dark text-white px-7 py-2 rounded-lg hover:bg-gray-400"
       data-controller="new-routine" data-action="click->new-routine#back" >
       Add</button>
     </div>

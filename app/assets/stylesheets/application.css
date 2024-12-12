@@ -9,6 +9,10 @@ html{
 .image-background{
   background-image: url('background.png');
 }
+
+.range{
+  --range-shdw: #A487D4 !important;
+}
 /* ---------- FONTS ----------- */
 
 .checkbox:checked{
@@ -16,6 +20,10 @@ html{
   background-image: url('checked.png');
   background-size: 12px 9px;
   background-position: center;
+}
+
+.form-checkbox:checked{
+  background-color: red;
 }
 body{
   background-color: #F9F9F9;
@@ -45,7 +53,7 @@ h4{
 
 p{
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   font-family: "Montserrat", serif;
 }
 
