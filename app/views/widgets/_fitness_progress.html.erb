@@ -1,26 +1,25 @@
-<div class="card p-6 rounded-lg" data-controller="progress">
-  <h1 class="text-xl font-bold mb-4">Goal Setting</h1>
+<div class="card rounded-lg" data-controller="progress">
+  <h3 class="font-bold text-purple-dark uppercase">Goal Setting</h3>
   <%= form_with(model: widget, url: widget_path(widget), method: :patch, class: "space-y-4", data: { action: "submit->progress#setGoal" }) do |f| %>
     <!-- Goal Input -->
     <div class="flex items-center space-x-2">
-      <p class="text-gray-600">Set your training goal:</p>
+      <p>Set your training goal:</p>
       <%= f.text_field :goal,
-        class: "form-input border border-purple-dark rounded-md p-2 text-sm w-20 focus:outline-none focus:ring-2 focus:ring-blue-400",
+        class: "shadow-center w-[80px] rounded-lg px-4 py-2",
         placeholder: "100",
         required: true
       %>
       <span class="text-gray-600">km</span>
-    <p><button type="submit" class="text-white bg-purple-dark hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-md text-sm px-3 py-2 text-center shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
+      <button type="submit" class="ml-3 font-bold bg-purple-dark text-white px-7 py-2 rounded-lg hover:bg-gray-400">
       Log
-    </button>
-    </p>
+      </button>
     </div>
   <% end %>
   <br>
   <!-- Range Slider -->
-  <p class="mb-4 text-gray-700">Adjust your progress:</p>
+  <p class="mb-4">Adjust your progress:</p>
   <div class="flex items-center space-x-4">
-    <p class="text-gray-700 font-medium">0</p>
+    <p class="text-purple-dark font-bold">0</p>
     <input
       type="range"
       name="widget[progress]"
@@ -30,8 +29,8 @@
       class="range w-full focus:ring-blue-400 focus:outline-none"
       data-progress-target="slider"
       data-action="input->progress#updateValue">
-    <p id="progressValue" class="text-gray-700 font-medium" data-progress-target="output">
+    <p id="progressValue" class="text-purple-dark font-bold" data-progress-target="output">
       <%= widget.progress %>/<%= widget.goal %>
-    <p class="text-gray-700 font-medium">km</p>
+    <p class="text-purple-dark font-bold">km</p>
   </div>
 </div>
